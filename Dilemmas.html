@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Motorsport Manager String Compiler</title>
+	<link rel="stylesheet" type="text/css" href="styles/mmc-css.css">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css'>
+	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+</head>
+<body>
+	
+	<div class='ui fixed menu'>
+		<div class='item'>
+			<h4><img>Motorsport Manager String Compiler</h4>
+		</div>
+		<div class='right menu'>
+			<div class='item'>
+				<a href='index.html' class='ui button'><i class='warehouse icon'></i> Home</a>
+			</div>
+			<div class='item'>
+				<a href='' class='ui button'>Info</a>
+			</div>
+			<div class='ui simple dropdown item'>
+				Compilers 
+				<i class="angle double down icon"></i>
+				<div class='menu'>
+					<a href='Dilemmas.html' class='item'><i class="clipboard list icon"></i> Dilemmas</a>
+					<a href='Drivers.html' class='item'><i class='male icon'></i> Drivers</a>
+					<a href='Interviews.html' class='item'><i class="comments outline icon"></i> Interviews</a>
+					<a href='MediaReports.html' class='item'><i class="newspaper outline icon"></i> Media Reports</a>
+					<a href='PartComponents.html' class='item'><i class="wrench icon"></i> Part Components</a>
+					<a href='PersonalityTraits.html' class='item'><i class="user icon"></i> Personality Traits</a>
+					<a href='Sponsors.html' class='item'><i class="pound sign icon"></i> Sponsors</a>
+					<a href='Teams.html' class='item'><i class='users icon'></i> Teams</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='ui container wide'>	
+		<div id='compiler-container'>
+			<div class='centre-section'>
+				<div class='centre-text'>
+					<h1>Dilemmas Compiler</h1>
+					<p>Build your Dilemma here! Unlike most other compilers, there are multiple compilers on this page, one for each piece of the Dilemma.</p>
+					<p class='spacer'>Dilemmas is more complicated than most other assets, therefore if you are not sure how to build and implement a Dilemma, then please consult the <a class='link' href=''>info</a> page. You will need to build all 4 compulsory parts separately, and transfer each to its own line in Dilemmas.txt. Some fields require you to reference later or previous parts of the dilemma so that the game can link them together and display them properly in-game. If you do not create the links correctly, then you may experience anything from your dilemma not appearing in-game, the dilemma showing but is bugged in some fashion, or even game crashes. It is therefore essential you know where your references need to be and what they should be pointing to.</p>
+				</div>
+			</div>
+
+				<hr>
+
+			<div class='centre-section'>
+				<div class="ui styled fluid accordion">
+					<div class='ui form'>
+					    <div class="title">
+					    	<i class="dropdown icon"></i>
+					        Dilemma Heading Settings - Define the content for the header of the dilemma.
+					  	</div>
+						<div class='content'>
+							<div class="fields">
+							    <div class="two wide field">
+							        <label>Game Area</label>
+								    <select name="dilemma-game-area" class='dilemmas dilemma-header select-reset' data-content="Unknown whether this has any effect, however do not leave it blank. Pick one that relates to your dilemma. All sections must use the same value!" data-position="right center" data-variation="inverted">
+								    	<option value='Design'>Design</option>
+								    	<option value='Factory'>Factory</option>
+								    	<option value='Media'>Media</option>
+								    	<option value='Staff'>Staff</option>
+								    	<option value='Sponsors'>Sponsors</option>
+								    	<option value='Politics'>Politics</option>
+								    	<option value='Race'>Race</option>
+								    	<option value='Promises'>Promises</option>
+								    </select>
+							    </div>
+							    <div class="two wide field">
+							        <label>Source</label>					        
+								    <select name="dilemma-source" class='dilemmas dilemma-header select-reset' data-content="This decides when the dilemma can be rolled." data-position="right center" data-variation="inverted">
+								    	<option value='Dilemma'>Dilemma</option>
+								    	<option value='DilemmaBirthday'>DilemmaBirthday</option>
+								    	<option value='PostSeasonDilemma'>PostSeasonDilemma</option>
+								    </select>						    
+							    </div>
+							    <div class="ten wide field">
+							      	<label>Criteria</label>					      	
+								    <input type="text" name="dilemma-criteria" class='dilemmas dilemma-header' value='Type = Header;' data-content="Criteria that specifies further conditions for rolling the dilemma. The header always contains 'Type = Header;'." data-position="bottom left" data-variation="inverted">						    
+							    </div>
+							    <div class="two wide field">
+							      	<label>Who</label>
+							      	<select name="dilemma-who" class='dilemmas dilemma-header select-reset' data-content="Who the dilemma will be from. Check Dilemmas.txt for use cases. Use the same value for every section." data-position="right center" data-variation="inverted">
+							      		<option value='Engineer'>Engineer</option>
+							      		<option value='Assistant'>Assistant</option>
+							      		<option value='MediaPerson'>MediaPerson</option>
+							      		<option value='AnyDriver'>AnyDriver</option>
+							      		<option value='RandomNonPlayerTeamPerson'>RandomNonPlayerTeamPerson</option>
+							      	</select>
+							    </div>
+						  	</div>
+						  	<div class='fields'>
+						  		<div class='sixteen wide field'>
+							  		<label>English/Default Text</label>					  		
+								  	<textarea rows='4' name="dilemma-english" class='dilemmas dilemma-header localisation-default' data-content="The English language version of your Dilemma. Also used as a default by the compiler." data-position="bottom left" data-variation="inverted"></textarea>						  
+							  	</div>
+							</div>
+							<div class='fields'>
+							  	<div class='two wide field'>
+							  		<label>ID</label>				  		
+								  	<input type="text" name="dilemma-id" class='dilemmas dilemma-header' data-content="Give the header a unique ID using the standard syntax of PSG_XXXXXXXX." data-position="bottom left" data-variation="inverted">
+							  	</div>
+							  	<div class='two wide field'>
+							  		<label>Trigger</label>
+							  		<input type="text" name="dilemma-trigger" class='dilemmas dilemma-header' data-content="This is used to link the header to the body. Syntax is usually 'Type = DilemmaXX' or Type = PreSeasonDilemmaXX'." data-position="bottom left" data-variation="inverted">
+							  	</div>
+							  	<div class='ten wide field'>
+							  		<label>User Data</label>				  		
+								  	<input type="text" name="dilemma-user-data" class='dilemmas dilemma-header' value='MailType = Dilemma;' data-content="Defines the MailType and MailGroup. MailType is always 'Dilemma', while MailGroup is loosely related to the Source." data-position="bottom left" data-variation="inverted">
+							  	</div>
+							  	<div class='two wide field'>
+							  		<label>Repeatable</label>
+							  		<select name="dilemma-repeat" class='dilemmas dilemma-header select-reset' data-content="Set whether the dilemma can be rolled more than once in the course of a career. Use the same value for each part of your Dilemma." data-position="right center" data-variation="inverted">
+							  			<option value='TRUE'>Yes</option>
+							  			<option value='FALSE'>No</option>
+							  		</select>
+							  	</div>
+							  	<div class='five wide field no-entry'>
+							  		<label>Memory</label>
+							  		<div class='ui disabled input'>	  		
+									  	<input type="text" name="dilemma-memory" class='dilemmas dilemma-header' data-content="" data-position="bottom left" data-variation="inverted">
+									</div>
+							  	</div>
+							  	<div class='six wide field no-entry'>
+							  		<label>Notes</label>
+							  		<div class='ui disabled input'>
+								  		<input type="text" name="dilemma-notes" class='dilemmas dilemma-header' data-content="" data-position="bottom left" data-variation="inverted">
+								  	</div>
+							  	</div>
+							  	<div class='five wide field no-entry'>
+							  		<label>English Old</label>
+							  		<div class='ui disabled input'>		  		
+									  	<input type="text" name="dilemma-english-old" class='dilemmas dilemma-header' data-content="" data-position="bottom left" data-variation="inverted">
+									</div>
+							  	</div>
+						  	</div>
+
+						  	<h4 class='ui dividing header'>Additional Languages - Add localisation for the dilemma title.</h4>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>French</label>
+						  			<textarea rows='4' name="dilemma-french" class='dilemmas dilemma-header localisation' data-content="French localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Italian</label>
+						  			<textarea rows='4' name="dilemma-italian" class='dilemmas dilemma-header localisation' data-content="Italian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>German</label>
+						  			<textarea rows='4' name="dilemma-german" class='dilemmas dilemma-header localisation' data-content="German localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Spanish</label>
+						  			<textarea rows='4' name="dilemma-spanish" class='dilemmas dilemma-header localisation' data-content="Spanish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Brazilian</label>
+						  			<textarea rows='4' name="dilemma-brazilian" class='dilemmas dilemma-header localisation' data-content="Brazilian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Dutch</label>
+						  			<textarea rows='4' name="dilemma-dutch" class='dilemmas dilemma-header localisation' data-content="Dutch localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Hungarian</label>
+						  			<textarea rows='4' name="dilemma-hungarian" class='dilemmas dilemma-header localisation' data-content="Hungarian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Polish</label>
+						  			<textarea rows='4' name="dilemma-polish" class='dilemmas dilemma-header localisation' data-content="Polish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Russian</label>
+						  			<textarea rows='4' name="dilemma-russian" class='dilemmas dilemma-header localisation' data-content="Russian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<h4 class='ui dividing header'>Finished? Compile the trait string below! Copy and paste the result into Dilemmas.txt</h4>
+							<div class='ui fluid input'>
+								<a id='dilemma-header-submit' class='ui button textarea-submit'><i class="calculator icon"></i> Compile Dilemma Header!</a>
+								<textarea rows='4' id='header-output' value=""></textarea>
+								<a id='dilemma-header-clear' class='ui red button textarea-clear'><i class="eraser icon"></i> Clear All Fields!</a>
+							</div>
+						</div>
+					</div>
+
+					<div class='ui form'>
+					    <div class="title">
+					    	<i class="dropdown icon"></i>
+					        Dilemma Body Settings - Define the content for the body of the dilemma.
+					  	</div>
+						<div class='content'>
+							<div class="fields">
+							    <div class="two wide field">
+							        <label>Game Area</label>
+								    <select name="dilemma-game-area" class='dilemmas dilemma-body select-reset' data-content="Unknown whether this has any effect, however do not leave it blank. Pick one that relates to your dilemma. All sections must use the same value!" data-position="right center" data-variation="inverted">
+								    	<option value='Design'>Design</option>
+								    	<option value='Factory'>Factory</option>
+								    	<option value='Media'>Media</option>
+								    	<option value='Staff'>Staff</option>
+								    	<option value='Sponsors'>Sponsors</option>
+								    	<option value='Politics'>Politics</option>
+								    	<option value='Race'>Race</option>
+								    	<option value='Promises'>Promises</option>
+								    </select>
+							    </div>
+							    <div class="two wide field">
+							        <label>Source</label>					        
+								    <select name="dilemma-source" class='dilemmas dilemma-body select-reset' data-content="This is the same as the value used in 'Source' for the header." data-position="right center" data-variation="inverted">
+								    	<option value='Dilemma'>Dilemma</option>
+								    	<option value='DilemmaBirthday'>DilemmaBirthday</option>
+								    	<option value='PostSeasonDilemma'>PostSeasonDilemma</option>
+								    </select>						    
+							    </div>
+							    <div class="ten wide field">
+							      	<label>Criteria</label>					      	
+								    <input type="text" name="dilemma-criteria" class='dilemmas dilemma-body' data-content="This is the same as the value used in 'Trigger' for the header. It ties the sections together." data-position="bottom left" data-variation="inverted">						    
+							    </div>
+							    <div class="two wide field">
+							      	<label>Who</label>
+							      	<select name="dilemma-who" class='dilemmas dilemma-body select-reset' data-content="Who the dilemma will be from. Check Dilemmas.txt for use cases. Use the same value for every section." data-position="right center" data-variation="inverted">
+							      		<option value='Engineer'>Engineer</option>
+							      		<option value='Assistant'>Assistant</option>
+							      		<option value='MediaPerson'>MediaPerson</option>
+							      		<option value='AnyDriver'>AnyDriver</option>
+							      		<option value='RandomNonPlayerTeamPerson'>RandomNonPlayerTeamPerson</option>
+							      	</select>
+							    </div>
+						  	</div>
+						  	<div class='fields'>
+						  		<div class='sixteen wide field'>
+							  		<label>English/Default Text</label>					  		
+								  	<textarea rows='4' name="dilemma-english" class='dilemmas dilemma-body localisation-default' data-content="The English language version of your Dilemma. Also used as a default by the compiler." data-position="bottom left" data-variation="inverted"></textarea>						  
+							  	</div>
+							</div>
+							<div class='fields'>
+							  	<div class='two wide field'>
+							  		<label>ID</label>				  		
+								  	<input type="text" name="dilemma-id" class='dilemmas dilemma-body' data-content="Give the body a unique ID using the standard syntax of PSG_XXXXXXXX." data-position="bottom left" data-variation="inverted">
+							  	</div>
+							  	<div class='two wide field'>
+							  		<label>Trigger</label>
+							  		<div class='ui disabled input'>
+								  		<input type="text" name="dilemma-trigger" class='dilemmas dilemma-body' data-content="" data-position="bottom left" data-variation="inverted">
+								  	</div>
+							  	</div>
+							  	<div class='ten wide field'>
+							  		<label>User Data</label>				  		
+								  	<input type="text" name="dilemma-user-data" class='dilemmas dilemma-body' data-content="Ties the button IDs to the Dilemma, through a 'MailButton = PSG_XXXXXXXX' for each button you have. The IDs must be both unique and the ones you set for the buttons in the next sections." data-position="bottom left" data-variation="inverted">
+							  	</div>
+							  	<div class='two wide field'>
+							  		<label>Repeatable</label>
+							  		<select name="dilemma-repeat" class='dilemmas dilemma-body select-reset' data-content="Set this to the same value you chose for the header." data-position="right center" data-variation="inverted">
+							  			<option value='TRUE'>Yes</option>
+							  			<option value='FALSE'>No</option>
+							  		</select>
+							  	</div>
+							  	<div class='five wide field no-entry'>
+							  		<label>Memory</label>
+							  		<div class='ui disabled input'>				  		
+								  		<input type="text" name="dilemma-memory" class='dilemmas dilemma-body' data-content="" data-position="bottom left" data-variation="inverted">
+								  	</div>
+							  	</div>
+							  	<div class='six wide field no-entry'>
+							  		<label>Notes</label>
+							  		<div class='ui disabled input'>
+								  		<input type="text" name="dilemma-notes" class='dilemmas dilemma-body' data-content="" data-position="bottom left" data-variation="inverted">
+								  	</div>
+							  	</div>
+							  	<div class='five wide field no-entry'>
+							  		<label>English Old</label>
+							  		<div class='ui disabled input'>				  		
+									  	<input type="text" name="dilemma-english-old" class='dilemmas dilemma-body' data-content="" data-position="bottom left" data-variation="inverted">
+								  	</div>
+							  	</div>
+						  	</div>
+
+						  	<h4 class='ui dividing header'>Additional Languages - Add localisation for the dilemma body.</h4>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>French</label>
+						  			<textarea rows='4' name="dilemma-french" class='dilemmas dilemma-body localisation' data-content="French localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Italian</label>
+						  			<textarea rows='4' name="dilemma-italian" class='dilemmas dilemma-body localisation' data-content="Italian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>German</label>
+						  			<textarea rows='4' name="dilemma-german" class='dilemmas dilemma-body localisation' data-content="German localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Spanish</label>
+						  			<textarea rows='4' name="dilemma-spanish" class='dilemmas dilemma-body localisation' data-content="Spanish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Brazilian</label>
+						  			<textarea rows='4' name="dilemma-brazilian" class='dilemmas dilemma-body localisation' data-content="Brazilian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Dutch</label>
+						  			<textarea rows='4' name="dilemma-dutch" class='dilemmas dilemma-body localisation' data-content="Dutch localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Hungarian</label>
+						  			<textarea rows='4' name="dilemma-hungarian" class='dilemmas dilemma-body localisation' data-content="Hungarian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Polish</label>
+						  			<textarea rows='4' name="dilemma-polish" class='dilemmas dilemma-body localisation' data-content="Polish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Russian</label>
+						  			<textarea rows='4' name="dilemma-russian" class='dilemmas dilemma-body localisation' data-content="Russian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<h4 class='ui dividing header'>Finished? Compile the trait string below! Copy and paste the result into Dilemmas.txt</h4>
+							<div class='ui fluid input'>
+								<a id='dilemma-body-submit' class='ui button textarea-submit'><i class="calculator icon"></i> Compile Dilemma Body!</a>
+								<textarea rows='4' id='body-output' value=""></textarea>
+								<a id='dilemma-body-clear' class='ui red button textarea-clear'><i class="eraser icon"></i> Clear All Fields!</a>
+							</div>
+						</div>
+					</div>
+
+					<div class='ui form'>
+					    <div class="title">
+					    	<i class="dropdown icon"></i>
+					        Dilemma First Button Settings - Define the content for the first button of the dilemma.
+					  	</div>
+						<div class='content'>
+							<div class="fields">
+							    <div class="two wide field">
+							        <label>Game Area</label>
+								    <select name="dilemma-game-area" class='dilemmas dilemma-first-button select-reset' data-content="Unknown whether this has any effect, however do not leave it blank. Pick one that relates to your dilemma. All sections must use the same value!" data-position="right center" data-variation="inverted">
+								    	<option value='Design'>Design</option>
+								    	<option value='Factory'>Factory</option>
+								    	<option value='Media'>Media</option>
+								    	<option value='Staff'>Staff</option>
+								    	<option value='Sponsors'>Sponsors</option>
+								    	<option value='Politics'>Politics</option>
+								    	<option value='Race'>Race</option>
+								    	<option value='Promises'>Promises</option>
+								    </select>
+							    </div>
+							    <div class="two wide field">
+							        <label>Source</label>		
+							        <div class='ui disabled input'>			        
+								    	<input name="dilemma-source" class='dilemmas dilemma-first-button' value='DilemmaButtonText' data-content="Always 'DilemmaButtonText' for buttons" data-position="bottom left" data-variation="inverted">
+								    </div>						    
+							    </div>
+							    <div class="ten wide field">
+							      	<label>Criteria</label>
+							      	<div class='ui disabled input'>					      	
+								    	<input type="text" name="dilemma-criteria" class='dilemmas dilemma-first-button' data-content="" data-position="bottom left" data-variation="inverted">
+								    </div>
+							    </div>
+							    <div class="two wide field">
+							      	<label>Who</label>
+							      	<select name="dilemma-who" class='dilemmas dilemma-first-button select-reset' data-content="Who the dilemma will be from. Check Dilemmas.txt for use cases. Use the same value for every section." data-position="right center" data-variation="inverted">
+							      		<option value='Engineer'>Engineer</option>
+							      		<option value='Assistant'>Assistant</option>
+							      		<option value='MediaPerson'>MediaPerson</option>
+							      		<option value='AnyDriver'>AnyDriver</option>
+							      		<option value='RandomNonPlayerTeamPerson'>RandomNonPlayerTeamPerson</option>
+							      	</select>
+							    </div>
+						  	</div>
+						  	<div class='fields'>
+						  		<div class='sixteen wide field'>
+							  		<label>English/Default Text</label>					  		
+								  	<textarea rows='4' name="dilemma-english" class='dilemmas dilemma-first-button localisation-default' data-content="The English language version of your Dilemma. Also used as a default by the compiler." data-position="bottom left" data-variation="inverted"></textarea>						  
+							  	</div>
+							</div>
+							<div class='fields'>
+							  	<div class='two wide field'>
+							  		<label>ID</label>				  		
+								  	<input type="text" name="dilemma-id" class='dilemmas dilemma-first-button' data-content="Give the button a unique ID using the standard syntax of PSG_XXXXXXXX." data-position="bottom left" data-variation="inverted">
+							  	</div>
+							  	<div class='two wide field'>
+							  		<label>Trigger</label>
+							  		<div class='ui disabled input'>
+								  		<input type="text" name="dilemma-trigger" class='dilemmas dilemma-first-button' data-content="" data-position="bottom left" data-variation="inverted">
+								  	</div>
+							  	</div>
+							  	<div class='ten wide field'>
+							  		<label>User Data</label>				  		
+								  	<input type="text" name="dilemma-user-data" class='dilemmas dilemma-first-button' data-content="The effect the button will apply when selected." data-position="bottom left" data-variation="inverted">
+							  	</div>
+							  	<div class='two wide field'>
+							  		<label>Repeatable</label>
+							  		<select name="dilemma-repeat" class='dilemmas dilemma-first-button select-reset' data-content="Set this to the same value you chose for the header." data-position="right center" data-variation="inverted">
+							  			<option value='TRUE'>Yes</option>
+							  			<option value='FALSE'>No</option>
+							  		</select>
+							  	</div>
+							  	<div class='five wide field no-entry'>
+							  		<label>Memory</label>
+							  		<div class='ui disabled input'>				  		
+									  	<input type="text" name="dilemma-memory" class='dilemmas dilemma-first-button' data-content="" data-position="bottom left" data-variation="inverted">
+								  	</div>
+							  	</div>
+							  	<div class='six wide field no-entry'>
+							  		<label>Notes</label>
+							  		<div class='ui disabled input'>
+								  		<input type="text" name="dilemma-notes" class='dilemmas dilemma-first-button' data-content="" data-position="bottom left" data-variation="inverted">
+								  	</div>
+							  	</div>
+							  	<div class='five wide field no-entry'>
+							  		<label>English Old</label>	
+							  		<div class='ui disabled input'>			  		
+									  	<input type="text" name="dilemma-english-old" class='dilemmas dilemma-first-button' data-content="" data-position="bottom left" data-variation="inverted">
+								  	</div>
+								</div>
+						  	</div>
+
+						  	<h4 class='ui dividing header'>Additional Languages - Add localisation for the first dilemma button.</h4>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>French</label>
+						  			<textarea rows='4' name="dilemma-french" class='dilemmas dilemma-first-button localisation' data-content="French localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Italian</label>
+						  			<textarea rows='4' name="dilemma-italian" class='dilemmas dilemma-first-button localisation' data-content="Italian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>German</label>
+						  			<textarea rows='4' name="dilemma-german" class='dilemmas dilemma-first-button localisation' data-content="German localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Spanish</label>
+						  			<textarea rows='4' name="dilemma-spanish" class='dilemmas dilemma-first-button localisation' data-content="Spanish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Brazilian</label>
+						  			<textarea rows='4' name="dilemma-brazilian" class='dilemmas dilemma-first-button localisation' data-content="Brazilian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Dutch</label>
+						  			<textarea rows='4' name="dilemma-dutch" class='dilemmas dilemma-first-button localisation' data-content="Dutch localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Hungarian</label>
+						  			<textarea rows='4' name="dilemma-hungarian" class='dilemmas dilemma-first-button localisation' data-content="Hungarian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Polish</label>
+						  			<textarea rows='4' name="dilemma-polish" class='dilemmas dilemma-first-button localisation' data-content="Polish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Russian</label>
+						  			<textarea rows='4' name="dilemma-russian" class='dilemmas dilemma-first-button localisation' data-content="Russian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<h4 class='ui dividing header'>Finished? Compile the trait string below! Copy and paste the result into Dilemmas.txt</h4>
+							<div class='ui fluid input'>
+								<a id='dilemma-first-button-submit' class='ui button textarea-submit'><i class="calculator icon"></i> Compile Button Text!</a>
+								<textarea rows='4' id='first-button-output' value=""></textarea>
+								<a id='dilemma-first-button-clear' class='ui red button textarea-clear'><i class="eraser icon"></i> Clear All Fields!</a>
+							</div>
+						</div>
+					</div>
+				
+					<div class='ui form'>
+					    <div class="title">
+					    	<i class="dropdown icon"></i>
+					        Dilemma Second Button Settings - Define the content for the second button of the dilemma.
+					  	</div>
+						<div class='content'>
+							<div class="fields">
+							    <div class="two wide field">
+							        <label>Game Area</label>
+								    <select name="dilemma-game-area" class='dilemmas dilemma-second-button select-reset' data-content="Unknown whether this has any effect, however do not leave it blank. Pick one that relates to your dilemma. All sections must use the same value!" data-position="right center" data-variation="inverted">
+								    	<option value='Design'>Design</option>
+								    	<option value='Factory'>Factory</option>
+								    	<option value='Media'>Media</option>
+								    	<option value='Staff'>Staff</option>
+								    	<option value='Sponsors'>Sponsors</option>
+								    	<option value='Politics'>Politics</option>
+								    	<option value='Race'>Race</option>
+								    	<option value='Promises'>Promises</option>
+								    </select>
+							    </div>
+							    <div class="two wide field">
+							        <label>Source</label>					        
+								    <div class='ui disabled input'>			        
+								    	<input name="dilemma-source" class='dilemmas dilemma-second-button' value='DilemmaButtonText' data-content="Always 'DilemmaButtonText' for buttons" data-position="bottom left" data-variation="inverted">
+								    </div>						    
+							    </div>
+							    <div class="ten wide field">
+							      	<label>Criteria</label>
+							      	<div class='ui disabled input'>					      	
+									    <input type="text" name="dilemma-criteria" class='dilemmas dilemma-second-button' data-content="" data-position="bottom left" data-variation="inverted">						    
+								    </div>
+								</div>
+							    <div class="two wide field">
+							      	<label>Who</label>
+							      	<select name="dilemma-who" class='dilemmas dilemma-second-button select-reset' data-content="Who the dilemma will be from. Check Dilemmas.txt for use cases. Use the same value for every section." data-position="right center" data-variation="inverted">
+							      		<option value='Engineer'>Engineer</option>
+							      		<option value='Assistant'>Assistant</option>
+							      		<option value='MediaPerson'>MediaPerson</option>
+							      		<option value='AnyDriver'>AnyDriver</option>
+							      		<option value='RandomNonPlayerTeamPerson'>RandomNonPlayerTeamPerson</option>
+							      	</select>
+							    </div>
+						  	</div>
+						  	<div class='fields'>
+						  		<div class='sixteen wide field'>
+							  		<label>English/Default Text</label>					  		
+								  	<textarea rows='4' name="dilemma-english" class='dilemmas dilemma-second-button localisation-default' data-content="The English language version of your Dilemma. Also used as a default by the compiler." data-position="bottom left" data-variation="inverted"></textarea>						  
+							  	</div>
+							</div>
+							<div class='fields'>
+							  	<div class='two wide field'>
+							  		<label>ID</label>				  		
+								  	<input type="text" name="dilemma-id" class='dilemmas dilemma-second-button' data-content="Give the button a unique ID using the standard syntax of PSG_XXXXXXXX." data-position="bottom left" data-variation="inverted">
+							  	</div>
+							  	<div class='two wide field'>
+							  		<label>Trigger</label>
+							  		<div class='ui disabled input'>
+								  		<input type="text" name="dilemma-trigger" class='dilemmas dilemma-second-button' data-content="" data-position="bottom left" data-variation="inverted">
+								  	</div>
+							  	</div>
+							  	<div class='ten wide field'>
+							  		<label>User Data</label>				  		
+								  	<input type="text" name="dilemma-user-data" class='dilemmas dilemma-second-button' data-content="The effect the button will apply when selected." data-position="bottom left" data-variation="inverted">
+							  	</div>
+							  	<div class='two wide field'>
+							  		<label>Repeatable</label>
+							  		<select name="dilemma-repeat" class='dilemmas dilemma-second-button select-reset' data-content="Set this to the same value you chose for the header." data-position="right center" data-variation="inverted">
+							  			<option value='TRUE'>Yes</option>
+							  			<option value='FALSE'>No</option>
+							  		</select>
+							  	</div>
+							  	<div class='five wide field no-entry'>
+							  		<label>Memory</label>
+							  		<div class='ui disabled input'>				  		
+									  	<input type="text" name="dilemma-memory" class='dilemmas dilemma-second-button' data-content="" data-position="bottom left" data-variation="inverted">
+								  	</div>
+								</div>
+							  	<div class='six wide field no-entry'>
+							  		<label>Notes</label>
+							  		<div class='ui disabled input'>
+								  		<input type="text" name="dilemma-notes" class='dilemmas dilemma-second-button' data-content="" data-position="bottom left" data-variation="inverted">
+								  	</div>
+								</div>
+							  	<div class='five wide field no-entry'>
+							  		<label>English Old</label>
+							  		<div class='ui disabled input'>				  		
+									  	<input type="text" name="dilemma-english-old" class='dilemmas dilemma-second-button' data-content="" data-position="bottom left" data-variation="inverted">
+								  	</div>
+								</div>
+						  	</div>
+
+						  	<h4 class='ui dividing header'>Additional Languages - Add localisation for the second dilemma button.</h4>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>French</label>
+						  			<textarea rows='4' name="dilemma-french" class='dilemmas dilemma-second-button localisation' data-content="French localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Italian</label>
+						  			<textarea rows='4' name="dilemma-italian" class='dilemmas dilemma-second-button localisation' data-content="Italian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>German</label>
+						  			<textarea rows='4' name="dilemma-german" class='dilemmas dilemma-second-button localisation' data-content="German localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Spanish</label>
+						  			<textarea rows='4' name="dilemma-spanish" class='dilemmas dilemma-second-button localisation' data-content="Spanish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Brazilian</label>
+						  			<textarea rows='4' name="dilemma-brazilian" class='dilemmas dilemma-second-button localisation' data-content="Brazilian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Dutch</label>
+						  			<textarea rows='4' name="dilemma-dutch" class='dilemmas dilemma-second-button localisation' data-content="Dutch localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Hungarian</label>
+						  			<textarea rows='4' name="dilemma-hungarian" class='dilemmas dilemma-second-button localisation' data-content="Hungarian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Polish</label>
+						  			<textarea rows='4' name="dilemma-polish" class='dilemmas dilemma-second-button localisation' data-content="Polish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Russian</label>
+						  			<textarea rows='4' name="dilemma-russian" class='dilemmas dilemma-second-button localisation' data-content="Russian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<h4 class='ui dividing header'>Finished? Compile the trait string below! Copy and paste the result into Dilemmas.txt</h4>
+							<div class='ui fluid input'>
+								<a id='dilemma-second-button-submit' class='ui button textarea-submit'><i class="calculator icon"></i> Compile Button Text!</a>
+								<textarea rows='4' id='second-button-output' value=""></textarea>
+								<a id='dilemma-second-button-clear' class='ui red button textarea-clear'><i class="eraser icon"></i> Clear All Fields!</a>
+							</div>
+						</div>
+					</div>
+
+					<div class='ui form'>
+					    <div class="title">
+					    	<i class="dropdown icon"></i>
+					        Dilemma Third Button Settings - Define the content for the third button of the dilemma (OPTIONAL).
+					  	</div>
+						<div class='content'>
+							<div class="fields">
+							    <div class="two wide field">
+							        <label>Game Area</label>
+								    <select name="dilemma-game-area" class='dilemmas dilemma-third-button select-reset' data-content="Unknown whether this has any effect, however do not leave it blank. Pick one that relates to your dilemma. All sections must use the same value!" data-position="right center" data-variation="inverted">
+								    	<option value='Design'>Design</option>
+								    	<option value='Factory'>Factory</option>
+								    	<option value='Media'>Media</option>
+								    	<option value='Staff'>Staff</option>
+								    	<option value='Sponsors'>Sponsors</option>
+								    	<option value='Politics'>Politics</option>
+								    	<option value='Race'>Race</option>
+								    	<option value='Promises'>Promises</option>
+								    </select>
+							    </div>
+							    <div class="two wide field">
+							        <label>Source</label>					        
+								    <div class='ui disabled input'>			        
+								    	<input name="dilemma-source" class='dilemmas dilemma-third-button' value='DilemmaButtonText' data-content="Always 'DilemmaButtonText' for buttons" data-position="bottom left" data-variation="inverted">
+								    </div>						    
+							    </div>
+							    <div class="ten wide field">
+							      	<label>Criteria</label>
+							      	<div class='ui disabled input'>
+									    <input type="text" name="dilemma-criteria" class='dilemmas dilemma-third-button' data-content="" data-position="bottom left" data-variation="inverted">						    
+								    </div>
+								</div>
+							    <div class="two wide field">
+							      	<label>Who</label>
+							      	<select name="dilemma-who" class='dilemmas dilemma-third-button select-reset' data-content="Who the dilemma will be from. Check Dilemmas.txt for use cases. Use the same value for every section." data-position="right center" data-variation="inverted">
+							      		<option value='Engineer'>Engineer</option>
+							      		<option value='Assistant'>Assistant</option>
+							      		<option value='MediaPerson'>MediaPerson</option>
+							      		<option value='AnyDriver'>AnyDriver</option>
+							      		<option value='RandomNonPlayerTeamPerson'>RandomNonPlayerTeamPerson</option>
+							      	</select>
+							    </div>
+						  	</div>
+						  	<div class='fields'>
+						  		<div class='sixteen wide field'>
+							  		<label>English/Default Text</label>					  		
+								  	<textarea rows='4' name="dilemma-english" class='dilemmas dilemma-third-button localisation-default' data-content="The English language version of your Dilemma. Also used as a default by the compiler." data-position="bottom left" data-variation="inverted"></textarea>						  
+							  	</div>
+							</div>
+							<div class='fields'>
+							  	<div class='two wide field'>
+							  		<label>ID</label>				  		
+								  	<input type="text" name="dilemma-id" class='dilemmas dilemma-third-button' data-content="Give the button a unique ID using the standard syntax of PSG_XXXXXXXX." data-position="bottom left" data-variation="inverted">
+							  	</div>
+							  	<div class='two wide field'>
+							  		<label>Trigger</label>
+							  		<div class='ui disabled input'>
+								  		<input type="text" name="dilemma-trigger" class='dilemmas dilemma-third-button' data-content="" data-position="bottom left" data-variation="inverted">
+								  	</div>
+							    </div>
+							  	<div class='ten wide field'>
+							  		<label>User Data</label>				  		
+								  	<input type="text" name="dilemma-user-data" class='dilemmas dilemma-third-button' data-content="The effect the button will apply when selected." data-position="bottom left" data-variation="inverted">
+							  	</div>
+							  	<div class='two wide field'>
+							  		<label>Repeatable</label>
+							  		<select name="dilemma-repeat" class='dilemmas dilemma-third-button select-reset' data-content="Set this to the same value you chose for the header." data-position="right center" data-variation="inverted">
+							  			<option value='TRUE'>Yes</option>
+							  			<option value='FALSE'>No</option>
+							  		</select>
+							  	</div>
+							  	<div class='five wide field no-entry'>
+							  		<label>Memory</label>
+							  		<div class='ui disabled input'>				  		
+									  	<input type="text" name="dilemma-memory" class='dilemmas dilemma-third-button' data-content="" data-position="bottom left" data-variation="inverted">
+								  	</div>
+								</div>
+							  	<div class='six wide field no-entry'>
+							  		<label>Notes</label>
+							  		<div class='ui disabled input'>
+								  		<input type="text" name="dilemma-notes" class='dilemmas dilemma-third-button' data-content="" data-position="bottom left" data-variation="inverted">
+								  	</div>
+							    </div>
+							  	<div class='five wide field no-entry'>
+							  		<label>English Old</label>
+							  		<div class='ui disabled input'>				  		
+									  	<input type="text" name="dilemma-english-old" class='dilemmas dilemma-third-button' data-content="" data-position="bottom left" data-variation="inverted">
+								  	</div>
+							    </div>
+						  	</div>
+
+						  	<h4 class='ui dividing header'>Additional Languages - Add localiasation for the third dilemma button.</h4>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>French</label>
+						  			<textarea rows='4' name="dilemma-french" class='dilemmas dilemma-third-button localisation' data-content="French localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Italian</label>
+						  			<textarea rows='4' name="dilemma-italian" class='dilemmas dilemma-third-button localisation' data-content="Italian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>German</label>
+						  			<textarea rows='4' name="dilemma-german" class='dilemmas dilemma-third-button localisation' data-content="German localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Spanish</label>
+						  			<textarea rows='4' name="dilemma-spanish" class='dilemmas dilemma-third-button localisation' data-content="Spanish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Brazilian</label>
+						  			<textarea rows='4' name="dilemma-brazilian" class='dilemmas dilemma-third-button localisation' data-content="Brazilian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Dutch</label>
+						  			<textarea rows='4' name="dilemma-dutch" class='dilemmas dilemma-third-button localisation' data-content="Dutch localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Hungarian</label>
+						  			<textarea rows='4' name="dilemma-hungarian" class='dilemmas dilemma-third-button localisation' data-content="Hungarian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Polish</label>
+						  			<textarea rows='4' name="dilemma-polish" class='dilemmas dilemma-third-button localisation' data-content="Polish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<div class='fields'>				  		
+						  		<div class='sixteen wide field'>
+						  			<label>Russian</label>
+						  			<textarea rows='4' name="dilemma-russian" class='dilemmas dilemma-third-button localisation' data-content="Russian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+						  		</div>
+						  	</div>
+						  	<h4 class='ui dividing header'>Finished? Compile the trait string below! Copy and paste the result into Dilemmas.txt</h4>
+							<div class='ui fluid input'>
+								<a id='dilemma-third-button-submit' class='ui button textarea-submit'><i class="calculator icon"></i> Compile Button Text!</a>
+								<textarea rows='4' id='third-button-output' value=""></textarea>
+								<a id='dilemma-third-button-clear' class='ui red button textarea-clear'><i class="eraser icon"></i> Clear All Fields!</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='top-spacer'>
+		<div class='footer'>
+			<div class='ui container'>
+				<div class="ui stackable four column grid centre-text">
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="wrench icon"></i> Useful Modding Tools</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='https://github.com/DerPopo/UABE'>Unity Assets Bundle Extractor (UABE)</a></li>
+				  			<li><a href='https://github.com/0xd4d/dnSpy'>dnSpy</a></li>
+				  		</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="discord icon"></i> Discord Links</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='https://discord.gg/vuAVgRV'>Join TheFlamingRed's Discord Server!</a></li>
+				  		</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class='external alternate icon'></i> Motorsport Manager on the Web</h5>
+				  		<ul class='footer-links'>
+					  		<li><a href='http://www.motorsportmanager.com/'>Motorsport Manager Website</a></li>
+					  		<li><a href='https://store.steampowered.com/app/415200/Motorsport_Manager/'>Motorsport Manager Steam Page</a></li>
+					  		<li><a href='https://www.reddit.com/r/MotorsportManagerPC/'>Motorsport Manager on Reddit</a></li>
+					  	</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="dolly icon"></i> Mods</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='http://blog.theflamingred.com/mm-rebirth-mod/'>Rebirth</a></li>
+				  			<li><a href='https://steamcommunity.com/sharedfiles/filedetails/?id=1196130874'>Rebirth - Phoenix Edition</a></li>
+				  			<li><a href='https://steamcommunity.com/id/briang91/myworkshopfiles/'>My Mods on Steam Workshop!</a></li>
+				  		</ul>
+				  	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js'></script>
+<script type="text/javascript" src='scripts/mmc-dilemmas.js'></script>
+</body>
+</html>

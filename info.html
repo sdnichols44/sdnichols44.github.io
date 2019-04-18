@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Motorsport Manager String Compiler</title>
+	<link rel="stylesheet" type="text/css" href="styles/mmc-css.css">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css'>
+	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+</head>
+<body>
+
+	<div class='ui fixed menu'>
+		<div class='item'>
+			<h4><img>Motorsport Manager String Compiler</h4>
+		</div>
+		<div class='right menu'>
+			<div class='item'>
+				<a href='index.html' class='ui button'><i class='warehouse icon'></i> Home</a>
+			</div>
+			<div class='item'>
+				<a href='info.html' class='ui button'>Info</a>
+			</div>
+			<div class='ui simple dropdown item'>
+				Compilers 
+				<i class="angle double down icon"></i>
+				<div class='menu'>
+					<a href='Dilemmas.html' class='item'><i class="clipboard list icon"></i> Dilemmas</a>
+					<a href='Drivers.html' class='item'><i class='male icon'></i> Drivers</a>
+					<a href='Interviews.html' class='item'><i class="comments outline icon"></i> Interviews</a>
+					<a href='MediaReports.html' class='item'><i class="newspaper outline icon"></i> Media Reports</a>
+					<a href='PartComponents.html' class='item'><i class="wrench icon"></i> Part Components</a>
+					<a href='PersonalityTraits.html' class='item'><i class="user icon"></i> Personality Traits</a>
+					<a href='Sponsors.html' class='item'><i class="pound sign icon"></i> Sponsors</a>
+					<a href='Teams.html' class='item'><i class='users icon'></i> Teams</a>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='ui container'>
+		<div class='centre-section'>
+			<h1 class='centre-text'>Motorsport Manager String Compiler - Information Page</h1>
+			<div>
+				<p>This page holds all additional details you may need when you are creating your content. Be it a special case for a trait or a bonus for a component, you'll be able to find all the otherwise scattered information here, all in one place! CURRENTLY UNDER CONSTRUCTION!</p>
+			</div>
+		</div>
+		<hr>
+
+		<div class='centre-section'>
+			<div id='frontend'>
+				<h3>Frontend Edits</h3>
+				<p>Frontend edits are, as the title suggests, edits that are made in Frontend.txt, which needs to be extracted from the assets manually, using the <a class='link' href='https://github.com/DerPopo/UABE'>Unity Asset Bundle Extractor</a>. The main use for this file is to add localisation to the game, which cannot be done inside many of the moddable text files you may be modding. Adding localisation is entirely optional, and it has no impact on game stability or the ability of the game to use your modded data. However, it means that every player who uses your mod in a language different to the one you made your content in will either be unable to read it (because they don't know that language), or will have random bits of, say, English text in their otherwise Italian version.</p>
+
+				<p>The edits were only really required before the GT DLC was released, where PlaySport added new 'Custom' fields to the files which were Workshop compatible. That's where another important point comes in - if you are planning on releasing your mod on the Workshop, then Frontend isn't even compatible anyway! Therefore, unless you are working on an overhaul or large mod like 'Rebirth', then you should not waste time with Frontend at all.</p>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class='centre-section'>
+			<div id='ptraits-intro'>
+				<h3>Personality Traits</h3>
+				<p>There is a lot of different variables and values for the various special requirements some traits can have, which I have collated in the various tables below. If you are still unsure of what something does, then consult the relevant text file to see where it is used, or ask one of the many people on the Rebirth Discord.</p>
+				<button class='ui blue button requirements'>Show Requirements</button>
+				<button class='ui blue button special-cases'>Show Special Cases</button>
+			</div>
+
+			<div id='ptraits-requirements' class='ptraits-spacer hide'>
+			<h4 class='ui dividing header'>Requirements</h4>
+				<p>Requirements allow you to define more specific circumstances for your traits to be rolled, such as whether the driver is from a range of countries, or if they have won a championship, or if they've had a bad result, or even all three at once. Further, a single requirement can even have a range of options. The table below lays out all current known requirements and all known effects of these requirements.</p>
+				<p>If you find that some information is incorrect, then please message Brian on the Rebirth Discord and let me know what corrections need to be made.</p>
+				<table class="ui table">
+					<thead>
+					    <tr>
+					    	<th class="three wide">Requirement Variable Name</th>
+					    	<th class="three wide">Requirement Value Range</th>
+					    	<th class='four wide'>Requirement Syntax Example</th>
+					    	<th class='six wide'>Description</th>
+					 	</tr>
+					</thead>
+					<tbody>
+					    <tr>
+					      	<td>Age</td>
+					      	<td>Number Range</td>
+					      	<td>Age > 38</td>
+					      	<td>The trait can only be rolled on drivers who are above or below a certain age. Can be greater than (>), less than (<), equal to (=), greater than or equal to (>=) or less than or equal to (<=).</td>
+					    </tr>
+					    <tr>
+						   	<td>Potential</td>
+						    <td>Number Range</td>
+						    <td>Potential > 30</td>
+						    <td>The trait can only be rolled on drivers who have more or less than a specified amount of potential. Can be greater than (>), less than (<), equal to (=), greater than or equal to (>=) or less than or equal to (<=).</td>
+					    </tr>
+					    <tr>
+					      	<td>ConsecutiveWins</td>
+					      	<td>Number Range</td>
+					      	<td>ConsecutiveWins > 3</td>
+					      	<td>The trait can only be rolled on drivers who have had a specific amount of consecutive wins. Can be greater than (>), less than (<), equal to (=), greater than or equal to (>=) or less than or equal to (<=).</td>
+					    </tr>
+					    <tr>
+					      	<td>Trait</td>
+					      	<td>Trait IDs</td>
+					      	<td>Trait = 81</td>
+					      	<td>The trait can only be rolled on drivers who already have the trait defined. Useful when creating a trait 'chain' to prevent non-base traits from spawning.</td>
+					    </tr>
+					    <tr>
+					      	<td>RacePosition</td>
+					      	<td>Number Range</td>
+					      	<td>RacePosition < 3</td>
+					      	<td>The trait can only be rolled on a driver who has finished above or below the specified place. Used on PostRace traits. Can be greater than (>), less than (<), equal to (=), greater than or equal to (>=) or less than or equal to (<=).</td>
+					    </tr>
+					    <tr>
+					      	<td>Location</td>
+					      	<td>Any/Home</td>
+					      	<td>Location = Home</td>
+					      	<td>The trait can only be rolled while the driver is at the specified location. Used by PostRace traits.</td>
+					    </tr>
+					    <tr>
+					      	<td>Employed</td>
+					      	<td>True/False</td>
+					      	<td>Employed = True</td>
+					      	<td>The trait can only be rolled if the driver has the specified employment status.</td>
+					    </tr>
+					    <tr>
+					      	<td>ReserveDriver</td>
+					      	<td>True/False</td>
+					      	<td>ReserveDriver = False</td>
+					      	<td>The trait can only be rolled if a driver is/is not the reserve driver.</td>
+					    </tr>
+					    <tr>
+					      	<td>ContractBelowDriverQuality</td>
+					      	<td>N/A</td>
+					      	<td>ContractBelowDriverQuality</td>
+					      	<td>The trait can only be rolled if a driver has a low quality contract (does not appear to actually do anything, traits with this never appear in-game).</td>
+					    </tr>
+					    <tr>
+					      	<td>RumoursAboutDriver</td>
+					      	<td>True/False</td>
+					      	<td>RumoursAboutDriver = True</td>
+					      	<td>The trait can only be rolled if there are rumours about a driver. However there seems to be no way for the player to know when this happens.</td>
+					    </tr>
+					    <tr>
+					      	<td>HasRival</td>
+					      	<td>OtherTeam/Teammate</td>
+					      	<td>HasRival = OtherTeam</td>
+					      	<td>The trait can only be rolled if the driver has a rivalry with another driver in your/another team. Usually on drivers that keep swapping places in the standings.</td>
+					    </tr>
+					    <tr>
+					      	<td>CarStatus</td>
+					      	<td>Crashed/Retired/RetiredFire</td>
+					      	<td>CarStatus = Retired</td>
+					      	<td>The trait can only be rolled if the driver has crashed or retired in the race. Used on PostRace traits.</td>
+					    </tr>
+					    <tr>
+					      	<td>Gender</td>
+					      	<td>Male/Female</td>
+					      	<td>Gender = Male</td>
+					      	<td>The trait can only be rolled on a driver of the specified gender.</td>
+					    </tr>
+					    <tr>
+					      	<td>TeammateLovePossible</td>
+					      	<td>True/False</td>
+					      	<td>TeammateLovePossible = True</td>
+					      	<td>The trait can only be rolled on a driver if the condition set is met.</td>
+					    </tr>
+					    <tr>
+					      	<td>ChairmanUltimatum</td>
+					      	<td>True/False</td>
+					      	<td>ChairmanUltimatum = True</td>
+					      	<td>The trait can only be rolled if the Chairman's ultimatum is/is not active</td>
+					    </tr>
+					    <tr>
+					      	<td>Morale</td>
+					      	<td>Number Range</td>
+					      	<td>Morale < 45</td>
+					      	<td>The trait can only be rolled if the driver's Morale is above or below the specified amount. Can be greater than (>), less than (<), equal to (=), greater than or equal to (>=) or less than or equal to (<=).</td>
+					    </tr>
+					    <tr>
+					      	<td>Busted</td>
+					      	<td>True/False</td>
+					      	<td>Busted = False</td>
+					      	<td>The trait can only be rolled if the driver's car was found to have an illegal part on it. Used with PostRace traits.</td>
+					    </tr>
+					    <tr>
+					      	<td>SignedNewContract</td>
+					      	<td>N/A</td>
+					      	<td>SignedNewContract</td>
+					      	<td>The trait can only be rolled when a new contract has been signed with the driver (does not appear to actually do anything, traits with this never appear in-game).</td>
+					    </tr>
+					    <tr>
+					      	<td>PromiseFulfilled</td>
+					      	<td>N/A</td>
+					      	<td>PromiseFulfilled</td>
+					      	<td>The trait can only be rolled when a promise made to the driver is fulfilled.</td>
+					    </tr>
+					    <tr>
+					      	<td>PromiseFailed</td>
+					      	<td>N/A</td>
+					      	<td>PromiseFailed</td>
+					      	<td>The trait can only be rolled when a promise made to the driver is unfulfilled.</td>
+					    </tr>
+					    <tr>
+					      	<td><select name='promise' class='promise-traits'>
+					      			<option value='CarPartPromise'>CarPartPromise</option>
+					      			<option value='IncomePromise'>IncomePromise</option>
+					      			<option value='ChampionshipPromise'>ChampionshipPromise</option>
+					      			<option value='HQPromise'>HQPromise</option>
+					      			<option value='ReservePromise'>ReservePromise</option>
+					      		</select> 
+					      	</td>
+					      	<td>N/A</td>
+					      	<td class='promise-traits-example'>CarPartPromise</td>
+					      	<td class='promise-traits-text'></td>
+					    </tr>
+					    <tr>
+					      	<td>WonChampionship</td>
+					      	<td>True/False</td>
+					      	<td>WonChampionship = True</td>
+					      	<td>The trait will only be rolled when the driver has won a championship. Used on championship winner traits that trigger PostRace.</td>
+					    </tr>
+					    <tr>
+					      	<td>Tier</td>
+					      	<td>Denied</td>
+					      	<td>Approved</td>
+					      	<td>blah</td>
+					    </tr>
+					    <tr>
+					      	<td>BadResult</td>
+					      	<td>True/False</td>
+					      	<td>BadResult = True</td>
+					      	<td>The trait will only be rolled if the driver has/has not had a bad result. Speculated to be related to their expected finish or expected team finish. Used with PostRace.</td>
+					    </tr>
+					    <tr>
+					      	<td>CategoryPreference</td>
+					      	<td>SingleSeater/GT/EnduranceSeries</td>
+					      	<td>CategoryPreference = GT</td>
+					      	<td>The trait will only be rolled if the driver can drive in the series specified.</td>
+					    </tr>
+					    <tr>
+					      	<td>AtPeak</td>
+					      	<td>True/False</td>
+					      	<td>AtPeak = False</td>
+					      	<td>The trait will only be rolled if the driver is/is not at their peak (i.e. no longer improving).</td>
+					    </tr>
+					    <tr>
+					      	<td>DilemmaBased</td>
+					      	<td>N/A</td>
+					      	<td>DilemmaBased</td>
+					      	<td>The trait will not be rolled naturally but instead only be applied through Dilemmas.</td>
+					    </tr>
+					    <tr>
+					      	<td>DesignInput</td>
+					      	<td>N/A</td>
+					      	<td>DesignInput</td>
+					      	<td>No information on how traits with this requirement are applied.</td>
+					    </tr>
+					    <tr>
+					      	<td>PlayerSeries</td>
+					      	<td>SingleSeater/GT/EnduranceSeries</td>
+					      	<td>PlayerSeries = EnduranceSeries</td>
+					      	<td>The trait will only be applied to drivers when then the player is in a specific series.</td>
+					    </tr>
+					    <tr>
+					      	<td>ReachedPeak</td>
+					      	<td>True/False</td>
+					      	<td>ReachedPeak = True</td>
+					      	<td>Largely the same as AtPeak, the trait will only be rolled if the driver is/is not at their peak (i.e. no longer improving).</td>
+					    </tr>
+					    <tr>
+					      	<td>RacesSinceLastDrive</td>
+					      	<td>Number Range</td>
+					      	<td>RacesSinceLastDrive = 5</td>
+					      	<td>The trait will only be rolled if it has been X races since the driver last raced. Can be greater than (>), less than (<), equal to (=), greater than or equal to (>=) or less than or equal to (<=).</td>
+					    </tr>
+					    <tr>
+					      	<td>WonTopSeries</td>
+					      	<td>SingleSeater/GT/EnduranceSeries</td>
+					      	<td>WonTopSeries = SingleSeater</td>
+					      	<td>The trait will only be rolled if the driver has won the championship in the top series of the specified discipline.</td>
+					    </tr>
+					    <tr>
+					      	<td>Nationality</td>
+					      	<td>Country Name</td>
+					      	<td>Nationality = UK</td>
+					      	<td>The trait will only be rolled on drivers with the specified nationality.</td>
+					    </tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div id='ptraits-specialcases' class='ptraits-spacer hide'>
+				<h4 class='ui dividing header'>Special Cases, Text and Descriptions</h4>
+				<p>Special Cases set further requirements and effects on your trait. Some will make the trait only take effect when under circumstances such as the driver being in the lead of the race, or is racing closely with another car. Others set conditions where a driver will not join another team if their rival is already driving there, or applies the trait effects if they aren't the number 1 driver at their own team. It helps create additional versatility for traits, and variety where drivers can appear to actually have their own personality.</p>
+				<table class='ui table'>
+					<thead>
+					    <tr>
+					    	<th class="three wide">Special Case</th>
+					    	<th class="ten wide">Special Case Text</th>
+					    	<th class='three wide'>Special Case Description</th>
+					 	</tr>
+					</thead>
+					<tbody>
+					    <tr>
+					      	<td>NeedMoreTrophiesBeforeRetiring</td>
+					      	<td>Driver wants to win trophies before retirement.</td>
+					      	<td>PSG_10011092</td>
+					    </tr>
+					    <tr>
+					      	<td>NeedLessTrophiesBeforeRetiring</td>
+					      	<td>Driver doesn't care about winning trophies before retirement.</td>
+					      	<td>PSG_10011230</td>
+					    </tr>
+					    <tr>
+					      	<td>CarHappinessBonus</td>
+					      	<td>The driver would like to be given every newly-designed part.</td>
+					      	<td>PSG_10009818</td>
+					    </tr>
+					    <tr>
+					      	<td>CarHappinessNegative</td>
+					      	<td>The driver does not mind if they aren't given every newly-designed part.</td>
+					      	<td>PSG_10009819</td>
+					    </tr>
+					    <tr>
+					      	<td>P2InRace</td>
+					      	<td>[Placeholder] Bonus applies when in second place in the race</td>
+					      	<td>PSG_10009820</td>
+					    </tr>
+					    <tr>
+					      	<td>P1InRace</td>
+					      	<td>[Placeholder] Bonus applies when in first place in the race</td>
+					      	<td>PSG_10009821</td>
+					    </tr>
+					    <tr>
+					      	<td>RaceLap1</td>
+					      	<td>[Placeholder] Bonus applies when in first lap of the race</td>
+					      	<td>PSG_10009822</td>
+					    </tr>
+					    <tr>
+					      	<td>FuelBurn(Low)</td>
+					      	<td>[Placeholder] Burning less fuel than usual</td>
+					      	<td>PSG_10009823</td>
+					    </tr>
+					    <tr>
+					      	<td>FuelBurn(High)</td>
+					      	<td>[Placeholder] Burning more fuel than usual</td>
+					      	<td>PSG_10009824</td>
+					    </tr>
+					    <tr>
+					      	<td>OneOnOne</td>
+					      	<td>N/A</td>
+					      	<td>PSG_10009840</td>
+					    </tr>
+					    <tr>
+					      	<td>Race</td>
+					      	<td>Bonus applies during race only.</td>
+					      	<td>PSG_10009825</td>
+					    </tr>
+					    <tr>
+					      	<td>Qualifying; Practice</td>
+					      	<td>Bonus applies during qualifying and practice sessions only.</td>
+					      	<td>PSG_10009826</td>
+					    </tr>
+					    <tr>
+					      	<td>WetSession</td>
+					      	<td>Bonus applies when the circuit is wet.</td>
+					      	<td>PSG_10009827</td>
+					    </tr>
+					    <tr>
+					      	<td>HomeRace</td>
+					      	<td>Bonus applies during the driver's home race.</td>
+					      	<td>PSG_10009828</td>
+					    </tr>
+					    <tr>
+					      	<td>{Track}</td>
+					      	<td>Bonus only applies in a specific location.</td>
+					      	<td>PSG_10009829</td>
+					    </tr>
+					    <tr>
+					      	<td>RandomPayment(Low)</td>
+					      	<td>The driver decided to invest in the team, paying you some money.</td>
+					      	<td>PSG_10009830</td>
+					    </tr>
+					    <tr>
+					      	<td>RandomPayment(Med)</td>
+					      	<td>The driver's accountant recommended an investment in the team, paying you some money.</td>
+					      	<td>PSG_10009831</td>
+					    </tr>
+					    <tr>
+					      	<td>WillNotRenewContract</td>
+					      	<td>N/A</td>
+					      	<td>PSG_10009835</td>
+					    </tr>
+					    <tr>
+					      	<td>PayDriver</td>
+					      	<td>The driver's sponsors will pay you money for each race they are involved in.</td>
+					      	<td>PSG_10009832</td>
+					    </tr>
+					    <tr>
+					      	<td>WillNotJoinRival</td>
+					      	<td>The driver will not join a team with his rival.</td>
+					      	<td>PSG_10009833</td>
+					    </tr>
+					    <tr>
+					      	<td>FaceInjury</td>
+					      	<td>N/A</td>
+					      	<td>N/A</td>
+					    </tr>
+					    <tr>
+					      	<td>FightWithTeammate</td>
+					      	<td>The driver had a fight with his teammate.</td>
+					      	<td>PSG_10009835</td>
+					    </tr>
+					    <tr>
+					      	<td>NeckInjury</td>
+					      	<td>N/A</td>
+					      	<td>N/A</td>
+					    </tr>
+					    <tr>
+					      	<td>RandomNewHairstyle</td>
+					      	<td>The driver's new haircut has been picked up by the paper, improving marketability.</td>
+					      	<td>PSG_10009836</td>
+					    </tr>
+					    <tr>
+					      	<td>IntermediateTyres</td>
+					      	<td>Applies when the driver is on intermediate tyres.</td>
+					      	<td>PSG_10009837</td>
+					    </tr>
+					    <tr>
+					      	<td>Practice</td>
+					      	<td>Bonus applies during practise only.</td>
+					      	<td>PSG_10009838</td>
+					    </tr>
+					    <tr>
+					      	<td>SponsorTop3</td>
+					      	<td>Only applies when the sponsor objective is 3rd or above</td>
+					      	<td>PSG_10009836</td>
+					    </tr>
+					    <tr>
+					      	<td>TurnOffTeamOrders</td>
+					      	<td>For this driver the team orders panel will be disabled.</td>
+					      	<td>PSG_10009841</td>
+					    </tr>
+					    <tr>
+					      	<td>TurnOffStrategy</td>
+					      	<td>For this driver the entire strategy panel will be disabled.</td>
+					      	<td>PSG_10009842</td>
+					    </tr>
+					    <tr>
+					      	<td>NotNumberOne</td>
+					      	<td>Only applies when this driver is not a number 1 driver.</td>
+					      	<td>PSG_10009843</td>
+					    </tr>
+					    <tr>
+					      	<td>MechanicWorseThanDriver</td>
+					      	<td>Only applies when this driver's mechanic has less stars than them.</td>
+					      	<td>PSG_10009844</td>
+					    </tr>
+					    <tr>
+					      	<td>TeammateBetterThanDriver</td>
+					      	<td>Only applies when this driver's teammate has more stars than them.</td>
+					      	<td>PSG_10009847</td>
+					    </tr>
+					    <tr>
+					      	<td>TeammateEarningMoreThanDriver</td>
+					      	<td>Only applies when this driver's teammate has a higher cost per race than them.</td>
+					      	<td>PSG_10009845</td>
+					    </tr>
+					    <tr>
+					      	<td><select id='special-promises'>
+					      		<option value='CarPartPromise'>CarPartPromise</option>
+					      		<option value='IncomePromise'>IncomePromise</option>
+					      		<option value='ChampioshipPromise'>ChampioshipPromise</option>
+					      		<option value='HQPromise'>HQPromise</option>
+					      		<option value='MechanicPromise'>MechanicPromise</option>
+					      		<option value='EngineerPromise'>EngineerPromise</option>
+					      		<option value='ReservePromise'>ReservePromise</option>
+					      	</select></td>
+					      	<td>N/A</td>
+					      	<td>N/A</td>
+					    </tr>
+					    <tr>
+					      	<td><select id='special-locations'>
+					      		<option value='Guildford'>Guildford</option>
+					      		<option value='Ardennes'>Ardennes</option>
+					      		<option value='Phoenix'>Phoenix</option>
+					      		<option value='Yokohama'>Yokohama</option>
+					      		<option value='Munich'>Munich</option>
+					      		<option value='CapeTown'>CapeTown</option>
+					      		<option value='Doha'>Doha</option>
+					      		<option value='Milan'>Milan</option>
+					      		<option value='Singapore'>Singapore</option>
+					      		<option value='Beijing'>Beijing</option>
+					      		<option value='Dubai'>Dubai</option>
+					      		<option value='RioDeJaneiro'>RioDeJaneiro</option>
+					      		<option value='BlackSea'>BlackSea</option>
+					      		<option value='Sydney'>Sydney</option>
+					      		<option value='Vancouver'>Vancouver</option>
+					      	</select></td>
+					      	<td>Bonus only applies in a specific location</td>
+					      	<td>PSG_10009846</td>
+					    </tr>
+					    <tr>
+					      	<td>MentorImproveabilityBoost</td>
+					      	<td>Helps teammates to improve faster.</td>
+					      	<td>PSG_10011410</td>
+					    </tr>
+					    <tr>
+					      	<td>MentorImproveabilityDebuff</td>
+					      	<td>Teammates will not improve as quickly</td>
+					      	<td>PSG_10011411</td>
+					    </tr>
+					    <tr>
+					      	<td>SingleSeaters</td>
+					      	<td>Only applies when driving in Single Seaters.</td>
+					      	<td>PSG_10011414</td>
+					    </tr>
+					    <tr>
+					      	<td>GTSeries</td>
+					      	<td>Only applies when driving in GT Series.</td>
+					      	<td>PSG_10011415</td>
+					    </tr>
+					    <tr>
+					      	<td>ShockRetirement</td>
+					      	<td>Driver will retire very soon.</td>
+					      	<td>PSG_10011774</td>
+					    </tr>
+					    <tr>
+					      	<td>ExtraVotePowerPerSeason</td>
+					      	<td>Driver provides +1 voting power per season.</td>
+					      	<td>PSG_10012235</td>
+					    </tr>
+					    <tr>
+					      	<td>InjuryBurns</td>
+					      	<td>N/A</td>
+					      	<td>N/A</td>
+					    </tr>
+					    <tr>
+					      	<td>ChairmansHappinessMirrorsDriver</td>
+					      	<td>Driver's morale heavily influences the chairman's happiness.</td>
+					      	<td>PSG_10012236</td>
+					    </tr>
+					    <tr>
+					      	<td>AddEnduranceRacing</td>
+					      	<td>This driver can now be hired into the Endurance series.</td>
+					      	<td>PSG_10013572</td>
+					    </tr>
+					     <tr>
+					      	<td>AddGTRacing</td>
+					      	<td>This driver can now be hired into the GT series.</td>
+					      	<td>PSG_10013573</td>
+					    </tr>
+					    <tr>
+					      	<td>IncreaseOptimalZone</td>
+					      	<td>Driver's Optimal Zone is increased by 10%.</td>
+					      	<td>PSG_10013574</td>
+					    </tr>
+					     <tr>
+					      	<td>RogueInZone</td>
+					      	<td>Driver goes rogue when Fired Up.</td>
+					      	<td>PSG_10013575</td>
+					    </tr>
+					    <tr>
+					      	<td>InForm</td>
+					      	<td>Form is 10 during the race.</td>
+					      	<td>PSG_10013576</td>
+					    </tr>
+					     <tr>
+					      	<td>BadForm</td>
+					      	<td>Form is 0 during the race.</td>
+					      	<td>PSG_10013577</td>
+					    </tr>
+					    <tr>
+					      	<td>NoMistakeInDangerZone</td>
+					      	<td>Driver doesn't make mistakes when their stamina is low.</td>
+					      	<td>PSG_10013578</td>
+					    </tr>
+					     <tr>
+					      	<td>AnySeries</td>
+					      	<td>This driver can now be hired into the Endurance and GT series. OR This driver can now be hired into any series.</td>
+					      	<td>PSG_10013579 OR PSG_10013580</td>
+					    </tr>
+					    <tr>
+					      	<td>Qualifying</td>
+					      	<td>Bonus only applies in Qualifying</td>
+					      	<td>PSG_20001026</td>
+					    </tr>
+					     <tr>
+					      	<td>OffendedByInterview</td>
+					      	<td>Driver won't even discuss terms with you.</td>
+					      	<td>PSG_10011412</td>
+					    </tr>
+					    <tr>
+					      	<td>ButteredUpByInterview</td>
+					      	<td>Driver is open to discussing terms with you.</td>
+					      	<td>PSG_10011413</td>
+					    </tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<hr>
+
+		<div class='centre-section'>
+			<div id='pcomponents-info'>
+				<h3>Part Components</h3>
+				<p>Part Components are a very easy area to work on, as a lot of it is straight-forward. However, there is one area with absolutely no documentation or help - component icons. This has been a tough section to put together because despite all my time spent on this area of the game, even I have very little documentation on what 'Icon Path' and 'Icon' refers to.</p>
+				<button class='blue ui button components'>Show Icons</button>
+			</div>
+			<div id='pcomponents-icons' class='pcomponents-spacer hide'>
+				<h4 class='ui dividing header'>Icons</h4>
+				<p>Each component you create needs to have an icon that gives an idea of what effect it'll have at a glance, and adds some nice visuals to the part building screens. If you don't specify an icon at all (i.e. leave the box blank), you'll just end up with a white square where the icon should be. Therefore, icons are absolutely required if you don't want to have the UI looking odd when in game.</p>
+
+				<p>There are two types of icon, one for regular components, and one for parts the Lead Designer has, with their own shapes and use cases. Below are two tables, with regular components in one, and Designer (engineer) in the other. A preview has been provided for all icons so you know what you'll see once in-game.</p>
+
+				<button class='blue ui button standard'>Show Standard Components</button>
+				<button class='blue ui button engineer'>Show Designer Components</button>
+				<div id='standard-icon-table' class='spacer hide'>
+					<h4 class='ui dividing header'>Standard Icons</h4>
+					<table class='ui table'>
+						<thead>
+						    <tr>
+						    	<th class="four wide">Icon Preview</th>
+						    	<th class="ten wide">Icon Path</th>
+						    	<th class='three wide'>Icon</th>
+						 	</tr>
+						</thead>
+						<tbody>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID2</td>
+						      	<td>1, 2, 5, 7</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID3</td>
+						      	<td>NONE, 1, 4</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID4</td>
+						      	<td>2</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID5</td>
+						      	<td>6</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID6</td>
+						      	<td>0, 5</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID7</td>
+						      	<td>1, 2</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID8</td>
+						      	<td>NONE, 7</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID9</td>
+						      	<td>4, 6</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID12</td>
+						      	<td>1</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID14</td>
+						      	<td>1, 2</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID15</td>
+						      	<td>6</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID16</td>
+						      	<td>NONE, 4, 7</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID17</td>
+						      	<td>2</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID18</td>
+						      	<td>2</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID19</td>
+						      	<td>2, 4</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID20</td>
+						      	<td>2</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID21</td>
+						      	<td>2</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID25</td>
+						      	<td>5</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID26</td>
+						      	<td>5</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID27</td>
+						      	<td>0</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID57</td>
+						      	<td>3</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID58</td>
+						      	<td>5</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID59</td>
+						      	<td>5</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID61</td>
+						      	<td>1</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID62</td>
+						      	<td>4, 5, 7</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID63</td>
+						      	<td>4</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID64</td>
+						      	<td>2</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID68</td>
+						      	<td>2</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID69</td>
+						      	<td>2</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID70</td>
+						      	<td>2, 7</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID77</td>
+						      	<td>1</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconID78</td>
+						      	<td>1</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconDriverBracking</td>
+						      	<td>4</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconDriverConsistency</td>
+						      	<td>4</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconDriverCornering</td>
+						      	<td>1</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconDriverOvertaking</td>
+						      	<td>4</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconPosTimeNegReliability</td>
+						      	<td>1</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconProFuelEfficiency</td>
+						      	<td>1</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconTyreWear</td>
+						      	<td>1</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>PartIconWeightStripping</td>
+						      	<td>4</td>
+						    </tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div id='engineer-icon-table' class='spacer hide'>
+					<h4 class='ui dividing header'>Engineer Icons</h4>
+					<table class='ui table'>
+						<thead>
+						    <tr>
+						    	<th class="four wide">Icon Preview</th>
+						    	<th class="ten wide">Icon Path</th>
+						    	<th class='three wide'>Icon</th>
+						 	</tr>
+						</thead>
+						<tbody>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>EngineerIconBuildStatUpRelDown34</td>
+						      	<td>2</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>EngineerIconBuildTime29</td>
+						      	<td>2, 5</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>EngineerIconDriverConsis</td>
+						      	<td>1</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>EngineerIconEachDayReli</td>
+						      	<td>5</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>EngineerIconExtraSlot41</td>
+						      	<td>4</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>EngineerIconID45</td>
+						      	<td>2, 4</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>EngineerIconID46</td>
+						      	<td>1, 4</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>EngineerIconID47</td>
+						      	<td>4</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>EngineerIconID48</td>
+						      	<td>4</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>EngineerIconID66</td>
+						      	<td>2</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>EngineerIconMaxPerformance42</td>
+						      	<td>4</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>EngineerIconNoMistakes</td>
+						      	<td>1</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>EngineerIconNoRisk43</td>
+						      	<td>4</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>EngineerIconNoTime32</td>
+						      	<td>4, 6</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>EngineerIconRandom35</td>
+						      	<td>3, 4</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>EngineerIconReliInRace37</td>
+						      	<td>4</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>EngineerIconRiskLevelDown38</td>
+						      	<td>4</td>
+						    </tr>
+						    <tr>
+						      	<td>IconPreview</td>
+						      	<td>EngineerIconTimeMoney30</td>
+						      	<td>2, 6</td>
+						    </tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<hr>
+	</div>
+
+	<div class='top-spacer'>
+		<div class='footer'>
+			<div class='ui container'>
+				<div class="ui stackable four column grid centre-text">
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="wrench icon"></i> Useful Modding Tools</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='https://github.com/DerPopo/UABE'>Unity Assets Bundle Extractor (UABE)</a></li>
+				  			<li><a href='https://github.com/0xd4d/dnSpy'>dnSpy</a></li>
+				  		</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="discord icon"></i> Discord Links</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='https://discord.gg/vuAVgRV'>Join TheFlamingRed's Discord Server!</a></li>
+				  		</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class='external alternate icon'></i> Motorsport Manager on the Web</h5>
+				  		<ul class='footer-links'>
+					  		<li><a href='http://www.motorsportmanager.com/'>Motorsport Manager Website</a></li>
+					  		<li><a href='https://store.steampowered.com/app/415200/Motorsport_Manager/'>Motorsport Manager Steam Page</a></li>
+					  		<li><a href='https://www.reddit.com/r/MotorsportManagerPC/'>Motorsport Manager on Reddit</a></li>
+					  	</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="dolly icon"></i> Mods</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='http://blog.theflamingred.com/mm-rebirth-mod/'>Rebirth</a></li>
+				  			<li><a href='https://steamcommunity.com/sharedfiles/filedetails/?id=1196130874'>Rebirth - Phoenix Edition</a></li>
+				  			<li><a href='https://steamcommunity.com/id/briang91/myworkshopfiles/'>My Mods on Steam Workshop!</a></li>
+				  		</ul>
+				  	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js'></script>
+<script type="text/javascript" src='scripts/mmc-info.js'></script>
+</body>
+</html>

@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Motorsport Manager String Compiler</title>
+	<link rel="stylesheet" type="text/css" href="styles/mmc-css.css">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css'>
+	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+</head>
+<body>
+
+	<div class='ui fixed menu'>
+		<div class='item'>
+			<h4><img>Motorsport Manager String Compiler</h4>
+		</div>
+		<div class='right menu'>
+			<div class='item'>
+				<a href='index.html' class='ui button'><i class='warehouse icon'></i> Home</a>
+			</div>
+			<div class='item'>
+				<a href='' class='ui button'>Info</a>
+			</div>
+			<div class='ui simple dropdown item'>
+				Compilers 
+				<i class="angle double down icon"></i>
+				<div class='menu'>
+					<a href='Dilemmas.html' class='item'><i class="clipboard list icon"></i> Dilemmas</a>
+					<a href='Drivers.html' class='item'><i class='male icon'></i> Drivers</a>
+					<a href='Interviews.html' class='item'><i class="comments outline icon"></i> Interviews</a>
+					<a href='MediaReports.html' class='item'><i class="newspaper outline icon"></i> Media Reports</a>
+					<a href='PartComponents.html' class='item'><i class="wrench icon"></i> Part Components</a>
+					<a href='PersonalityTraits.html' class='item'><i class="user icon"></i> Personality Traits</a>
+					<a href='Sponsors.html' class='item'><i class="pound sign icon"></i> Sponsors</a>
+					<a href='Teams.html' class='item'><i class='users icon'></i> Teams</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='ui container wide'>
+		<div id='compiler-container'>
+			<div class='centre-section'>
+				<div class='centre-text'>
+					<h1>Media Reports Compiler</h1>
+					<p>Build your Media Report here! Unlike most other compilers, there are multiple compilers on this page, one for each piece of the Report. When you compile the header, the fields that are required to be identical for all parts of the report body are automatically filled for you, to prevent mismatches. However, the fields are left available to you if for some reason you wish to change them to something else (but then your report won't function correctly.</p>
+					<p>Unlike most other sections, but similar to Dilemmas, MediaReports.txt has multiple separate sections that all fit together like a puzzle. The header will set a reference that is then used for the first part of the body to match them together, which is a process repeated for any further body sections. Header leads to Body0, Body0 to Body1 and so on.</p>
+					<p>Your Media Report must have a header, and can have a number of body sections, though usually a maximum of 5. As with Dilemmas, if your sections are not properly linked, you will encounter a range of issues that can be from your report never spawning, blank or error filled reports, all the way up to and including crashing the game.</p>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class='centre-section'>
+				<div class="ui styled fluid accordion">
+					<div class='ui form'>
+						<div class='title'>
+							<i class="dropdown icon"></i>
+							Report header - Define the header content.
+						</div>
+						<div class='content'>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>Game Area</label>
+									<select name='' class='media-reports report-header select-reset ga-master' data-content="The situation your report is related to." data-position="right center" data-variation="inverted">
+										<option value='Challenge - Underdogs'>Challenge - Underdogs</option>
+										<option value='Championship Finished'>Championship Finished</option>
+										<option value='End of Season'>End of Season</option>
+										<option value='Gossip - Drivers'>Gossip - Drivers</option>
+										<option value='Gossip - Politics'>Gossip - Politics</option>
+										<option value='Gossip - Transfers'>Gossip - Transfers</option>
+										<option value='HQ Stories'>HQ Stories</option>
+										<option value='Media Stories'>Media Stories</option>
+										<option value='Personality Trait Stories'>Personality Trait Stories</option>
+										<option value='Political Stories'>Political Stories</option>
+										<option value='Post Practice - News Stories'>Post Practice - News Stories</option>
+										<option value='Post Qualifying - News Stories'>Post Qualifying - News Stories</option>
+										<option value='Post Race - News Stories'>Post Race - News Stories</option>
+										<option value='Post Race - Pull Quotes'>Post Race - Pull Quotes</option>
+										<option value='Pre Race'>Pre Race</option>
+										<option value='Qualifying Reaction'>Qualifying Reaction</option>
+										<option value='Race Reaction'>Race Reaction</option>
+										<option value='Rumours - Drivers'>Rumours - Drivers</option>
+										<option value='Rumours - Staff'>Rumours - Staff</option>
+										<option value='Rumours - Team'>Rumours - Team</option>
+										<option value='Tutorial'>Tutorial</option>
+									</select>
+								</div>
+								<div class='two wide field'>
+									<label>Source</label>
+									<input type='text' name='' class='media-reports report-header s-master' data-content="The source is a source you have created. If your report is for when a personality trait is applied, you will need to use the Source you set there." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='ten wide field'>
+									<label>Criteria</label>
+									<input type='text' name='' value='Type = Header' class='media-reports report-header' data-content="This is always 'Type = Header' for headers. It can also contain further conditions that must be met for the report to spawn." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Who</label>
+									<select name='' class='media-reports header select-reset w-master' data-content="Who is sending the report." data-position="right center" data-variation="inverted">
+										<option value='AnyDriver'>AnyDriver</option>
+										<option value='Assistant'>Assistant</option>
+										<option value='Chairman'>Chairman</option>
+										<option value='Engineer'>Engineer</option>
+										<option value='MediaPerson'>MediaPerson</option>
+										<option value='RumourDriver'>RumourDriver</option>
+										<option value='Teammate'>Teammate</option>
+									</select>
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>English/Default</label>
+									<textarea rows='4' name='' class='media-reports report-header localisation-default' data-content="The English/Default language version of your report header. This will be used on all blank localisation fields to prevent blank headers." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>ID</label>
+									<input type='text' name='' class='media-reports report-header' data-content="Set a unique ID for your header (PSG_XXXXXXXX)." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field'>
+									<label>Trigger</label>
+									<input type='text' name='' value='Type = Body0' class='media-reports report-header' data-content="This is used to link to the next part of the report. Usually 'Type = Body0' on headers." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='ten wide field'>
+									<label>User Data</label>
+									<input type='text' name='' class='media-reports report-header' data-content="No documentation or knowledge of how this field works for headers, but it is either left blank, or contains 'MailGroup = Media' or 'SetSubject = X'. Check MediaReports.txt for use cases." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Memory</label>
+									<input type='text' name='' class='media-reports report-header' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Notes</label>
+									<input type='text' name='' class='media-reports report-header' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>English Old</label>
+									<input type='text' name='' class='media-reports report-header' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+							</div>
+
+							<h4 class='ui dividing header'>Additional Languages - Add localisation for this section.</h4>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>French</label>
+									<textarea rows='4' name='' class='media-reports report-header localisation' data-content="French localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Italian</label>
+									<textarea rows='4' name='' class='media-reports report-header localisation' data-content="Italian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>German</label>
+									<textarea rows='4' name='' class='media-reports report-header localisation' data-content="German localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Spanish</label>
+									<textarea rows='4' name='' class='media-reports report-header localisation' data-content="Spanish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Brazilian</label>
+									<textarea rows='4' name='' class='media-reports report-header localisation' data-content="Brazilian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Dutch</label>
+									<textarea rows='4' name='' class='media-reports report-header localisation' data-content="Dutch localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Hungarian</label>
+									<textarea rows='4' name='' class='media-reports report-header localisation' data-content="Hungarian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Polish</label>
+									<textarea rows='4' name='' class='media-reports report-header localisation' data-content="Polish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Russian</label>
+									<textarea rows='4' name='' class='media-reports report-header localisation' data-content="Russian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<h4 class='ui dividing header'>Finished? Compile the header below! Copy and paste the result into MediaReports.txt</h4>
+							<div class='ui fluid input'>
+								<a id='header-submit' class='ui button textarea-submit'><i class="calculator icon"></i> Compile Header!</a>
+								<textarea rows='4' id='header-output' value=""></textarea>
+								<a id='header-clear' class='ui red button clear textarea-clear'><i class="eraser icon"></i> Clear All Fields!</a>
+							</div>
+						</div>
+					</div>
+
+					<div class='ui form'>
+						<div class='title'>
+							<i class="dropdown icon"></i>
+							Body0 - Define the first part of the body.
+						</div>
+						<div class='content'>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>Game Area</label>
+									<select name='' class='media-reports body0 select-reset ga-copy' data-content="This is a constant for all parts of the same report." data-position="right center" data-variation="inverted">
+										<option value='Challenge - Underdogs'>Challenge - Underdogs</option>
+										<option value='Championship Finished'>Championship Finished</option>
+										<option value='End of Season'>End of Season</option>
+										<option value='Gossip - Drivers'>Gossip - Drivers</option>
+										<option value='Gossip - Politics'>Gossip - Politics</option>
+										<option value='Gossip - Transfers'>Gossip - Transfers</option>
+										<option value='HQ Stories'>HQ Stories</option>
+										<option value='Media Stories'>Media Stories</option>
+										<option value='Personality Trait Stories'>Personality Trait Stories</option>
+										<option value='Political Stories'>Political Stories</option>
+										<option value='Post Practice - News Stories'>Post Practice - News Stories</option>
+										<option value='Post Qualifying - News Stories'>Post Qualifying - News Stories</option>
+										<option value='Post Race - News Stories'>Post Race - News Stories</option>
+										<option value='Post Race - Pull Quotes'>Post Race - Pull Quotes</option>
+										<option value='Pre Race'>Pre Race</option>
+										<option value='Qualifying Reaction'>Qualifying Reaction</option>
+										<option value='Race Reaction'>Race Reaction</option>
+										<option value='Rumours - Drivers'>Rumours - Drivers</option>
+										<option value='Rumours - Staff'>Rumours - Staff</option>
+										<option value='Rumours - Team'>Rumours - Team</option>
+										<option value='Tutorial'>Tutorial</option>
+									</select>
+								</div>
+								<div class='two wide field'>
+									<label>Source</label>
+									<input type='text' name='' class='media-reports body0 s-copy' data-content="This is a constant for all parts of the same report." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='ten wide field'>
+									<label>Criteria</label>
+									<input type='text' name='' value='Type = Body0' class='media-reports body0' data-content="This is the value you set for Trigger in the header. Usually Body0." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Who</label>
+									<select name='' class='media-reports body0 select-reset w-copy' data-content="This is a constant for all parts of the same report." data-position="right center" data-variation="inverted">
+										<option value='AnyDriver'>AnyDriver</option>
+										<option value='Assistant'>Assistant</option>
+										<option value='Chairman'>Chairman</option>
+										<option value='Engineer'>Engineer</option>
+										<option value='MediaPerson'>MediaPerson</option>
+										<option value='RumourDriver'>RumourDriver</option>
+										<option value='Teammate'>Teammate</option>
+									</select>
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>English/Default</label>
+									<textarea rows='4' name='' class='media-reports body0 localisation-default' data-content="The English/Default language version of this section of the body. This will be used on all blank localisation fields to prevent blank body sections." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>ID</label>
+									<input type='text' name='' class='media-reports body0' data-content="Set a unique ID for Body0 (PSG_XXXXXXXX)." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field'>
+									<label>Trigger</label>
+									<input type='text' name='' value='Type = Body1' class='media-reports body0' data-content="This is used to link to another piece of the body if you wish to have multiple paragraphs." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='ten wide field'>
+									<label>User Data</label>
+									<input type='text' name='' class='media-reports body0' data-content="Only used to add additional linebreaks into the report, e.g. 'AddLineBreaks = 2'" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Memory</label>
+									<input type='text' name='' class='media-reports body0' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Notes</label>
+									<input type='text' name='' class='media-reports body0' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>English Old</label>
+									<input type='text' name='' class='media-reports body0' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+							</div>
+
+							<h4 class='ui dividing header'>Additional Languages - Add localisation for this section.</h4>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>French</label>
+									<textarea rows='4' name='' class='media-reports body0 localisation' data-content="French localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Italian</label>
+									<textarea rows='4' name='' class='media-reports body0 localisation' data-content="Italian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>German</label>
+									<textarea rows='4' name='' class='media-reports body0 localisation' data-content="German localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Spanish</label>
+									<textarea rows='4' name='' class='media-reports body0 localisation' data-content="Spanish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Brazilian</label>
+									<textarea rows='4' name='' class='media-reports body0 localisation' data-content="Brazilian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Dutch</label>
+									<textarea rows='4' name='' class='media-reports body0 localisation' data-content="Dutch localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Hungarian</label>
+									<textarea rows='4' name='' class='media-reports body0 localisation' data-content="Hungarian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Polish</label>
+									<textarea rows='4' name='' class='media-reports body0 localisation' data-content="Polish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Russian</label>
+									<textarea rows='4' name='' class='media-reports body0 localisation' data-content="Russian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<h4 class='ui dividing header'>Finished? Compile the body below! Copy and paste the result into MediaReports.txt</h4>
+							<div class='ui fluid input'>
+								<a id='body0-submit' class='ui button textarea-submit'><i class="calculator icon"></i> Compile Body!</a>
+								<textarea rows='4' id='body0-output' value=""></textarea>
+								<a id='body0-clear' class='ui red button clear textarea-clear'><i class="eraser icon"></i> Clear All Fields!</a>
+							</div>
+						</div>
+					</div>
+
+					<div class='ui form'>
+						<div class='title'>
+							<i class="dropdown icon"></i>
+							Body1 - Define the second part of the body.
+						</div>
+						<div class='content'>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>Game Area</label>
+									<select name='' class='media-reports body1 select-reset ga-copy' data-content="This is a constant for all parts of the same report." data-position="right center" data-variation="inverted">
+										<option value='Challenge - Underdogs'>Challenge - Underdogs</option>
+										<option value='Championship Finished'>Championship Finished</option>
+										<option value='End of Season'>End of Season</option>
+										<option value='Gossip - Drivers'>Gossip - Drivers</option>
+										<option value='Gossip - Politics'>Gossip - Politics</option>
+										<option value='Gossip - Transfers'>Gossip - Transfers</option>
+										<option value='HQ Stories'>HQ Stories</option>
+										<option value='Media Stories'>Media Stories</option>
+										<option value='Personality Trait Stories'>Personality Trait Stories</option>
+										<option value='Political Stories'>Political Stories</option>
+										<option value='Post Practice - News Stories'>Post Practice - News Stories</option>
+										<option value='Post Qualifying - News Stories'>Post Qualifying - News Stories</option>
+										<option value='Post Race - News Stories'>Post Race - News Stories</option>
+										<option value='Post Race - Pull Quotes'>Post Race - Pull Quotes</option>
+										<option value='Pre Race'>Pre Race</option>
+										<option value='Qualifying Reaction'>Qualifying Reaction</option>
+										<option value='Race Reaction'>Race Reaction</option>
+										<option value='Rumours - Drivers'>Rumours - Drivers</option>
+										<option value='Rumours - Staff'>Rumours - Staff</option>
+										<option value='Rumours - Team'>Rumours - Team</option>
+										<option value='Tutorial'>Tutorial</option>
+									</select>
+								</div>
+								<div class='two wide field'>
+									<label>Source</label>
+									<input type='text' name='' class='media-reports body1 s-copy' data-content="This is a constant for all parts of the same report." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='ten wide field'>
+									<label>Criteria</label>
+									<input type='text' name='' value='Type = Body1' class='media-reports body1' data-content="This is the value you set for Trigger in Body0. Usually Body1." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Who</label>
+									<select name='' class='media-reports body1 select-reset w-copy' data-content="This is a constant for all parts of the same report." data-position="bottom left" data-variation="inverted">
+										<option value='AnyDriver'>AnyDriver</option>
+										<option value='Assistant'>Assistant</option>
+										<option value='Chairman'>Chairman</option>
+										<option value='Engineer'>Engineer</option>
+										<option value='MediaPerson'>MediaPerson</option>
+										<option value='RumourDriver'>RumourDriver</option>
+										<option value='Teammate'>Teammate</option>
+									</select>
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>English/Default</label>
+									<textarea rows='4' name='' class='media-reports body1 localisation-default' data-content="The English/Default language version of this section of the body. This will be used on all blank localisation fields to prevent blank body sections." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>ID</label>
+									<input type='text' name='' class='media-reports body1' data-content="Set a unique ID for Body1 (PSG_XXXXXXXX)." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field'>
+									<label>Trigger</label>
+									<input type='text' name='' value='Type = Body2' class='media-reports body1' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='ten wide field'>
+									<label>User Data</label>
+									<input type='text' name='' class='media-reports body1' data-content="Only used to add additional linebreaks into the report, e.g. 'AddLineBreaks = 2'" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Memory</label>
+									<input type='text' name='' class='media-reports body1' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Notes</label>
+									<input type='text' name='' class='media-reports body1' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>English Old</label>
+									<input type='text' name='' class='media-reports body1' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+							</div>
+
+							<h4 class='ui dividing header'>Additional Languages - Add localisation for this section.</h4>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>French</label>
+									<textarea rows='4' name='' class='media-reports body1 localisation' data-content="French localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Italian</label>
+									<textarea rows='4' name='' class='media-reports body1 localisation' data-content="Italian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>						
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>German</label>
+									<textarea rows='4' name='' class='media-reports body1 localisation' data-content="German localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Spanish</label>
+									<textarea rows='4' name='' class='media-reports body1 localisation' data-content="Spanish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Brazilian</label>
+									<textarea rows='4' name='' class='media-reports body1 localisation' data-content="Brazilian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Dutch</label>
+									<textarea rows='4' name='' class='media-reports body1 localisation' data-content="Dutch localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Hungarian</label>
+									<textarea rows='4' name='' class='media-reports body1 localisation' data-content="Hungarian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Polish</label>
+									<textarea rows='4' name='' class='media-reports body1 localisation' data-content="Polish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Russian</label>
+									<textarea rows='4' name='' class='media-reports body1 localisation' data-content="Russian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<h4 class='ui dividing header'>Finished? Compile the body below! Copy and paste the result into MediaReports.txt</h4>
+							<div class='ui fluid input'>
+								<a id='body1-submit' class='ui button textarea-submit'><i class="calculator icon"></i> Compile Body!</a>
+								<textarea rows='4' id='body1-output' value=""></textarea>
+								<a id='body1-clear' class='ui red button clear textarea-clear'><i class="eraser icon"></i> Clear All Fields!</a>
+							</div>
+						</div>
+					</div>
+
+					<div class='ui form'>
+						<div class='title'>
+							<i class="dropdown icon"></i>
+							Body2 - Define the third part of the body.
+						</div>
+						<div class='content'>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>Game Area</label>
+									<select name='' class='media-reports body2 select-reset ga-copy' data-content="This is a constant for all parts of the same report." data-position="right center" data-variation="inverted">
+										<option value='Challenge - Underdogs'>Challenge - Underdogs</option>
+										<option value='Championship Finished'>Championship Finished</option>
+										<option value='End of Season'>End of Season</option>
+										<option value='Gossip - Drivers'>Gossip - Drivers</option>
+										<option value='Gossip - Politics'>Gossip - Politics</option>
+										<option value='Gossip - Transfers'>Gossip - Transfers</option>
+										<option value='HQ Stories'>HQ Stories</option>
+										<option value='Media Stories'>Media Stories</option>
+										<option value='Personality Trait Stories'>Personality Trait Stories</option>
+										<option value='Political Stories'>Political Stories</option>
+										<option value='Post Practice - News Stories'>Post Practice - News Stories</option>
+										<option value='Post Qualifying - News Stories'>Post Qualifying - News Stories</option>
+										<option value='Post Race - News Stories'>Post Race - News Stories</option>
+										<option value='Post Race - Pull Quotes'>Post Race - Pull Quotes</option>
+										<option value='Pre Race'>Pre Race</option>
+										<option value='Qualifying Reaction'>Qualifying Reaction</option>
+										<option value='Race Reaction'>Race Reaction</option>
+										<option value='Rumours - Drivers'>Rumours - Drivers</option>
+										<option value='Rumours - Staff'>Rumours - Staff</option>
+										<option value='Rumours - Team'>Rumours - Team</option>
+										<option value='Tutorial'>Tutorial</option>
+									</select>
+								</div>
+								<div class='two wide field'>
+									<label>Source</label>
+									<input type='text' name='' class='media-reports body2 s-copy' data-content="This is a constant for all parts of the same report." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='ten wide field'>
+									<label>Criteria</label>
+									<input type='text' name='' value='Type = Body2' class='media-reports body2' data-content="This is the value you set for Trigger in Body1. Usually Body2." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Who</label>
+									<select name='' class='media-reports body2 select-reset w-copy' data-content="This is a constant for all parts of the same report." data-position="right center" data-variation="inverted">
+										<option value='AnyDriver'>AnyDriver</option>
+										<option value='Assistant'>Assistant</option>
+										<option value='Chairman'>Chairman</option>
+										<option value='Engineer'>Engineer</option>
+										<option value='MediaPerson'>MediaPerson</option>
+										<option value='RumourDriver'>RumourDriver</option>
+										<option value='Teammate'>Teammate</option>
+									</select>
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>English/Default</label>
+									<textarea rows='4' name='' class='media-reports body2 localisation-default' data-content="The English/Default language version of this section of the body. This will be used on all blank localisation fields to prevent blank body sections." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>ID</label>
+									<input type='text' name='' class='media-reports body2' data-content="Set a unique ID for your header (PSG_XXXXXXXX)." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field'>
+									<label>Trigger</label>
+									<input type='text' name='' value='Type = Body3' class='media-reports body2' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='ten wide field'>
+									<label>User Data</label>
+									<input type='text' name='' class='media-reports body2' data-content="Only used to add additional linebreaks into the report, e.g. 'AddLineBreaks = 2'" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Memory</label>
+									<input type='text' name='' class='media-reports body2' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Notes</label>
+									<input type='text' name='' class='media-reports body2' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>English Old</label>
+									<input type='text' name='' class='media-reports body2' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+							</div>
+
+							<h4 class='ui dividing header'>Additional Languages - Add localisation for this section.</h4>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>French</label>
+									<textarea rows='4' name='' class='media-reports body2 localisation' data-content="French localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Italian</label>
+									<textarea rows='4' name='' class='media-reports body2 localisation' data-content="Italian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>German</label>
+									<textarea rows='4' name='' class='media-reports body2 localisation' data-content="German localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Spanish</label>
+									<textarea rows='4' name='' class='media-reports body2 localisation' data-content="Spanish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Brazilian</label>
+									<textarea rows='4' name='' class='media-reports body2 localisation' data-content="Brazilian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Dutch</label>
+									<textarea rows='4' name='' class='media-reports body2 localisation' data-content="Dutch localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Hungarian</label>
+									<textarea rows='4' name='' class='media-reports body2 localisation' data-content="Hungarian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Polish</label>
+									<textarea rows='4' name='' class='media-reports body2 localisation' data-content="Polish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Russian</label>
+									<textarea rows='4' name='' class='media-reports body2 localisation' data-content="Russian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<h4 class='ui dividing header'>Finished? Compile the body below! Copy and paste the result into MediaReports.txt</h4>
+							<div class='ui fluid input'>
+								<a id='body2-submit' class='ui button textarea-submit'><i class="calculator icon"></i> Compile Body!</a>
+								<textarea rows='4' id='body2-output' value=""></textarea>
+								<a id='body2-clear' class='ui red button clear textarea-clear'><i class="eraser icon"></i> Clear All Fields!</a>
+							</div>
+						</div>
+					</div>
+
+					<div class='ui form'>
+						<div class='title'>
+							<i class="dropdown icon"></i>
+							Body3 - Define the fourth part of the body.
+						</div>
+						<div class='content'>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>Game Area</label>
+									<select name='' class='media-reports body3 select-reset ga-copy' data-content="This is a constant for all parts of the same report." data-position="right center" data-variation="inverted">
+										<option value='Challenge - Underdogs'>Challenge - Underdogs</option>
+										<option value='Championship Finished'>Championship Finished</option>
+										<option value='End of Season'>End of Season</option>
+										<option value='Gossip - Drivers'>Gossip - Drivers</option>
+										<option value='Gossip - Politics'>Gossip - Politics</option>
+										<option value='Gossip - Transfers'>Gossip - Transfers</option>
+										<option value='HQ Stories'>HQ Stories</option>
+										<option value='Media Stories'>Media Stories</option>
+										<option value='Personality Trait Stories'>Personality Trait Stories</option>
+										<option value='Political Stories'>Political Stories</option>
+										<option value='Post Practice - News Stories'>Post Practice - News Stories</option>
+										<option value='Post Qualifying - News Stories'>Post Qualifying - News Stories</option>
+										<option value='Post Race - News Stories'>Post Race - News Stories</option>
+										<option value='Post Race - Pull Quotes'>Post Race - Pull Quotes</option>
+										<option value='Pre Race'>Pre Race</option>
+										<option value='Qualifying Reaction'>Qualifying Reaction</option>
+										<option value='Race Reaction'>Race Reaction</option>
+										<option value='Rumours - Drivers'>Rumours - Drivers</option>
+										<option value='Rumours - Staff'>Rumours - Staff</option>
+										<option value='Rumours - Team'>Rumours - Team</option>
+										<option value='Tutorial'>Tutorial</option>
+									</select>
+								</div>
+								<div class='two wide field'>
+									<label>Source</label>
+									<input type='text' name='' class='media-reports body3 s-copy' data-content="This is a constant for all parts of the same report." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='ten wide field'>
+									<label>Criteria</label>
+									<input type='text' name='' value='Type = Body3' class='media-reports body3' data-content="This is the value you set for Trigger in Body2. Usually Body3." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Who</label>
+									<select name='' class='media-reports body3 select-reset w-copy' data-content="This is a constant for all parts of the same report." data-position="right center" data-variation="inverted">
+										<option value='AnyDriver'>AnyDriver</option>
+										<option value='Assistant'>Assistant</option>
+										<option value='Chairman'>Chairman</option>
+										<option value='Engineer'>Engineer</option>
+										<option value='MediaPerson'>MediaPerson</option>
+										<option value='RumourDriver'>RumourDriver</option>
+										<option value='Teammate'>Teammate</option>
+									</select>
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>English/Default</label>
+									<textarea rows='4' name='' class='media-reports body3 localisation-default' data-content="The English/Default language version of this section of the body. This will be used on all blank localisation fields to prevent blank body sections." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>ID</label>
+									<input type='text' name='' class='media-reports body3' data-content="Set a unique ID for your header (PSG_XXXXXXXX)." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field'>
+									<label>Trigger</label>
+									<input type='text' name='' value='Type = Body4' class='media-reports body3' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='ten wide field'>
+									<label>User Data</label>
+									<input type='text' name='' class='media-reports body3' data-content="Only used to add additional linebreaks into the report, e.g. 'AddLineBreaks = 2'" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Memory</label>
+									<input type='text' name='' class='media-reports body3' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Notes</label>
+									<input type='text' name='' class='media-reports body3' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>English Old</label>
+									<input type='text' name='' class='media-reports body3' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+							</div>
+
+							<h4 class='ui dividing header'>Additional Languages - Add localisation for this section.</h4>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>French</label>
+									<textarea rows='4' name='' class='media-reports body3 localisation' data-content="French localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Italian</label>
+									<textarea rows='4' name='' class='media-reports body3 localisation' data-content="Italian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>German</label>
+									<textarea rows='4' name='' class='media-reports body3 localisation' data-content="German localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Spanish</label>
+									<textarea rows='4' name='' class='media-reports body3 localisation' data-content="Spanish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Brazilian</label>
+									<textarea rows='4' name='' class='media-reports body3 localisation' data-content="Brazilian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Dutch</label>
+									<textarea rows='4' name='' class='media-reports body3 localisation' data-content="Dutch localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Hungarian</label>
+									<textarea rows='4' name='' class='media-reports body3 localisation' data-content="Hungarian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Polish</label>
+									<textarea rows='4' name='' class='media-reports body3 localisation' data-content="Polish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Russian</label>
+									<textarea rows='4' name='' class='media-reports body3 localisation' data-content="Russian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<h4 class='ui dividing header'>Finished? Compile the body below! Copy and paste the result into MediaReports.txt</h4>
+							<div class='ui fluid input'>
+								<a id='body3-submit' class='ui button textarea-submit'><i class="calculator icon"></i> Compile Body!</a>
+								<textarea rows='4' id='body3-output' value=""></textarea>
+								<a id='body3-clear' class='ui red button clear textarea-clear'><i class="eraser icon"></i> Clear All Fields!</a>
+							</div>
+						</div>
+					</div>
+
+					<div class='ui form'>
+						<div class='title'>
+							<i class="dropdown icon"></i>
+							Body4 - Define the fifth part of the body.
+						</div>
+						<div class='content'>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>Game Area</label>
+									<select name='' class='media-reports body4 select-reset ga-copy' data-content="This is a constant for all parts of the same report." data-position="right center" data-variation="inverted">
+										<option value='Challenge - Underdogs'>Challenge - Underdogs</option>
+										<option value='Championship Finished'>Championship Finished</option>
+										<option value='End of Season'>End of Season</option>
+										<option value='Gossip - Drivers'>Gossip - Drivers</option>
+										<option value='Gossip - Politics'>Gossip - Politics</option>
+										<option value='Gossip - Transfers'>Gossip - Transfers</option>
+										<option value='HQ Stories'>HQ Stories</option>
+										<option value='Media Stories'>Media Stories</option>
+										<option value='Personality Trait Stories'>Personality Trait Stories</option>
+										<option value='Political Stories'>Political Stories</option>
+										<option value='Post Practice - News Stories'>Post Practice - News Stories</option>
+										<option value='Post Qualifying - News Stories'>Post Qualifying - News Stories</option>
+										<option value='Post Race - News Stories'>Post Race - News Stories</option>
+										<option value='Post Race - Pull Quotes'>Post Race - Pull Quotes</option>
+										<option value='Pre Race'>Pre Race</option>
+										<option value='Qualifying Reaction'>Qualifying Reaction</option>
+										<option value='Race Reaction'>Race Reaction</option>
+										<option value='Rumours - Drivers'>Rumours - Drivers</option>
+										<option value='Rumours - Staff'>Rumours - Staff</option>
+										<option value='Rumours - Team'>Rumours - Team</option>
+										<option value='Tutorial'>Tutorial</option>
+									</select>
+								</div>
+								<div class='two wide field'>
+									<label>Source</label>
+									<input type='text' name='' class='media-reports body4 s-copy' data-content="This is a constant for all parts of the same report." data-position="right center" data-variation="inverted">
+								</div>
+								<div class='ten wide field'>
+									<label>Criteria</label>
+									<input type='text' name='' value='Type = Body4' class='media-reports body4' data-content="This is the value you set for Trigger in Body3. Usually Body4." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Who</label>
+									<select name='' class='media-reports body4 select-reset w-copy' data-content="This is a constant for all parts of the same report." data-position="right center" data-variation="inverted">
+										<option value='AnyDriver'>AnyDriver</option>
+										<option value='Assistant'>Assistant</option>
+										<option value='Chairman'>Chairman</option>
+										<option value='Engineer'>Engineer</option>
+										<option value='MediaPerson'>MediaPerson</option>
+										<option value='RumourDriver'>RumourDriver</option>
+										<option value='Teammate'>Teammate</option>
+									</select>
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>English/Default</label>
+									<textarea rows='4' name='' class='media-reports body4 localisation-default' data-content="The English/Default language version of this section of the body. This will be used on all blank localisation fields to prevent blank body sections." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>ID</label>
+									<input type='text' name='' class='media-reports body4' data-content="Set a unique ID for your header (PSG_XXXXXXXX)." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field'>
+									<label>Trigger</label>
+									<input type='text' name='' class='media-reports body4' data-content="As this is the last piece of the body, this is left blank." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='ten wide field'>
+									<label>User Data</label>
+									<input type='text' name='' class='media-reports body4' data-content="Only used to add additional linebreaks into the report, e.g. 'AddLineBreaks = 2'" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Memory</label>
+									<input type='text' name='' class='media-reports body4' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Notes</label>
+									<input type='text' name='' class='media-reports body4' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>English Old</label>
+									<input type='text' name='' class='media-reports body4' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+							</div>
+
+							<h4 class='ui dividing header'>Additional Languages - Add localisation for this section.</h4>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>French</label>
+									<textarea rows='4' name='' class='media-reports body4 localisation' data-content="French localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Italian</label>
+									<textarea rows='4' name='' class='media-reports body4 localisation' data-content="Italian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>German</label>
+									<textarea rows='4' name='' class='media-reports body4 localisation' data-content="German localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Spanish</label>
+									<textarea rows='4' name='' class='media-reports body4 localisation' data-content="Spanish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Brazilian</label>
+									<textarea rows='4' name='' class='media-reports body4 localisation' data-content="Brazilian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Dutch</label>
+									<textarea rows='4' name='' class='media-reports body4 localisation' data-content="Dutch localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Hungarian</label>
+									<textarea rows='4' name='' class='media-reports body4 localisation' data-content="Hungarian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Polish</label>
+									<textarea rows='4' name='' class='media-reports body4 localisation' data-content="Polish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Russian</label>
+									<textarea rows='4' name='' class='media-reports body4 localisation' data-content="Russian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<h4 class='ui dividing header'>Finished? Compile the body below! Copy and paste the result into MediaReports.txt</h4>
+							<div class='ui fluid input'>
+								<a id='body4-submit' class='ui button textarea-submit'><i class="calculator icon"></i> Compile Body!</a>
+								<textarea rows='4' id='body4-output' value=""></textarea>
+								<a id='body4-clear' class='ui red button clear textarea-clear'><i class="eraser icon"></i> Clear All Fields!</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='top-spacer'>
+		<div class='footer'>
+			<div class='ui container'>
+				<div class="ui stackable four column grid centre-text">
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="wrench icon"></i> Useful Modding Tools</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='https://github.com/DerPopo/UABE'>Unity Assets Bundle Extractor (UABE)</a></li>
+				  			<li><a href='https://github.com/0xd4d/dnSpy'>dnSpy</a></li>
+				  		</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="discord icon"></i> Discord Links</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='https://discord.gg/vuAVgRV'>Join TheFlamingRed's Discord Server!</a></li>
+				  		</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class='external alternate icon'></i> Motorsport Manager on the Web</h5>
+				  		<ul class='footer-links'>
+					  		<li><a href='http://www.motorsportmanager.com/'>Motorsport Manager Website</a></li>
+					  		<li><a href='https://store.steampowered.com/app/415200/Motorsport_Manager/'>Motorsport Manager Steam Page</a></li>
+					  		<li><a href='https://www.reddit.com/r/MotorsportManagerPC/'>Motorsport Manager on Reddit</a></li>
+					  	</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="dolly icon"></i> Mods</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='http://blog.theflamingred.com/mm-rebirth-mod/'>Rebirth</a></li>
+				  			<li><a href='https://steamcommunity.com/sharedfiles/filedetails/?id=1196130874'>Rebirth - Phoenix Edition</a></li>
+				  			<li><a href='https://steamcommunity.com/id/briang91/myworkshopfiles/'>My Mods on Steam Workshop!</a></li>
+				  		</ul>
+				  	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js'></script>
+<script type="text/javascript" src='scripts/mmc-mediareports.js'></script>
+</body>
+</html>

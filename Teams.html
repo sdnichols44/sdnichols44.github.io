@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Motorsport Manager String Compiler</title>
+	<link rel="stylesheet" type="text/css" href="styles/mmc-css.css">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css'>
+	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+</head>
+<body>
+
+	<div class='ui fixed menu'>
+		<div class='item'>
+			<h4><img>Motorsport Manager String Compiler</h4>
+		</div>
+		<div class='right menu'>
+			<div class='item'>
+				<a href='index.html' class='ui button'><i class='warehouse icon'></i> Home</a>
+			</div>
+			<div class='item'>
+				<a href='' class='ui button'>Info</a>
+			</div>
+			<div class='ui simple dropdown item'>
+				Compilers 
+				<i class="angle double down icon"></i>
+				<div class='menu'>
+					<a href='Dilemmas.html' class='item'><i class="clipboard list icon"></i> Dilemmas</a>
+					<a href='Drivers.html' class='item'><i class='male icon'></i> Drivers</a>
+					<a href='Interviews.html' class='item'><i class="comments outline icon"></i> Interviews</a>
+					<a href='MediaReports.html' class='item'><i class="newspaper outline icon"></i> Media Reports</a>
+					<a href='PartComponents.html' class='item'><i class="wrench icon"></i> Part Components</a>
+					<a href='PersonalityTraits.html' class='item'><i class="user icon"></i> Personality Traits</a>
+					<a href='Sponsors.html' class='item'><i class="pound sign icon"></i> Sponsors</a>
+					<a href='Teams.html' class='item'><i class='users icon'></i> Teams</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='ui container wide'>
+		<div class='centre-section'>
+			<div id='compiler-container'>
+				<div class='centre-text'>
+					<h1>Teams Compiler</h1>
+					<p>Build your team here. Enter your desired values into the inputs below, then click on 'Compile Team!' at the bottom to have the string automatically compiled for you.</p>
+				</div>
+				<div class='ui form spacer'>
+					<h4 class='ui dividing header'>Basic Team Details - Team name, nationality, livery style and other details go here.</h4>
+					<div class='fields'>
+						<div class='four wide field'>
+							<label>Name</label>
+							<input type='text' name='' class='teams' data-content="Full team name." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='three wide field'>
+							<label>Short Name</label>
+							<input type='text' name='' class='teams' data-content="The short name used in various other areas of the game." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Location</label>
+							<input type='text' name='' class='teams' data-content="The country that the team is based/from." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Location ID</label>
+							<input type='text' name='' class='teams' data-content="The ID for the chosen location." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Colour</label>
+							<input type='text' name='' class='teams' data-content="The number ID for the colour set found in Team Colours." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Livery ID</label>
+							<input type='number' name='' class='teams' data-content="The number ID for the livery layout the team will use." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Political Attributes</label>
+							<select name='' class='teams select-reset' data-content="Sets the way the team will vote for various rules when run by the AI." data-position="right center" data-variation="inverted">
+								<option value='Egalitarian'>Egalitarian</option>
+								<option value='Gimmicky'>Gimmicky</option>
+								<option value='Progressive'>Progressive</option>
+								<option value='Traditional'>Traditional</option>
+							</select>
+						</div>
+						<div class='two wide field no-entry'>
+							<label>Team Bio</label>
+							<input type='text' name='' class='teams' value='"Placeholder, not used in-game."' data-content="" data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Rival</label>
+							<input type='number' name='' class='teams' value='0' data-content="The team's rivals. Never used in-game." data-position="bottom left" data-variation="inverted">
+						</div>
+					</div>
+
+					<h4 class='ui dividing header'>Gameplay Details - Things that are relevant to the player when choosing the team go here.</h4>
+					<div class='fields'>
+						<div class='two wide field'>
+							<label>Pressure</label>
+							<select name='' class='teams select-reset' data-content="The difficulty level of the team when run by the player." data-position="right center" data-variation="inverted">
+								<option value='1'>Low</option>
+								<option value='2'>Medium</option>
+								<option value='3'>High</option>
+							</select>
+						</div>
+						<div class='two wide field'>
+							<label>Budget</label>
+							<input type='number' name='' class='teams' value='0' data-content="The cash on hand at the start of the game." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Race Payment Offset</label>
+							<input type='number' name='' class='teams' value='0' data-content="Some kind of modifier for the amount the chairman pays the manager per race. Magnitude of effect is currently unknown, but said to be negligable." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Marketability</label>
+							<select name='' class='teams select-reset' value='0' data-content="The Marketability of the team at game start (does not include drivers)." data-position="right center" data-variation="inverted">
+								<option value='0'>0%</option>
+								<option value='1'>20%</option>
+								<option value='2'>40%</option>
+								<option value='3'>60%</option>
+								<option value='4'>80%</option>
+								<option value='5'>100%</option>
+							</select>
+						</div>
+						<div class='two wide field'>
+							<label>Fan Base</label>
+							<input type='number' name='' class='teams' value='0' data-content="The size of the fanbase for the team at game start." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field no-entry'>
+							<label>Share of Fanbase</label>
+							<input type='number' name='' class='teams' value='1' data-content="" data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Driver Hats</label>
+							<input type='number' name='' class='teams' value='0' data-content="The style of hat the drivers will wear." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Team Shirts</label>
+							<input type='number' name='' class='teams' value='0' data-content="The style of shirt that all team members will wear." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Constructors Exp.</label>
+							<input type='number' name='' class='teams' value='1' data-content="The chairman's expectation for the Constructors' championship at game start." data-position="bottom left" data-variation="inverted">
+						</div>
+					</div>
+					<div class='fields'>
+						<div class='two wide field'>
+							<label>Driver 1 Exp.</label>
+							<input type='number' name='' class='teams' value='1' data-content="The first driver's expected race finish at game start." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Driver 2 Exp.</label>
+							<input type='number' name='' class='teams' value='1' data-content="The second driver's expected race finish at game start." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field no-entry'>
+							<label>Opinions - Manager</label>
+							<input type='number' name='' class='teams' value='50' data-content="" data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field no-entry'>
+							<label>Opinions - Driver 1</label>
+							<input type='number' name='' class='teams' value='50' data-content="" data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field no-entry'>
+							<label>Opinions - Driver 2</label>
+							<input type='number' name='' class='teams' value='50' data-content="" data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Team Description ID</label>
+							<input type='text' name='' class='teams' value='0' data-content="The ID for the team description if using Frontend." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='eight wide field'>
+							<label>Custom Description</label>
+							<input type='text' name='' class='teams' data-content="A custom description that does not have any localisation." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Aggression</label>
+							<input type='number' name='' class='teams' value='0.1' step='0.1' data-content="The aggression of the team when run by the AI." data-position="bottom left" data-variation="inverted">
+						</div>
+					</div>
+
+					<h4 class='ui dividing header'>Finished? Compile the team string below! Copy and paste the result into Teams.txt</h4>
+					<div class='ui fluid input'>
+						<a id='submit' class='ui button'><i class="calculator icon"></i> Compile Team!</a>
+						<input type="text" id='output' value="">
+						<a class='ui red button clear'><i class="eraser icon"></i> Clear All Fields!</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='top-spacer'>
+		<div class='footer'>
+			<div class='ui container'>
+				<div class="ui stackable four column grid centre-text">
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="wrench icon"></i> Useful Modding Tools</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='https://github.com/DerPopo/UABE'>Unity Assets Bundle Extractor (UABE)</a></li>
+				  			<li><a href='https://github.com/0xd4d/dnSpy'>dnSpy</a></li>
+				  		</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="discord icon"></i> Discord Links</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='https://discord.gg/vuAVgRV'>Join TheFlamingRed's Discord Server!</a></li>
+				  		</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class='external alternate icon'></i> Motorsport Manager on the Web</h5>
+				  		<ul class='footer-links'>
+					  		<li><a href='http://www.motorsportmanager.com/'>Motorsport Manager Website</a></li>
+					  		<li><a href='https://store.steampowered.com/app/415200/Motorsport_Manager/'>Motorsport Manager Steam Page</a></li>
+					  		<li><a href='https://www.reddit.com/r/MotorsportManagerPC/'>Motorsport Manager on Reddit</a></li>
+					  	</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="dolly icon"></i> Mods</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='http://blog.theflamingred.com/mm-rebirth-mod/'>Rebirth</a></li>
+				  			<li><a href='https://steamcommunity.com/sharedfiles/filedetails/?id=1196130874'>Rebirth - Phoenix Edition</a></li>
+				  			<li><a href='https://steamcommunity.com/id/briang91/myworkshopfiles/'>My Mods on Steam Workshop!</a></li>
+				  		</ul>
+				  	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js'></script>
+<script type="text/javascript" src='scripts/mmc-teams.js'></script>
+</body>
+</html>

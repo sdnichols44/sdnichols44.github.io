@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Motorsport Manager String Compiler</title>
+	<link rel="stylesheet" type="text/css" href="styles/mmc-css.css">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css'>
+	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+</head>
+<body>
+	
+	<div class='ui fixed menu'>
+		<div class='item'>
+			<h4><img>Motorsport Manager String Compiler</h4>
+		</div>
+		<div class='right menu'>
+			<div class='item'>
+				<a href='index.html' class='ui button'><i class='warehouse icon'></i> Home</a>
+			</div>
+			<div class='item'>
+				<a href='' class='ui button'>Info</a>
+			</div>
+			<div class='ui simple dropdown item'>
+				Compilers 
+				<i class="angle double down icon"></i>
+				<div class='menu'>
+					<a href='Dilemmas.html' class='item'><i class="clipboard list icon"></i> Dilemmas</a>
+					<a href='Drivers.html' class='item'><i class='male icon'></i> Drivers</a>
+					<a href='Interviews.html' class='item'><i class="comments outline icon"></i> Interviews</a>
+					<a href='MediaReports.html' class='item'><i class="newspaper outline icon"></i> Media Reports</a>
+					<a href='PartComponents.html' class='item'><i class="wrench icon"></i> Part Components</a>
+					<a href='PersonalityTraits.html' class='item'><i class="user icon"></i> Personality Traits</a>
+					<a href='Sponsors.html' class='item'><i class="pound sign icon"></i> Sponsors</a>
+					<a href='Teams.html' class='item'><i class='users icon'></i> Teams</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='ui container'>
+		<div class='centre-section'>
+			<h1 class='centre-text'>Motorsport Manager String Compiler</h1>
+		
+		
+			<h3><i class="bullhorn icon"></i> Welcome!</h3>
+			<p> Welcome to my first ever project! I have been learning both front and back-end web development for the past 6 months, and have created this simple web app to test my skills and help myself learn through working alone and pushing the boundaries of my (limited) knowledge. Note that looks weren't the aim here, it was more functionality and usefulness to an end user, and a test of my JavaScript ability.</p>
+
+			<p>I therefore present to you the Motorsport Manager String Compiler, a simple web app that allows modders of the PC version of Motorsport Manager to speed up some aspects of their work while also allowing new modders to get into making their own additions to the game. Currently all additions to areas such as Part Components, Personality Traits and Dilemmas require a rather large time commitment due to the manual nature of making additions, and can have quite a large chance for errors when converting the text files to csv and back again, which some have fallen victim to in the past.</p>
+
+			<p>The purpose of this app is to negate as many of these issues as possible by providing the means for a modder to define what they wish to add via inputs, which will then be arranged for them in the correct format to then be simply pasted into the text files, removing any need to convert files or manually type things out.</p>
+		</div>
+		<hr>
+		<div class='ui two column grid'>
+			<div class='eleven wide column'>
+				<h3><i class="user icon"></i> Personality Traits</h3>
+				<p>Personality Traits are the way drivers take on buffs or de-buffs and add variety in the game. This is an area I've done a lot of work on in the past when adding new traits for Rebirth, and a large source of errors where even one thing out of place can cause crashes when trying to start a new game.</p> 
+
+				<p>Here you'll be able to define all aspects of your trait using the inputs, and the result will be generated for you at the bottom of the page with the correct amount of commas to save you the hassle of counting them! The compiler will also allow you to activate fields for inputs that require you to make <a class='link' href=''>Frontend edits</a> if you wish to add localisation to your traits.</p>
+
+				<a href='PersonalityTraits.html' class='small ui button'><i class="user icon"></i>Make A Trait!</a>
+			</div>
+			<div class='five wide column'>
+				<img class='ui fluid image' src='images/traitlarge.jpg' alt='Personality Traits'>
+			</div>
+		</div>
+		<hr>
+		<div class='ui two column grid'>
+			<div class='five wide column'>
+				<img class='ui fluid image' src='images/componentslarge.jpg' alt='Part Components'>
+			</div>
+			<div class='eleven wide column'>
+				<h3><i class="wrench icon"></i> Part Components</h3>
+				<p>Part Components are the things the player uses to build their new parts during the season. While not as error prone as other areas, it is a rather large time sink when adding large quantities of new parts, with a lot of that time being taken up with writing up the flavour text that the player will see in game.</p>
+
+				<p>The compiler will automatically build the flavour text for you based on the effects of your component, and any bonuses it may carry, leaving you to just defining the rest. As with Personality Traits, you'll also have the option to activate fields that require <a class='link' href=''>Frontend edits</a> if you wish to add localisation to your new components.</p>
+
+				<a href='PartComponents.html' class='small ui button'><i class="wrench icon"></i>Make A Component!</a>
+			</div>
+		</div>
+		<hr>
+		<div class='ui two column grid'>
+			<div class='eleven wide column'>
+				<h3><i class="clipboard list icon"></i> Dilemmas</h3>
+				<p>Dilemmas are the way the game tries to add some variability and action to the period between races and the off-season. We have been wanting to add some new Dilemmas to Rebirth for some time now, but the amount of time and work it takes to do so is quite prohibitive.</p> 
+
+				<p>The compiler here is a little more substantial here as it requires the user to fill in multiple sections and link them appropriately. Dilemmas commonly come in four parts - header, body, button 1, and button 2. There is also sometimes a third button included at the author's discretion. This is also one of the ares of the game which does not require you to add anything to Frontend as all of the localisation fields are included in the file itself.</p>
+
+				<a href='Dilemmas.html' class='small ui button'><i class="clipboard list icon"></i>Make A Dilemma!</a>
+			</div>
+			<div class='five wide column'>
+				<img src=''>
+			</div>
+		</div>
+		<hr>
+		<div class='ui two column grid'>	
+			<div class='five wide column'>
+				<img class='ui fluid image' src=''>
+			</div>
+			<div class='eleven wide column'>
+				<p>The above are just a few of the selection of string compilers I have created, you can find the rest in the dropdown menu on the navbar. More compilers are planned as I am able to get to them. Some of the more complicated areas may take longer, such as Interviews and Frontend, as they either have multiple sections, or are complicated for the user (or me!) to create. However, those that are available are fully functional and should help you as the modder to more efficiently and effectively add your content to the game.</p>
+
+				<p>I really hope you find this tool useful in your creation of additional content for Motorsport Manager, and please do let me know if you find any issues and have any problems using this tool.</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class='top-spacer'>
+		<div class='footer'>
+			<div class='ui container'>
+				<div class="ui stackable four column grid centre-text">
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="wrench icon"></i> Useful Modding Tools</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='https://github.com/DerPopo/UABE'>Unity Assets Bundle Extractor (UABE)</a></li>
+				  			<li><a href='https://github.com/0xd4d/dnSpy'>dnSpy</a></li>
+				  		</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="discord icon"></i> Discord Links</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='https://discord.gg/vuAVgRV'>Join TheFlamingRed's Discord Server!</a></li>
+				  		</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class='external alternate icon'></i> Motorsport Manager on the Web</h5>
+				  		<ul class='footer-links'>
+					  		<li><a href='http://www.motorsportmanager.com/'>Motorsport Manager Website</a></li>
+					  		<li><a href='https://store.steampowered.com/app/415200/Motorsport_Manager/'>Motorsport Manager Steam Page</a></li>
+					  		<li><a href='https://www.reddit.com/r/MotorsportManagerPC/'>Motorsport Manager on Reddit</a></li>
+					  	</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="dolly icon"></i> Mods</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='http://blog.theflamingred.com/mm-rebirth-mod/'>Rebirth</a></li>
+				  			<li><a href='https://steamcommunity.com/sharedfiles/filedetails/?id=1196130874'>Rebirth - Phoenix Edition</a></li>
+				  			<li><a href='https://steamcommunity.com/id/briang91/myworkshopfiles/'>My Mods on Steam Workshop!</a></li>
+				  		</ul>
+				  	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js'></script>
+<script type="text/javascript" src='scripts/mmc-main.js'></script>
+</body>
+</html>

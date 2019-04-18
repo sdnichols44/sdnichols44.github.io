@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Motorsport Manager String Compiler</title>
+	<link rel="stylesheet" type="text/css" href="styles/mmc-css.css">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css'>
+	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+</head>
+<body>
+
+	<div class='ui fixed menu'>
+		<div class='item'>
+			<h4><img>Motorsport Manager String Compiler</h4>
+		</div>
+		<div class='right menu'>
+			<div class='item'>
+				<a href='index.html' class='ui button'><i class='warehouse icon'></i> Home</a>
+			</div>
+			<div class='item'>
+				<a href='' class='ui button'>Info</a>
+			</div>
+			<div class='ui simple dropdown item'>
+				Compilers 
+				<i class="angle double down icon"></i>
+				<div class='menu'>
+					<a href='Dilemmas.html' class='item'><i class="clipboard list icon"></i> Dilemmas</a>
+					<a href='Drivers.html' class='item'><i class='male icon'></i> Drivers</a>
+					<a href='Interviews.html' class='item'><i class="comments outline icon"></i> Interviews</a>
+					<a href='MediaReports.html' class='item'><i class="newspaper outline icon"></i> Media Reports</a>
+					<a href='PartComponents.html' class='item'><i class="wrench icon"></i> Part Components</a>
+					<a href='PersonalityTraits.html' class='item'><i class="user icon"></i> Personality Traits</a>
+					<a href='Sponsors.html' class='item'><i class="pound sign icon"></i> Sponsors</a>
+					<a href='Teams.html' class='item'><i class='users icon'></i> Teams</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='ui container wide'>
+		<div id='compiler-container'>
+			<div class='centre-section'>
+				<div class='centre-text'>
+					<h1>Interviews Compiler</h1>
+					<p>Build your Interview here! Unlike most other compilers, there are multiple compilers on this page, one for each piece of the Interview. When you compile the question, the fields that are required to be identical for all questions are automatically filled for you, to prevent mismatches. However, the fields are left available to you if for some reason you wish to change them to something else, such as in the event you only want to make a new answer set for an existing question.</p>
+					<p>Unlike most other sections, but similar to Dilemmas, Interviews.txt has multiple separate sections that all fit together like a puzzle. The question will set a reference that is then used for the answers to match them together. The answers can then also optionally connect to other questions (both those that already exist in Interviews.txt and those that you are yet to create), or to the conclusion sections already supplied in Interviews.txt. This allows you to both insert your interview question/answers into the chain, or have it always be the final question.</p>
+					<p>Your interview must have a question, and can have between 1 to 4 answers inclusively. It is possible to utilise existing asnwers with your question, but it is advisable to create bespoke answers to your questions. As with Dilemmas, if your sections are not properly linked, you will encounter a range of issues that can be from your question never spawning, questions with no answers attached (which prevents progression), all the way up to and including crashing the game.</p>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class='centre-section'>
+				<div class="ui styled fluid accordion">
+					<div class='ui form'>
+						<div class='title'>
+							<i class="dropdown icon"></i>
+							Interview Question - Define the question content.
+						</div>
+						<div class='content'>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>Game Area</label>
+									<select name='' class='interviews question select-reset ga-master' data-content="These seem to have little bearing on the interview itself, so check use cases to decide what yours should have. The value you enter here is forced into the other compilers when you compile your question." data-position="right center" data-variation="inverted">
+										<option value=''>Blank</option>
+										<option value='Post Race - Interviews'>Post Race - Interviews</option>
+										<option value='Media Interviews'>Media Interviews</option>
+										<option value='Interview Trigger'>Interview Trigger</option>
+										<option value='Interview'>Interview</option>
+										<option value='Interviews'>Interviews</option>
+									</select>
+								</div>
+								<div class='two wide field'>
+									<label>Source</label>
+									<select name='' class='interviews question select-reset s-master' data-content="Sets what circumstances the question will be used." data-position="right center" data-variation="inverted">
+										<option value=''>Blank</option>
+										<option value='InterviewRequests'>InterviewRequests</option>
+										<option value='InterviewButtons'>InterviewButtons</option>
+										<option value='GameStartInterviewRequest'>GameStartInterviewRequest</option>
+										<option value='TeamMoveInterview'>TeamMoveInterview</option>
+										<option value='GameStartInterview'>GameStartInterview</option>
+										<option value='GenericUpcomingVote'>GenericUpcomingVote</option>
+										<option value='PhilosophicalVote'>PhilosophicalVote</option>
+										<option value='PartChangeVote'>PartChangeVote</option>
+										<option value='TrackChangeVote'>TrackChangeVote</option>
+										<option value='TrackLayoutChangeVote'>TrackLayoutChangeVote</option>
+										<option value='TrackRemovalVote'>TrackRemovalVote</option>
+										<option value='UpcomingVoteInterview'>UpcomingVoteInterview</option>
+										<option value='PlayerSupportsVote'>PlayerSupportsVote</option>
+										<option value='PlayerAgainstVote'>PlayerAgainstVote</option>
+										<option value='PostRaceInterview'>PostRaceInterview</option>
+										<option value='PostRaceFiredDriver'>PostRaceFiredDriver</option>
+										<option value='PostRaceInterviewRequest'>PostRaceInterviewRequest</option>
+										<option value='InterviewBookends'>InterviewBookends</option>
+										<option value='NotCurrentlyUsed'>NotCurrentlyUsed</option>
+									</select>
+								</div>
+								<div class='ten wide field'>
+									<label>Criteria</label>
+									<input type='text' name='' class='interviews question' data-content="This links to the Trigger from a previous answer when used on questions, and the Trigger from a question when used on answers. It is also used to set further requirements for the question to be asked, such as a bad race." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Who</label>
+									<input type='text' name='' value='MediaPerson' class='interviews question select-reset' data-content="Who is asking the question (always MediaPerson), or who is answering (always Player)." data-position="bottom left" data-variation="inverted">
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>English/Default</label>
+									<textarea rows='4' name='' class='interviews question localisation-default' data-content="The English/Default language version of your question. This will be used on all blank localisation fields to prevent blank questions." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>ID</label>
+									<input type='text' name='' class='interviews question' data-content="Set a unique ID for your question (PSG_XXXXXXXX)." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Trigger</label>
+									<input type='text' name='' class='interviews question' data-content="Used on questions to link asnwers i.e. 'Type = Answer2' will have all answers with the Criteria 'Type = Answer2'." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='ten wide field'>
+									<label>User Data</label>
+									<input type='text' name='' class='interviews question' data-content="Used to define the effects of answers, or set specific conditions on questions. See Interviews.txt for use cases." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Repeatable</label>
+									<select type='text' name='' class='interviews question select-reset r-master' data-content="Whether this question can be asked again after the first time. Usually left as 'Yes'." data-position="right center" data-variation="inverted">
+										<option value='TRUE'>Yes</option>
+										<option value='FALSE'>No</option>
+									</select>
+								</div>
+								<div class='four wide field'>
+									<label>Memory</label>
+									<input type='text' name='' class='interviews question' data-content="Rarely used, and if it is, then it is used with vote related answers to define a player's stance on a vote, then used as conditions for further vote related questions. See Interviews.txt for use cases." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Notes</label>
+									<input type='text' name='' class='interviews question' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>English Old</label>
+									<input type='text' name='' class='interviews question' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+							</div>
+
+							<h4 class='ui dividing header'>Additional Languages - Add localisation for this section.</h4>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>French</label>
+									<textarea rows='4' name='' class='interviews question localisation' data-content="French localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Italian</label>
+									<textarea rows='4' name='' class='interviews question localisation' data-content="Italian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>German</label>
+									<textarea rows='4' name='' class='interviews question localisation' data-content="German localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Spanish</label>
+									<textarea rows='4' name='' class='interviews question localisation' data-content="Spanish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Brazilian</label>
+									<textarea rows='4' name='' class='interviews question localisation' data-content="Brazilian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Dutch</label>
+									<textarea rows='4' name='' class='interviews question localisation' data-content="Dutch localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Hungarian</label>
+									<textarea rows='4' name='' class='interviews question localisation' data-content="Hungarian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Polish</label>
+									<textarea rows='4' name='' class='interviews question localisation' data-content="Polish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Russian</label>
+									<textarea rows='4' name='' class='interviews question localisation' data-content="Russian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<h4 class='ui dividing header'>Finished? Compile the interview question below! Copy and paste the result into Interviews.txt</h4>
+							<div class='ui fluid input'>
+								<a id='question-submit' class='ui button textarea-submit'><i class="calculator icon"></i> Compile Question!</a>
+								<textarea rows='4' id='question-output' value=""></textarea>
+								<a id='question-clear' class='ui red button clear textarea-clear'><i class="eraser icon"></i> Clear All Fields!</a>
+							</div>
+						</div>
+					</div>
+
+					<div class='ui form'>
+						<div class='title'>
+							<i class="dropdown icon"></i>
+							Interview Answer 1 - Define the content and effects of answer 1.
+						</div>
+						<div class='content'>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>Game Area</label>
+									<select type='text' name='' class='interviews answer-one ga-copy' data-content="Copied from the question if you have compiled one. This must match any question you tie it to." data-position="right center" data-variation="inverted">
+										<option value=''>Blank</option>
+										<option value='Post Race - Interviews'>Post Race - Interviews</option>
+										<option value='Media Interviews'>Media Interviews</option>
+										<option value='Interview Trigger'>Interview Trigger</option>
+										<option value='Interview'>Interview</option>
+										<option value='Interviews'>Interviews</option>
+									</select>
+								</div>
+								<div class='two wide field'>
+									<label>Source</label>
+									<select name='' class='interviews answer-one s-copy' data-content="Copied from the question if you have compiled one. This must match any question you tie it to." data-position="right center" data-variation="inverted">
+										<option value=''>Blank</option>
+										<option value='InterviewRequests'>InterviewRequests</option>
+										<option value='InterviewButtons'>InterviewButtons</option>
+										<option value='GameStartInterviewRequest'>GameStartInterviewRequest</option>
+										<option value='TeamMoveInterview'>TeamMoveInterview</option>
+										<option value='GameStartInterview'>GameStartInterview</option>
+										<option value='GenericUpcomingVote'>GenericUpcomingVote</option>
+										<option value='PhilosophicalVote'>PhilosophicalVote</option>
+										<option value='PartChangeVote'>PartChangeVote</option>
+										<option value='TrackChangeVote'>TrackChangeVote</option>
+										<option value='TrackLayoutChangeVote'>TrackLayoutChangeVote</option>
+										<option value='TrackRemovalVote'>TrackRemovalVote</option>
+										<option value='UpcomingVoteInterview'>UpcomingVoteInterview</option>
+										<option value='PlayerSupportsVote'>PlayerSupportsVote</option>
+										<option value='PlayerAgainstVote'>PlayerAgainstVote</option>
+										<option value='PostRaceInterview'>PostRaceInterview</option>
+										<option value='PostRaceFiredDriver'>PostRaceFiredDriver</option>
+										<option value='PostRaceInterviewRequest'>PostRaceInterviewRequest</option>
+										<option value='InterviewBookends'>InterviewBookends</option>
+										<option value='NotCurrentlyUsed'>NotCurrentlyUsed</option>
+									</select>
+								</div>
+								<div class='ten wide field'>
+									<label>Criteria</label>
+									<input type='text' name='' class='interviews answer-one' data-content="This links to the Trigger from a previous answer when used on questions, and the Trigger from a question when used on answers." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Who</label>
+									<input type='text' name='' value='Player' class='interviews answer-one' data-content="Who is asking the question (always MediaPerson), or who is answering (always Player)." data-position="bottom left" data-variation="inverted">
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>English/Default</label>
+									<textarea rows='4' name='' class='interviews answer-one localisation-default' data-content="The English/Default language version of your answer. This will be used on all blank localisation fields to prevent blank answers." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>ID</label>
+									<input type='text' name='' class='interviews answer-one' data-content="Set a unique ID for your answer (PSG_XXXXXXXX)." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Trigger</label>
+									<input type='text' name='' class='interviews answer-one' data-content="Used on answers to link to new questions or the end of the interview i.e. 'Type = Question2' will then cause the interview to progress to any question with 'Type = Question2' as its Criteria." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='ten wide field'>
+									<label>User Data</label>
+									<input type='text' name='' class='interviews answer-one' data-content="Used to define the effects of answers, or set specific conditions on questions. See Interviews.txt for use cases." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Repeatable</label>
+									<select name='' class='interviews answer-one r-copy' data-content="Whether this answer can spawn again after the first time. Usually left as 'Yes'." data-position="right center" data-variation="inverted">
+										<option value='TRUE'>Yes</option>
+										<option value='FALSE'>No</option>
+									</select>
+								</div>
+								<div class='four wide field'>
+									<label>Memory</label>
+									<input type='text' name='' class='interviews answer-one' data-content="Rarely used, and if it is, then it is used with vote related answers to define a player's stance on a vote, then used as conditions for further vote related questions. See Interviews.txt for use cases." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Notes</label>
+									<input type='text' name='' class='interviews answer-one' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>English Old</label>
+									<input type='text' name='' class='interviews answer-one' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+							</div>
+
+							<h4 class='ui dividing header'>Additional Languages - Add localisation for this section.</h4>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>French</label>
+									<textarea rows='4' name='' class='interviews answer-one localisation' data-content="French localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Italian</label>
+									<textarea rows='4' name='' class='interviews answer-one localisation' data-content="Italian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>German</label>
+									<textarea rows='4' name='' class='interviews answer-one localisation' data-content="German localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Spanish</label>
+									<textarea rows='4' name='' class='interviews answer-one localisation' data-content="Spanish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Brazilian</label>
+									<textarea rows='4' name='' class='interviews answer-one localisation' data-content="Brazilian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Dutch</label>
+									<textarea rows='4' name='' class='interviews answer-one localisation' data-content="Dutch localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Hungarian</label>
+									<textarea rows='4' name='' class='interviews answer-one localisation' data-content="Hungarian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Polish</label>
+									<textarea rows='4' name='' class='interviews answer-one localisation' data-content="Polish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Russian</label>
+									<textarea rows='4' name='' class='interviews answer-one localisation' data-content="Russian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<h4 class='ui dividing header'>Finished? Compile the answer below! Copy and paste the result into Interviews.txt</h4>
+							<div class='ui fluid input'>
+								<a id='answer-one-submit' class='ui button textarea-submit'><i class="calculator icon"></i> Compile Answer!</a>
+								<textarea rows='4' id='answer-one-output' value=""></textarea>
+								<a id='answer-one-clear' class='ui red button clear textarea-clear'><i class="eraser icon"></i> Clear All Fields!</a>
+							</div>
+						</div>
+					</div>
+
+					<div class='ui form'>
+						<div class='title'>
+							<i class="dropdown icon"></i>
+							Interview Answer 2 - Define the content and effects of answer 2.
+						</div>
+						<div class='content'>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>Game Area</label>
+									<select type='text' name='' class='interviews answer-two ga-copy' data-content="Copied from the question if you have compiled one. This must match any question you tie it to." data-position="right center" data-variation="inverted">
+										<option value=''>Blank</option>
+										<option value='Post Race - Interviews'>Post Race - Interviews</option>
+										<option value='Media Interviews'>Media Interviews</option>
+										<option value='Interview Trigger'>Interview Trigger</option>
+										<option value='Interview'>Interview</option>
+										<option value='Interviews'>Interviews</option>
+									</select>
+								</div>
+								<div class='two wide field'>
+									<label>Source</label>
+									<select name='' class='interviews answer-two s-copy' data-content="Copied from the question if you have compiled one. This must match any question you tie it to." data-position="right center" data-variation="inverted">
+										<option value=''>Blank</option>
+										<option value='InterviewRequests'>InterviewRequests</option>
+										<option value='InterviewButtons'>InterviewButtons</option>
+										<option value='GameStartInterviewRequest'>GameStartInterviewRequest</option>
+										<option value='TeamMoveInterview'>TeamMoveInterview</option>
+										<option value='GameStartInterview'>GameStartInterview</option>
+										<option value='GenericUpcomingVote'>GenericUpcomingVote</option>
+										<option value='PhilosophicalVote'>PhilosophicalVote</option>
+										<option value='PartChangeVote'>PartChangeVote</option>
+										<option value='TrackChangeVote'>TrackChangeVote</option>
+										<option value='TrackLayoutChangeVote'>TrackLayoutChangeVote</option>
+										<option value='TrackRemovalVote'>TrackRemovalVote</option>
+										<option value='UpcomingVoteInterview'>UpcomingVoteInterview</option>
+										<option value='PlayerSupportsVote'>PlayerSupportsVote</option>
+										<option value='PlayerAgainstVote'>PlayerAgainstVote</option>
+										<option value='PostRaceInterview'>PostRaceInterview</option>
+										<option value='PostRaceFiredDriver'>PostRaceFiredDriver</option>
+										<option value='PostRaceInterviewRequest'>PostRaceInterviewRequest</option>
+										<option value='InterviewBookends'>InterviewBookends</option>
+										<option value='NotCurrentlyUsed'>NotCurrentlyUsed</option>
+									</select>
+								</div>
+								<div class='ten wide field'>
+									<label>Criteria</label>
+									<input type='text' name='' class='interviews answer-two' data-content="This links to the Trigger from a previous answer when used on questions, and the Trigger from a question when used on answers." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Who</label>
+									<input type='text' name='' value='Player' class='interviews answer-two' data-content="Who is asking the question (always MediaPerson), or who is answering (always Player)." data-position="bottom left" data-variation="inverted">
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>English/Default</label>
+									<textarea rows='4' name='' class='interviews answer-two localisation-default' data-content="The English/Default language version of your answer. This will be used on all blank localisation fields to prevent blank answers." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>ID</label>
+									<input type='text' name='' class='interviews answer-two' data-content="Set a unique ID for your answer (PSG_XXXXXXXX)." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Trigger</label>
+									<input type='text' name='' class='interviews answer-two' data-content="Used on answers to link to new questions or the end of the interview i.e. 'Type = Question2' will then cause the interview to progress to any question with 'Type = Question2' as its Criteria." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='ten wide field'>
+									<label>User Data</label>
+									<input type='text' name='' class='interviews answer-two' data-content="Used to define the effects of answers, or set specific conditions on questions. See Interviews.txt for use cases." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Repeatable</label>
+									<select name='' class='interviews answer-two r-copy' data-content="Whether this answer can spawn again after the first time. Usually left as 'Yes'." data-position="right center" data-variation="inverted">
+										<option value='TRUE'>Yes</option>
+										<option value='FALSE'>No</option>
+									</select>
+								</div>
+								<div class='four wide field'>
+									<label>Memory</label>
+									<input type='text' name='' class='interviews answer-two' data-content="Rarely used, and if it is, then it is used with vote related answers to define a player's stance on a vote, then used as conditions for further vote related questions. See Interviews.txt for use cases." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Notes</label>
+									<input type='text' name='' class='interviews answer-two' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>English Old</label>
+									<input type='text' name='' class='interviews answer-two' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+							</div>
+
+							<h4 class='ui dividing header'>Additional Languages - Add localisation for this section.</h4>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>French</label>
+									<textarea rows='4' name='' class='interviews answer-two localisation' data-content="French localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Italian</label>
+									<textarea rows='4' name='' class='interviews answer-two localisation' data-content="Italian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>German</label>
+									<textarea rows='4' name='' class='interviews answer-two localisation' data-content="German localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Spanish</label>
+									<textarea rows='4' name='' class='interviews answer-two localisation' data-content="Spanish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Brazilian</label>
+									<textarea rows='4' name='' class='interviews answer-two localisation' data-content="Brazilian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Dutch</label>
+									<textarea rows='4' name='' class='interviews answer-two localisation' data-content="Dutch localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Hungarian</label>
+									<textarea rows='4' name='' class='interviews answer-two localisation' data-content="Hungarian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Polish</label>
+									<textarea rows='4' name='' class='interviews answer-two localisation' data-content="Polish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Russian</label>
+									<textarea rows='4' name='' class='interviews answer-two localisation' data-content="Russian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<h4 class='ui dividing header'>Finished? Compile the answer below! Copy and paste the result into Interviews.txt</h4>
+							<div class='ui fluid input'>
+								<a id='answer-two-submit' class='ui button textarea-submit'><i class="calculator icon"></i> Compile Answer!</a>
+								<textarea rows='4' id='answer-two-output' value=""></textarea>
+								<a id='answer-two-clear' class='ui red button clear textarea-clear'><i class="eraser icon"></i> Clear All Fields!</a>
+							</div>
+						</div>
+					</div>
+
+					<div class='ui form'>
+						<div class='title'>
+							<i class="dropdown icon"></i>
+							Interview Answer 3 - Define the content and effects of answer 3.
+						</div>
+						<div class='content'>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>Game Area</label>
+									<select type='text' name='' class='interviews answer-three ga-copy' data-content="Copied from the question if you have compiled one. This must match any question you tie it to." data-position="right center" data-variation="inverted">
+										<option value=''>Blank</option>
+										<option value='Post Race - Interviews'>Post Race - Interviews</option>
+										<option value='Media Interviews'>Media Interviews</option>
+										<option value='Interview Trigger'>Interview Trigger</option>
+										<option value='Interview'>Interview</option>
+										<option value='Interviews'>Interviews</option>
+									</select>
+								</div>
+								<div class='two wide field'>
+									<label>Source</label>
+									<select name='' class='interviews answer-three s-copy' data-content="Copied from the question if you have compiled one. This must match any question you tie it to." data-position="right center" data-variation="inverted">
+										<option value=''>Blank</option>
+										<option value='InterviewRequests'>InterviewRequests</option>
+										<option value='InterviewButtons'>InterviewButtons</option>
+										<option value='GameStartInterviewRequest'>GameStartInterviewRequest</option>
+										<option value='TeamMoveInterview'>TeamMoveInterview</option>
+										<option value='GameStartInterview'>GameStartInterview</option>
+										<option value='GenericUpcomingVote'>GenericUpcomingVote</option>
+										<option value='PhilosophicalVote'>PhilosophicalVote</option>
+										<option value='PartChangeVote'>PartChangeVote</option>
+										<option value='TrackChangeVote'>TrackChangeVote</option>
+										<option value='TrackLayoutChangeVote'>TrackLayoutChangeVote</option>
+										<option value='TrackRemovalVote'>TrackRemovalVote</option>
+										<option value='UpcomingVoteInterview'>UpcomingVoteInterview</option>
+										<option value='PlayerSupportsVote'>PlayerSupportsVote</option>
+										<option value='PlayerAgainstVote'>PlayerAgainstVote</option>
+										<option value='PostRaceInterview'>PostRaceInterview</option>
+										<option value='PostRaceFiredDriver'>PostRaceFiredDriver</option>
+										<option value='PostRaceInterviewRequest'>PostRaceInterviewRequest</option>
+										<option value='InterviewBookends'>InterviewBookends</option>
+										<option value='NotCurrentlyUsed'>NotCurrentlyUsed</option>
+									</select>
+								</div>
+								<div class='ten wide field'>
+									<label>Criteria</label>
+									<input type='text' name='' class='interviews answer-three' data-content="This links to the Trigger from a previous answer when used on questions, and the Trigger from a question when used on answers." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Who</label>
+									<input type='text' name='' value='Player' class='interviews answer-three' data-content="Who is asking the question (always MediaPerson), or who is answering (always Player)." data-position="bottom left" data-variation="inverted">
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>English/Default</label>
+									<textarea rows='4' name='' class='interviews answer-three localisation-default' data-content="The English/Default language version of your answer. This will be used on all blank localisation fields to prevent blank answers." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>ID</label>
+									<input type='text' name='' class='interviews answer-three' data-content="Set a unique ID for your answer (PSG_XXXXXXXX)." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Trigger</label>
+									<input type='text' name='' class='interviews answer-three' data-content="Used on answers to link to new questions or the end of the interview i.e. 'Type = Question2' will then cause the interview to progress to any question with 'Type = Question2' as its Criteria." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='ten wide field'>
+									<label>User Data</label>
+									<input type='text' name='' class='interviews answer-three' data-content="Used to define the effects of answers, or set specific conditions on questions. See Interviews.txt for use cases." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Repeatable</label>
+									<select name='' class='interviews answer-three r-copy' data-content="Whether this answer can spawn again after the first time. Usually left as 'Yes'." data-position="right center" data-variation="inverted">
+										<option value='TRUE'>Yes</option>
+										<option value='FALSE'>No</option>
+									</select>
+								</div>
+								<div class='four wide field'>
+									<label>Memory</label>
+									<input type='text' name='' class='interviews answer-three' data-content="Rarely used, and if it is, then it is used with vote related answers to define a player's stance on a vote, then used as conditions for further vote related questions. See Interviews.txt for use cases." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Notes</label>
+									<input type='text' name='' class='interviews answer-three' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>English Old</label>
+									<input type='text' name='' class='interviews answer-three' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+							</div>
+
+							<h4 class='ui dividing header'>Additional Languages - Add localisation for this section.</h4>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>French</label>
+									<textarea rows='4' name='' class='interviews answer-three localisation' data-content="French localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Italian</label>
+									<textarea rows='4' name='' class='interviews answer-three localisation' data-content="Italian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>German</label>
+									<textarea rows='4' name='' class='interviews answer-three localisation' data-content="German localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Spanish</label>
+									<textarea rows='4' name='' class='interviews answer-three localisation' data-content="Spanish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Brazilian</label>
+									<textarea rows='4' name='' class='interviews answer-three localisation' data-content="Brazilian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Dutch</label>
+									<textarea rows='4' name='' class='interviews answer-three localisation' data-content="Dutch localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Hungarian</label>
+									<textarea rows='4' name='' class='interviews answer-three localisation' data-content="Hungarian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Polish</label>
+									<textarea rows='4' name='' class='interviews answer-three localisation' data-content="Polish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Russian</label>
+									<textarea rows='4' name='' class='interviews answer-three localisation' data-content="Russian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<h4 class='ui dividing header'>Finished? Compile the answer below! Copy and paste the result into Interviews.txt</h4>
+							<div class='ui fluid input'>
+								<a id='answer-three-submit' class='ui button textarea-submit'><i class="calculator icon"></i> Compile Answer!</a>
+								<textarea rows='4' id='answer-three-output' value=""></textarea>
+								<a id='answer-three-clear' class='ui red button clear textarea-clear'><i class="eraser icon"></i> Clear All Fields!</a>
+							</div>
+						</div>
+					</div>
+
+					<div class='ui form'>
+						<div class='title'>
+							<i class="dropdown icon"></i>
+							Interview Answer 4 - Define the content and effects of answer 4.
+						</div>
+						<div class='content'>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>Game Area</label>
+									<select type='text' name='' class='interviews answer-four ga-copy' data-content="Copied from the question if you have compiled one. This must match any question you tie it to." data-position="right center" data-variation="inverted">
+										<option value=''>Blank</option>
+										<option value='Post Race - Interviews'>Post Race - Interviews</option>
+										<option value='Media Interviews'>Media Interviews</option>
+										<option value='Interview Trigger'>Interview Trigger</option>
+										<option value='Interview'>Interview</option>
+										<option value='Interviews'>Interviews</option>
+									</select>
+								</div>
+								<div class='two wide field'>
+									<label>Source</label>
+									<select name='' class='interviews answer-four s-copy' data-content="Copied from the question if you have compiled one. This must match any question you tie it to." data-position="right center" data-variation="inverted">
+										<option value=''>Blank</option>
+										<option value='InterviewRequests'>InterviewRequests</option>
+										<option value='InterviewButtons'>InterviewButtons</option>
+										<option value='GameStartInterviewRequest'>GameStartInterviewRequest</option>
+										<option value='TeamMoveInterview'>TeamMoveInterview</option>
+										<option value='GameStartInterview'>GameStartInterview</option>
+										<option value='GenericUpcomingVote'>GenericUpcomingVote</option>
+										<option value='PhilosophicalVote'>PhilosophicalVote</option>
+										<option value='PartChangeVote'>PartChangeVote</option>
+										<option value='TrackChangeVote'>TrackChangeVote</option>
+										<option value='TrackLayoutChangeVote'>TrackLayoutChangeVote</option>
+										<option value='TrackRemovalVote'>TrackRemovalVote</option>
+										<option value='UpcomingVoteInterview'>UpcomingVoteInterview</option>
+										<option value='PlayerSupportsVote'>PlayerSupportsVote</option>
+										<option value='PlayerAgainstVote'>PlayerAgainstVote</option>
+										<option value='PostRaceInterview'>PostRaceInterview</option>
+										<option value='PostRaceFiredDriver'>PostRaceFiredDriver</option>
+										<option value='PostRaceInterviewRequest'>PostRaceInterviewRequest</option>
+										<option value='InterviewBookends'>InterviewBookends</option>
+										<option value='NotCurrentlyUsed'>NotCurrentlyUsed</option>
+									</select>
+								</div>
+								<div class='ten wide field'>
+									<label>Criteria</label>
+									<input type='text' name='' class='interviews answer-four' data-content="This links to the Trigger from a previous answer when used on questions, and the Trigger from a question when used on answers." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Who</label>
+									<input type='text' name='' value='Player' class='interviews answer-four' data-content="Who is asking the question (always MediaPerson), or who is answering (always Player)." data-position="bottom left" data-variation="inverted">
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>English/Default</label>
+									<textarea rows='4' name='' class='interviews answer-four localisation-default' data-content="The English/Default language version of your answer. This will be used on all blank localisation fields to prevent blank answers." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>ID</label>
+									<input type='text' name='' class='interviews answer-four' data-content="Set a unique ID for your answer (PSG_XXXXXXXX)." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Trigger</label>
+									<input type='text' name='' class='interviews answer-four' data-content="Used on answers to link to new questions or the end of the interview i.e. 'Type = Question2' will then cause the interview to progress to any question with 'Type = Question2' as its Criteria." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='nine wide field'>
+									<label>User Data</label>
+									<input type='text' name='' class='interviews answer-four' data-content="Used to define the effects of answers, or set specific conditions on questions. See Interviews.txt for use cases." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Repeatable</label>
+									<select name='' class='interviews answer-four r-copy' data-content="Whether this answer can spawn again after the first time. Usually left as 'Yes'." data-position="right center" data-variation="inverted">
+										<option value='TRUE'>Yes</option>
+										<option value='FALSE'>No</option>
+									</select>
+								</div>
+								<div class='three wide field'>
+									<label>Memory</label>
+									<input type='text' name='' class='interviews answer-four' data-content="Rarely used, and if it is, then it is used with vote related answers to define a player's stance on a vote, then used as conditions for further vote related questions. See Interviews.txt for use cases." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Notes</label>
+									<input type='text' name='' class='interviews answer-four' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>English Old</label>
+									<input type='text' name='' class='interviews answer-four' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+							</div>
+
+							<h4 class='ui dividing header'>Additional Languages - Add localisation for this section.</h4>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>French</label>
+									<textarea rows='4' name='' class='interviews answer-four localisation' data-content="French localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Italian</label>
+									<textarea rows='4' name='' class='interviews answer-four localisation' data-content="Italian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>German</label>
+									<textarea rows='4' name='' class='interviews answer-four localisation' data-content="German localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Spanish</label>
+									<textarea rows='4' name='' class='interviews answer-four localisation' data-content="Spanish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Brazilian</label>
+									<textarea rows='4' name='' class='interviews answer-four localisation' data-content="Brazilian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Dutch</label>
+									<textarea rows='4' name='' class='interviews answer-four localisation' data-content="Dutch localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Hungarian</label>
+									<textarea rows='4' name='' class='interviews answer-four localisation' data-content="Hungarian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Polish</label>
+									<textarea rows='4' name='' class='interviews answer-four localisation' data-content="Polish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Russian</label>
+									<textarea rows='4' name='' class='interviews answer-four localisation' data-content="Russian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<h4 class='ui dividing header'>Finished? Compile the answer below! Copy and paste the result into Interviews.txt</h4>
+							<div class='ui fluid input'>
+								<a id='answer-four-submit' class='ui button textarea-submit'><i class="calculator icon"></i> Compile Answer!</a>
+								<textarea rows='4' id='answer-four-output' value=""></textarea>
+								<a id='answer-four-clear' class='ui red button clear textarea-clear'><i class="eraser icon"></i> Clear All Fields!</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='top-spacer'>
+		<div class='footer'>
+			<div class='ui container'>
+				<div class="ui stackable four column grid centre-text">
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="wrench icon"></i> Useful Modding Tools</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='https://github.com/DerPopo/UABE'>Unity Assets Bundle Extractor (UABE)</a></li>
+				  			<li><a href='https://github.com/0xd4d/dnSpy'>dnSpy</a></li>
+				  		</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="discord icon"></i> Discord Links</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='https://discord.gg/vuAVgRV'>Join TheFlamingRed's Discord Server!</a></li>
+				  		</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class='external alternate icon'></i> Motorsport Manager on the Web</h5>
+				  		<ul class='footer-links'>
+					  		<li><a href='http://www.motorsportmanager.com/'>Motorsport Manager Website</a></li>
+					  		<li><a href='https://store.steampowered.com/app/415200/Motorsport_Manager/'>Motorsport Manager Steam Page</a></li>
+					  		<li><a href='https://www.reddit.com/r/MotorsportManagerPC/'>Motorsport Manager on Reddit</a></li>
+					  	</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="dolly icon"></i> Mods</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='http://blog.theflamingred.com/mm-rebirth-mod/'>Rebirth</a></li>
+				  			<li><a href='https://steamcommunity.com/sharedfiles/filedetails/?id=1196130874'>Rebirth - Phoenix Edition</a></li>
+				  			<li><a href='https://steamcommunity.com/id/briang91/myworkshopfiles/'>My Mods on Steam Workshop!</a></li>
+				  		</ul>
+				  	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js'></script>
+<script type="text/javascript" src='scripts/mmc-interviews.js'></script>
+</body>
+</html>

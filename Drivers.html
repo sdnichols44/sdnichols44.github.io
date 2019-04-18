@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Motorsport Manager String Compiler</title>
+	<link rel="stylesheet" type="text/css" href="styles/mmc-css.css">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css'>
+	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+</head>
+<body>
+	
+	<div class='ui fixed menu'>
+		<div class='item'>
+			<h4><img>Motorsport Manager String Compiler</h4>
+		</div>
+		<div class='right menu'>
+			<div class='item'>
+				<a href='index.html' class='ui button'><i class='warehouse icon'></i> Home</a>
+			</div>
+			<div class='item'>
+				<a href='' class='ui button'>Info</a>
+			</div>
+			<div class='ui simple dropdown item'>
+				Compilers 
+				<i class="angle double down icon"></i>
+				<div class='menu'>
+					<a href='Dilemmas.html' class='item'><i class="clipboard list icon"></i> Dilemmas</a>
+					<a href='Drivers.html' class='item'><i class='male icon'></i> Drivers</a>
+					<a href='Interviews.html' class='item'><i class="comments outline icon"></i> Interviews</a>
+					<a href='MediaReports.html' class='item'><i class="newspaper outline icon"></i> Media Reports</a>
+					<a href='PartComponents.html' class='item'><i class="wrench icon"></i> Part Components</a>
+					<a href='PersonalityTraits.html' class='item'><i class="user icon"></i> Personality Traits</a>
+					<a href='Sponsors.html' class='item'><i class="pound sign icon"></i> Sponsors</a>
+					<a href='Teams.html' class='item'><i class='users icon'></i> Teams</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='ui container wide'>
+		<div class='centre-section'>
+			<div id='compiler-container'>
+				<div class='centre-text'>
+					<h1>Drivers Compiler</h1>
+					<p>Build your driver here. Enter your desired values into the inputs below, then click on 'Compile Driver!' at the bottom to have the string automatically compiled for you.</p>
+					<p>Some inputs will not accept any entries, they are there merely for completion and any data for them will be automatically generated when the string is compiled.</p>
+				</div>
+				<div class='ui form spacer'>
+					<h4 class='ui dividing header'>Basic Driver Details - Driver name, age, team position etc. goes here.</h4>
+					<div class='fields'>
+						<div class='four wide field'>
+							<label>First Name</label>
+							<input type='text' name='' class='drivers' data-content="The driver's first name." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='four wide field'>
+							<label>Last Name</label>
+							<input type='text' name='' class='drivers' data-content="The driver's surname." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Gender</label>
+							<select name='' class='drivers select-reset' data-content="The driver's gender." data-position="right center" data-variation="inverted">
+								<option value='M'>Male</option>
+								<option value='F'>Female</option>
+							</select>
+						</div>
+						<div class='two wide field'>
+							<label>Team</label>
+							<input type='number' name='' class='drivers' data-content="What team the driver starts at, if any." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Status</label>
+							<select name='' class='drivers select-reset' data-content="What position the driver holds if they are employed. Leave as 'None (Unemployed) if they start the game without a team." data-position="right center" data-variation="inverted">
+								<option value=''>Unemployed</option>
+								<option value='One'>Number One</option>
+								<option value='Two'>Number Two</option>
+								<option value='Equal'>Equal Status</option>
+							</select>
+						</div>
+						<div class='two wide field'>
+							<label>Car</label>
+							<input type='number' name='' class='drivers' value='' data-content="Which car the driver is in if they start in Endurance. Blank if the driver does not start in Endurance, 1 or 2 if they do." data-position="bottom left" data-variation="inverted">
+						</div>
+					</div>
+					<div class='fields'>
+						<div class='four wide field'>
+							<label>Nationality</label>
+							<input type='text' name='' class='drivers' data-content="The driver's home country." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Date of Birth</label>
+							<input type='Date' name='' class='drivers dob' data-content="The driver's birth date." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='four wide field'>
+							<label>Traits</label>
+							<input type='text' name='' class='drivers' data-content="The Personality Traits the driver starts with." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Fame</label>
+							<input type='number' name='' class='drivers' data-content="Required, but no apparent effect on gameplay." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Scouting Level</label>
+							<input type='number' name='' class='drivers' data-content="The Scouting Facility level required to be able to scout the driver." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Weight</label>
+							<input type='number' name='' class='drivers' data-content="The driver's weight in kg." data-position="bottom left" data-variation="inverted">
+						</div>
+					</div>
+
+					<h4 class='ui dividing header'>Driver Contract Settings - Define the driver's contract at game start.</h4>
+					<div class='fields'>
+						<div class='two wide field'>
+							<label>Wages</label>
+							<input type='number' name='' class='drivers' step='0.01' data-content="The driver's wages per year, if they start in a team (1 = 1,000,000)." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Contract End Year</label>
+							<input type='number' name='' class='drivers' value='2016' min='2016' data-content="The year the driver's contract will end, if they are employed." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Contract Start Year</label>
+							<input type='number' name='' class='drivers' value='2016' max='2016' data-content="The year the driver's contract started, if they are employed." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Quali Bonus Amt</label>
+							<input type='number' name='' class='drivers' step='0.01' data-content="The driver's qualification bonus (1 = 1,000,000)." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Quali Bonus Pos.</label>
+							<input type='number' name='' class='drivers' data-content="The required position for the driver to be paid the bonus." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Race Bonus Amt</label>
+							<input type='number' name='' class='drivers' step='0.01' data-content="The driver's race bonus (1 = 1,000,000)." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Race Bonus Pos.</label>
+							<input type='number' name='' class='drivers' data-content="The required position for the driver to be paid the bonus." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Champion Bonus</label>
+							<input type='number' name='' class='drivers' step='0.01' data-content="Unused." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Pay Driver</label>
+							<input type='number' name='' class='drivers' value='0' data-content="Used for drivers that start with the Pay Driver trait, but unknown what the effect is." data-position="bottom left" data-variation="inverted">
+						</div>
+					</div>
+
+					<h4 class='ui dividing header'>Driver Base Stats - Defines the 9 core stats at game start.</h4>
+					<div class='fields'>
+						<div class='two wide field'>
+							<label>Braking</label>
+							<input type='number' name='' class='drivers base-stat' value='0' step='0.01' max='20' data-content="Set the driver's starting Braking, minumum of 0, maximum of 20. Can be to two decimal places." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Cornering</label>
+							<input type='number' name='' class='drivers base-stat' value='0' step='0.01' max='20' data-content="Set the driver's starting Cornering, minumum of 0, maximum of 20. Can be to two decimal places." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Smoothness</label>
+							<input type='number' name='' class='drivers base-stat' value='0' step='0.01' max='20' data-content="Set the driver's starting Smoothness, minumum of 0, maximum of 20. Can be to two decimal places." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Overtaking</label>
+							<input type='number' name='' class='drivers base-stat' value='0' step='0.01' max='20' data-content="Set the driver's starting Overtaking, minumum of 0, maximum of 20. Can be to two decimal places." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Consistency</label>
+							<input type='number' name='' class='drivers base-stat' value='0' step='0.01' max='20' data-content="Set the driver's starting Consistency, minumum of 0, maximum of 20. Can be to two decimal places." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Adaptability</label>
+							<input type='number' name='' class='drivers base-stat' value='0' step='0.01' max='20' data-content="Set the driver's starting Adaptability, minumum of 0, maximum of 20. Can be to two decimal places." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Fitness</label>
+							<input type='number' name='' class='drivers base-stat' value='0' step='0.01' max='20' data-content="Set the driver's starting Fitnes, minumum of 0, maximum of 20. Can be to two decimal places.s" data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Feedback</label>
+							<input type='number' name='' class='drivers base-stat' value='0' step='0.01' max='20' data-content="Set the driver's starting Feedback, minumum of 0, maximum of 20. Can be to two decimal places." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Focus</label>
+							<input type='number' name='' class='drivers base-stat' value='0' step='0.01' max='20' data-content="Set the driver's starting Focus, minumum of 0, maximum of 20. Can be to two decimal places." data-position="bottom left" data-variation="inverted">
+						</div>
+					</div>
+
+					<h4 class='ui dividing header'>Driver Misc Stats - Defines the miscellaneous and hidden stats at game start.</h4>
+					<div class='fields'>
+						<div class='two wide field'>
+							<label>Optimal Zone</label>
+							<input type='number' name='' class='drivers' value='0' data-content="Set the zone in which the driver becomes 'Fired Up' in Endurance." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Driving Style</label>
+							<input type='number' name='' class='drivers' value='50' data-content="Seemingly unused." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Driver Number</label>
+							<input type='number' name='' class='drivers' value='0' data-content="The driver's number, never shown in-game." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field no-entry'>
+							<label>Races</label>
+							<input type='number' name='' class='drivers' data-content="No effect on gameplay, never shown in-game." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field no-entry'>
+							<label>Wins</label>
+							<input type='number' name='' class='drivers' data-content="No effect on gameplay, never shown in-game." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field no-entry'>
+							<label>Podiums</label>
+							<input type='number' name='' class='drivers' data-content="No effect on gameplay, never shown in-game." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field no-entry'>
+							<label>Poles</label>
+							<input type='number' name='' class='drivers' data-content="No effect on gameplay, never shown in-game." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field no-entry'>
+							<label>DNFs</label>
+							<input type='number' name='' class='drivers' data-content="No effect on gameplay, never shown in-game." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field no-entry'>
+							<label>DNFs by Error</label>
+							<input type='number' name='' class='drivers' data-content="No effect on gameplay, never shown in game." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field no-entry'>
+							<label>DNS</label>
+							<input type='number' name='' class='drivers' data-content="No effect on gameplay, never shown in game." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field no-entry'>
+							<label>Career Points</label>
+							<input type='number' name='' class='drivers' data-content="No effect on gameplay, never shown in game." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field no-entry'>
+							<label>Championships</label>
+							<input type='number' name='' class='drivers' data-content="No effect on gameplay, never shown in game." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field no-entry'>
+							<label>Form</label>
+							<input type='number' name='' class='drivers' data-content="No effect on gameplay." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Experience</label>
+							<input type='number' name='' class='drivers' value='0' data-content="Required, but no apparent effect on gameplay." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Morale</label>
+							<input type='number' name='' class='drivers' value='0' data-content="Set the driver's starting morale." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Obedience</label>
+							<input type='number' name='' class='drivers' value='0' data-content="Required, but no apparent effect on gameplay." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Potential</label>
+							<input type='number' name='' class='drivers' value='0' data-content="The driver's potential beyond their specified starting stats." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Patience</label>
+							<input type='number' name='' class='drivers' value='1' min='1' data-content="The driver's patience in contract negotiations. Minimum of 1, unknown maxiumum." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field no-entry'>
+							<label>Chairman Popularity</label>
+							<input type='number' name='' class='drivers' value='50' data-content="No effect on gameplay, never shown in-game." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field no-entry'>
+							<label>Fans Popularity</label>
+							<input type='number' name='' class='drivers' value='50' data-content="No effect on gameplay, never shown in-game." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field no-entry'>
+							<label>Sponsor Popularity</label>
+							<input type='number' name='' class='drivers' value='50' data-content="No effect on gameplay, never shown in-game." data-position="bottom left" data-variation="inverted">
+						</div>
+					</div>
+
+					<h4 class='ui dividing header'>Driver Looks - Set how the driver looks in-game.</h4>
+					<div class='fields'>
+						<div class='three wide field'>
+							<label>Skin Colour</label>
+							<input type='number' name='' class='drivers' value='0' data-content="Set the driver's skin colour." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='three wide field'>
+							<label>Hair</label>
+							<input type='number' name='' class='drivers' value='0' data-content="Set the driver's hair style." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='three wide field'>
+							<label>Hair Colour</label>
+							<input type='number' name='' class='drivers' value='0' data-content="Set the driver's hair colour" data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='three wide field'>
+							<label>Glasses</label>
+							<input type='number' name='' class='drivers' value='0' data-content="Set what glasses the driver will wear, if any." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='three wide field'>
+							<label>Accessory</label>
+							<input type='number' name='' class='drivers' value='0' data-content="Set the accessory the driver will have, if any." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='three wide field'>
+							<label>Facial Hair</label>
+							<input type='number' name='' class='drivers' value='0' data-content="Set the driver's facial hair." data-position="bottom left" data-variation="inverted">
+						</div>
+					</div>
+					<div class='fields'>
+						<div class='three wide field'>
+							<label>Body Type</label>
+							<div class='ui disabled input'>
+								<input type='number' name='' class='drivers' value='0' data-content="" data-position="bottom left" data-variation="inverted">
+							</div>
+						</div>
+						<div class='three wide field'>
+							<label>Hat</label>
+							<input type='number' name='' class='drivers' value='0' data-content="Set what style hat the driver will wear." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='three wide field'>
+							<label>Helmet Style</label>
+							<input type='number' name='' class='drivers' value='0' data-content="" data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='three wide field'>
+							<label>Helmet Primary Colour</label>
+							<input type='number' name='' class='drivers' value='0' data-content="" data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='three wide field'>
+							<label>Helmet Secondary Colour</label>
+							<input type='number' name='' class='drivers' value='0' data-content="" data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='three wide field'>
+							<label>Helmet Third Colour</label>
+							<input type='number' name='' class='drivers' value='0' data-content="" data-position="bottom left" data-variation="inverted">
+						</div>
+					</div>
+
+					<h4 class='ui dividing header'>More Miscellaneous Settings - Set the driver's Marketability, their peak age and other things here.</h4>
+					<div class='fields'>
+						<div class='three wide field'>
+							<label>Marketability</label>
+							<input type='number' name='' class='drivers' value='0' data-content="The driver's base Marketability." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='three wide field'>
+							<label>Brake Supplier Preference</label>
+							<input type='number' name='' class='drivers' value='0' data-content="Required, but unused. Can be left at 0." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='three wide field'>
+							<label>Improvement Rate</label>
+							<input type='number' name='' class='drivers' value='0' data-content="The driver's base improvement rate." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='three wide field'>
+							<label>Peak Duration</label>
+							<input type='number' name='' class='drivers' value='0' data-content="How many years the driver will remain at their peak." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='three wide field'>
+							<label>Peak Age</label>
+							<input type='number' name='' class='drivers' value='15' data-content="The age at which the driver will peak." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='three wide field'>
+							<label>Desired Championships</label>
+							<input type='number' name='' class='drivers' value='0' data-content="How many championships the driver will want to win, seemingly unused." data-position="bottom left" data-variation="inverted">
+						</div>
+					</div>
+					<div class='fields'>
+						<div class='three wide field'>
+							<label>Desired Wins</label>
+							<input type='number' name='' class='drivers' value='0' data-content="How many wins the driver wants, seemingly unused." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='three wide field'>
+							<label>Desired Earnings</label>
+							<input type='number' name='' class='drivers' value='0' data-content="The driver's desired wages, can be left at 0." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='three wide field'>
+							<label>Desired Budget</label>
+							<input type='number' name='' class='drivers' value='100' data-content="The driver's desired team budget, always 100." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='three wide field'>
+							<label>Stars</label>
+							<div class='ui disabled input'>
+								<input type='number' name='' class='drivers autocalc' step='0.01' data-content="The overall star rating of the driver at game start." data-position="bottom left" data-variation="inverted">
+							</div>
+						</div>
+						<div class='three wide field'>
+							<label>Series Preference</label>
+							<select name='' class='drivers select-reset' data-content="The series the driver can compete in." data-position="right center" data-variation="inverted">
+								<option value='Any'>All Series</option>
+								<option value='SingleSeaterSeries'>Single Seaters Only</option>
+								<option value='GTSeries'>GT Only</option>
+								<option value='EnduranceSeries'>Endurance Only</option>
+								<option value='SingleSeaterSeries; GTSeries'>Single Seaters & GT</option>
+								<option value='SingleSeaterSeries; EnduranceSeries'>Single Seaters & Endurance</option>
+								<option value='GTSeries; EnduranceSeries'>GT & Endurance</option>
+							</select>
+						</div>
+						<div class='three wide field'>
+							<label>Reward ID</label>
+							<input type='number' name='' class='drivers' data-content="Set whether a challenge from the Challenge DLC needs to be completed for this driver to be available. Leave blank if none." data-position="bottom left" data-variation="inverted">
+						</div>
+					</div>
+
+
+					<h4 class='ui dividing header'>Finished? Compile the driver string below! Copy and paste the result into Drivers.txt</h4>
+					<div class='ui fluid input'>
+						<a id='submit' class='ui button'><i class="calculator icon"></i> Compile Driver!</a>
+						<input type="text" id='output' value="">
+						<a class='ui red button clear'><i class="eraser icon"></i> Clear All Fields!</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='top-spacer'>
+		<div class='footer'>
+			<div class='ui container'>
+				<div class="ui stackable four column grid centre-text">
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="wrench icon"></i> Useful Modding Tools</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='https://github.com/DerPopo/UABE'>Unity Assets Bundle Extractor (UABE)</a></li>
+				  			<li><a href='https://github.com/0xd4d/dnSpy'>dnSpy</a></li>
+				  		</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="discord icon"></i> Discord Links</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='https://discord.gg/vuAVgRV'>Join TheFlamingRed's Discord Server!</a></li>
+				  		</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class='external alternate icon'></i> Motorsport Manager on the Web</h5>
+				  		<ul class='footer-links'>
+					  		<li><a href='http://www.motorsportmanager.com/'>Motorsport Manager Website</a></li>
+					  		<li><a href='https://store.steampowered.com/app/415200/Motorsport_Manager/'>Motorsport Manager Steam Page</a></li>
+					  		<li><a href='https://www.reddit.com/r/MotorsportManagerPC/'>Motorsport Manager on Reddit</a></li>
+					  	</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="dolly icon"></i> Mods</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='http://blog.theflamingred.com/mm-rebirth-mod/'>Rebirth</a></li>
+				  			<li><a href='https://steamcommunity.com/sharedfiles/filedetails/?id=1196130874'>Rebirth - Phoenix Edition</a></li>
+				  			<li><a href='https://steamcommunity.com/id/briang91/myworkshopfiles/'>My Mods on Steam Workshop!</a></li>
+				  		</ul>
+				  	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js'></script>
+<script type="text/javascript" src='scripts/mmc-drivers.js'></script>
+</body>
+</html>

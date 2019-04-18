@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Motorsport Manager String Compiler</title>
+	<link rel="stylesheet" type="text/css" href="styles/mmc-css.css">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css'>
+	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+</head>
+<body>
+	
+	<div class='ui fixed menu'>
+		<div class='item'>
+			<h4><img>Motorsport Manager String Compiler</h4>
+		</div>
+		<div class='right menu'>
+			<div class='item'>
+				<a href='index.html' class='ui button'><i class='warehouse icon'></i> Home</a>
+			</div>
+			<div class='item'>
+				<a href='' class='ui button'>Info</a>
+			</div>
+			<div class='ui simple dropdown item'>
+				Compilers 
+				<i class="angle double down icon"></i>
+				<div class='menu'>
+					<a href='Dilemmas.html' class='item'><i class="clipboard list icon"></i> Dilemmas</a>
+					<a href='Drivers.html' class='item'><i class='male icon'></i> Drivers</a>
+					<a href='Interviews.html' class='item'><i class="comments outline icon"></i> Interviews</a>
+					<a href='MediaReports.html' class='item'><i class="newspaper outline icon"></i> Media Reports</a>
+					<a href='PartComponents.html' class='item'><i class="wrench icon"></i> Part Components</a>
+					<a href='PersonalityTraits.html' class='item'><i class="user icon"></i> Personality Traits</a>
+					<a href='Sponsors.html' class='item'><i class="pound sign icon"></i> Sponsors</a>
+					<a href='Teams.html' class='item'><i class='users icon'></i> Teams</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='ui container wide'>
+		<div id='compiler-container'>
+			<div class='centre-section'>
+				<div class='centre-text'>
+					<h1 class='centre-text'>Personality Trait Compiler</h1>
+					<p>Build your personality trait here. Enter your desired values into the inputs below, then click on 'Compile Trait!' at the bottom to have the string automatically compiled for you.</p>
+				</div>
+
+				<div class='ui form spacer'>
+					<h4 class="ui dividing header">Basic Trait Details - Set the unique Trait ID, Trait Name and Trait Flavour Text.</h4>
+					<div class="fields">
+					    <div class="two wide field">
+					        <label>Unique Trait ID</label>
+						       <input type="number" name="id" class='personality-traits' data-content="The unique ID of the trait. Can be any unused number." data-position="bottom left" data-variation="inverted">
+					    </div>
+					    <div class="five wide field">
+				        	<label>Trait Name</label>
+					        <input type="text" name="trait-name" class='personality-traits trait-name' data-content="The name of the trait." data-position="bottom left" data-variation="inverted">
+					    </div>
+					    <div class="four wide field">
+				      		<label>Trait Name ID</label>
+					      	<input type="text" name="trait-name-id" class='personality-traits special long-box trait-name-id' data-content="The unique name ID for use in Frontend (PSG_XXXXXXXX)." data-position="bottom left" data-variation="inverted">
+					    </div>
+					    <div class="five wide field">
+					      	<label>Custom Trait Name</label>
+					      	<input type="text" name="custom-trait-name" class='personality-traits' data-content="The name of the trait." data-position="bottom left" data-variation="inverted">
+					    </div>
+				  	</div>
+				  	<div class='fields'>
+				  		<div class='five wide field'>
+				  			<label>Trait Description</label>
+					  		<input type="text" name="trait-desc" class='personality-traits trait-description' data-content="The flavour text of the trait." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='five wide field'>
+				  			<label>Trait Description ID</label>
+					  		<input type="text" name="desc-id" class='personality-traits special trait-description-id' data-content="The unique flavour text ID for use in Frontend (PSG_XXXXXXXX)." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='six wide field'>
+					  		<label>Custom Trait Description</label>
+					  		<input type="text" name="custom-trait-name" class='personality-traits' data-content="The flavour text of the trait." data-position="bottom left" data-variation="inverted">
+					  	</div>
+				  	</div>
+
+				  	<h4 class="ui dividing header">Requirements and Settings - Set the conditions where a Trait can occur, how long it lasts, and it's interaction with other Traits.</h4>
+				  	<div class='fields'>
+				  		<div class='two wide field'>
+					  		<label>Type</label>
+					  		<select class='personality-traits special select-reset' data-content="Whether the trait is Temporary or Permanent." data-position="right center" data-variation="inverted">
+								<option value='Temp' selected='true'>Temporary</option>
+								<option value='Permanent'>Permanent</option>
+							</select>
+					  	</div>
+					  	<div class='two wide field'>
+					  		<label>Repeatable</label>
+					  		<select class='personality-traits special select-reset' data-content="Whether the trait can be repeated." data-position="right center" data-variation="inverted">
+								<option value='' selected='true'>N/A</option>
+								<option value='Yes'>Yes</option>
+							</select>
+					  	</div>
+					  	<div class='two wide field'>
+					  		<label>Duration</label>
+					  		<input type="text" name="length" class='personality-traits special' data-content="How long the trait will last for in weeks. This can be a fixed duration, or a range (e.g. 2-10). If your trait is to be permanent, you can leave this blank." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='two wide field'>
+					  		<label>Event Trigger</label>
+					  		<select class='personality-traits special select-reset' data-content="Used to set whether the trait can only be rolled after a race." data-position="right center" data-variation="inverted">
+								<option value='' selected='true'>none</option>
+								<option value='PostRace'>Post Race</option>
+							</select>
+					  	</div>
+					  	<div class='six wide field'>
+					  		<label>Additional Requirements</label>
+					  		<input type="text" name="req" class='personality-traits special' data-content="Further specific conditions that must return true before the trait can be rolled, a list of which can be found on the info page." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='two wide field'>
+					  		<label>Probability</label>
+					  		<input type="number" name="probability" class='personality-traits' data-content="How likely the trait is to be rolled at the next available opportunity ranging from 1 to 100, usually used on temporary traits. Leave blank if you only want a trait to be rolled on new drivers." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					</div>
+					<div class='fields'>
+					  	<div class='six wide field'>
+					  		<label>Evolves Into</label>
+					  		<input type="text" name="evolves" class='personality-traits special' data-content="When the current trait expires it can change into a new one, which can be specified by the Trait ID. For multiple options, split the IDs with semicolons, e.g. 301; 302; 303 and so on." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='four wide field'>
+					  		<label>Opposites</label>
+					  		<input type="text" name="opposites" class='personality-traits special' data-content="Traits that are the opposite to the current one, and therefore cannot be rolled while this trait is active, specified by the Trait ID. For multiple opposites, split the IDs with semicolons, e.g. 301; 302; 303 and so on." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='six wide field'>
+					  		<label>Removes Traits</label>
+					  		<input type="text" name="removes" class='personality-traits special' data-content="When this trait is rolled or added, it will remove the ones with the IDs specified here. For multiple options, split the IDs with semicolons, e.g. 301; 302; 303 and so on." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					</div>
+
+					<h4 class="ui dividing header">Emails and Messages - Set additional messages that are sent to the player when your trait is rolled or expires on all drivers, just your own, or none at all.</h4>
+					<div class='fields'>
+					  	<div class='six wide field'>
+					  		<label>Triggers Message</label>
+					  		<input type="text" name="triggers" class='personality-traits special' data-content="You can set whether an email or news report is spawned when your trait is rolled. Syntax is 'Source = MyMessage'. Your message will need to be created in MediaReports.txt." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='six wide field'>
+					  		<label>Triggers Message on End</label>
+					  		<input type="text" name="triggers-end" class='personality-traits special' data-content="You can set whether an email or news report is spawned when your trait ends. Syntax is 'Source = MyMessage'. Your message will need to be created in MediaReports.txt." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='four wide field'>
+					  		<label>Shown</label>
+				  			<select class='personality-traits special select-reset' data-content="Sets who recieves the email or news report when the trait is rolled or ends." data-position="right center" data-variation="inverted">
+								<option value='' selected='true'>Any Driver</option>
+								<option value='PlayerDriverOnly'>Only Player Drivers</option>
+							</select>
+					  	</div>
+					</div>
+
+					<h4 class="ui dividing header">Base Driver Stat Modifiers - Set the effect of your trait on the driver's core stats, either all at once with the use of Overall, or just on specific stats.</h4>
+					<div class='fields'>
+					  	<div class='two wide field'>
+					  		<label>Overall</label>
+					  		<input type="number" name="all" class='personality-traits' data-content="Adds or subtracts a value to all 9 of the main driver stats." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='two wide field'>
+					  		<label>Braking</label>
+					  		<input type="number" name="braking" class='personality-traits' data-content="Adds or subtracts a value to the driver's Braking." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='two wide field'>
+					  		<label>Cornering</label>
+					  		<input type="number" name="cornering" class='personality-traits' data-content="Adds or subtracts a value to the driver's Cornering." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='two wide field'>
+					  		<label>Smoothness</label>
+					  		<input type="number" name="smoothness" class='personality-traits' data-content="Adds or subtracts a value to the driver's Smoothness." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='two wide field'>
+					  		<label>Overtaking</label>
+					  		<input type="number" name="overtaking" class='personality-traits' data-content="Adds or subtracts a value to the driver's Overtaking." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='two wide field'>
+					  		<label>Consistency</label>
+					  		<input type="number" name="consistency" class='personality-traits' data-content="Adds or subtracts a value to the driver's Consistency." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='two wide field'>
+					  		<label>Adaptability</label>
+					  		<input type="number" name="adaptability" class='personality-traits' data-content="Adds or subtracts a value to the driver's Adaptability." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='two wide field'>
+					  		<label>Fitness</label>
+					  		<input type="number" name="fitness" class='personality-traits' data-content="Adds or subtracts a value to the driver's Fitness." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='two wide field'>
+					  		<label>Feedback</label>
+					  		<input type="number" name="feeback" class='personality-traits' data-content="Adds or subtracts a value to the driver's Feedback." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='two wide field'>
+					  		<label>Focus</label>
+					  		<input type="number" name="focus" class='personality-traits' data-content="Adds or subtracts a value to the driver's Focus." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					</div>
+
+					<h4 class="ui dividing header">Special Cases - Set whether your trait will only work in specific circumstances, for example during a race, or if the driver is in a specific series. Check <a href='info.html' class='link'>Info</a> for the full list of Special Cases.</h4>
+					<div class='fields'>
+					  	<div class='four wide field'>
+					  		<label>Special Case</label>
+					  		<input type="text" name="special-case" class='personality-traits special' data-content="A special effect that the trait has, such as specific criteria. A list of which can be found on the info page." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='eight wide field'>
+					  		<label>Special Case Text</label>
+					  		<input type="text" name="special-case-text" class='personality-traits special' data-content="Text that is not used by the game, but for notes to future users of this txt. The text can be found in the list of Special Cases." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='four wide field'>
+					  		<label>Special Case Description</label>
+					  		<input type="text" name="special-case-desc" class='personality-traits special' data-content="The ID for the text that will show on the trait in-game card. The IDs can be found in the list of Special Cases." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					</div>
+
+					<h4 class="ui dividing header">Other Stat Modifiers - Set the effect your trait will have on non-driving stats such as Marketability and Chairman Happiness.</h4>
+					<div class='fields'>
+					  	<div class='three wide field'>
+					  		<label>Marketability</label>
+					  		<input type="number" name="marketability" class='personality-traits' data-content="Adds or subtracts a value to the driver's Marketability." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='three wide field'>
+					  		<label>Morale</label>
+					  		<input type="number" name="morale" class='personality-traits' data-content="Adds or subtracts a value to the driver's Morale." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='three wide field'>
+					  		<label>Mechanic Relationship</label>
+					  		<input type="number" name="mech-rel" class='personality-traits' data-content="Adds or subtracts a value to the driver's relationship with their mechanic." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='three wide field'>
+					  		<label>Teammate Morale</label>
+					  		<input type="number" name="teammate-morale" class='personality-traits' data-content="Adds or subtracts a value to the driver's teammate's Morale." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='three wide field'>
+					  		<label>Chairman Happiness</label>
+					  		<input type="number" name="chairman-happiness" class='personality-traits' data-content="Adds or subtracts a value to the team's Chairman's Happiness." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='three wide field'>
+					  		<label>Improvability</label>
+					  		<input type="number" name="improve" class='personality-traits' data-content="Adds or subtracts a value to the driver's hidden Improvability." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					</div>
+					<div class='fields'>
+					  	<div class='three wide field'>
+					  		<label>Potential</label>
+					  		<input type="number" name="potential" class='personality-traits' data-content="Adds or subtracts a value to the driver's Potential." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='three wide field'>
+					  		<label>Fuel Burn</label>
+					  		<input type="number" name="fuel-use" class='personality-traits' data-content="Adds or subtracts a value to the driver's fuel usage (speculated to be in percent per lap)." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='three wide field'>
+					  		<label>Tyre Wear</label>
+					  		<input type="number" name="tyre-wear" class='personality-traits' data-content="Adds or subtracts a value to the driver's tyre wear (speculated to be in percent per lap)." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='three wide field'>
+					  		<label>Desired Wins</label>
+					  		<input type="number" name="wins" class='personality-traits' data-content="How many wins the driver wants before they will retire." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='three wide field'>
+					  		<label>Desired Earnings</label>
+					  		<input type="number" name="earnings" class='personality-traits' data-content="Adds or subtracts a value to the driver's desired wages (in thousands)." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					  	<div class='three wide field'>
+					  		<label>Patience</label>
+					  		<input type="number" name="patience" class='personality-traits' data-content="Adds or subtracts a value to the driver's Patience in negotiations." data-position="bottom left" data-variation="inverted">
+					  	</div>
+					</div>
+
+					<h4 class='ui dividing header'>Finished? Compile the trait string below! Copy and paste the result into Personality Traits.txt</h4>
+					<div class='ui fluid input'>
+						<a id='submit' class='ui button'><i class="calculator icon"></i> Compile Trait!</a>
+						<input type="text" id='output' value="">
+						<a class='ui red button clear'><i class="eraser icon"></i> Clear All Fields!</a>
+					</div>	
+				</div>
+
+				<hr class='spacer'>
+
+				<div class='centre-text spacer'>
+					<h1>Personality Traits/Frontend Compilers</h1>
+					<p>Supplied here are compilers for the name and description Frontend entries, if you chose to use this method. The entries for name, name ID, description and description ID have been autofilled for you. All you need to do is add the localisation as you see fit and set the correct Source.</p>
+					<h4>IF YOU ARE NOT ADDING LOCALISATION, USE THE CUSTOM FIELDS PROVIDED ON THE MAIN COMPILER FORM!</h4>
+				</div>
+
+				<div class="ui styled fluid accordion spacer">
+					<div class='ui form'>
+						<div class='title'>
+							<i class="dropdown icon"></i>
+							Personality Trait Name - Set the trait name Frontend entry here.
+						</div>
+						<div class='content'>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>Game Area</label>
+									<input type='text' name='' value='DriverScreen' class='personality-traits-frontend trait-name-frontend' data-content="The area of the game that the Frontend entry will relate to - always DriverScreen for Personality Traits." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Source</label>
+									<select name='' class='personality-traits-frontend trait-name-frontend select-reset' data-content="There is no documentation on what effects either option in this list has, so check Frontend.txt for use cases." data-position="right center" data-variation="inverted">
+										<option value='PersonalityTraits'>PersonalityTraits</option>
+										<option value='RacingTraits'>RacingTraits</option>
+										<option value='TemporaryTraits'>TemporaryTraits</option>
+										<option value='Traits'>Traits</option>
+										<option value='Trait Description'>Trait Description</option>
+									</select>
+								</div>
+								<div class='ten wide field no-entry'>
+									<label>Criteria</label>
+									<input type='text' name='' class='personality-traits-frontend trait-name-frontend' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Who</label>
+									<input name='' class='personality-traits-frontend trait-name-frontend' value='HUDText' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>English/Default</label>
+									<textarea rows='4' name='' class='personality-traits-frontend localisation-default trait-name-frontend' data-content="The English/Default language version of your trait name. This will be used on all blank localisation fields to prevent blank names (which show as PSG errors in game)." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='three wide field'>
+									<label>ID</label>
+									<input type='text' name='' class='personality-traits-frontend trait-name-frontend' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Trigger</label>
+									<input type='text' name='' class='personality-traits-frontend trait-name-frontend' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='ten wide field no-entry'>
+									<label>User Data</label>
+									<input type='text' name='' class='personality-traits-frontend trait-name-frontend' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Memory</label>
+									<input type='text' name='' class='personality-traits-frontend trait-name-frontend' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Notes</label>
+									<input type='text' name='' class='personality-traits-frontend trait-name-frontend' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>English Old</label>
+									<input type='text' name='' class='personality-traits-frontend trait-name-frontend' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+							</div>
+
+							<h4 class='ui dividing header'>Additional Languages - Add localisation for this section.</h4>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>French</label>
+									<textarea rows='4' name='' class='personality-traits-frontend localisation trait-name-frontend' data-content="French localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Italian</label>
+									<textarea rows='4' name='' class='personality-traits-frontend localisation trait-name-frontend' data-content="Italian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>German</label>
+									<textarea rows='4' name='' class='personality-traits-frontend localisation trait-name-frontend' data-content="German localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Spanish</label>
+									<textarea rows='4' name='' class='personality-traits-frontend localisation trait-name-frontend' data-content="Spanish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Brazilian</label>
+									<textarea rows='4' name='' class='personality-traits-frontend localisation trait-name-frontend' data-content="Brazilian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Dutch</label>
+									<textarea rows='4' name='' class='personality-traits-frontend localisation trait-name-frontend' data-content="Dutch localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Hungarian</label>
+									<textarea rows='4' name='' class='personality-traits-frontend localisation trait-name-frontend' data-content="Hungarian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Polish</label>
+									<textarea rows='4' name='' class='personality-traits-frontend localisation trait-name-frontend' data-content="Polish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Russian</label>
+									<textarea rows='4' name='' class='personality-traits-frontend localisation trait-name-frontend' data-content="Russian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<h4 class='ui dividing header'>Finished? Compile the header below! Copy and paste the result into MediaReports.txt</h4>
+							<div class='ui fluid input'>
+								<a id='frontend-submit' class='ui button textarea-submit'><i class="calculator icon"></i> Compile Header!</a>
+								<textarea rows='4' class='frontend-output' value=""></textarea>
+								<a id='frontend-clear' class='ui red button clear textarea-clear'><i class="eraser icon"></i> Clear All Fields!</a>
+							</div>
+						</div>
+					</div>
+
+					<div class='ui form'>
+						<div class='title'>
+							<i class="dropdown icon"></i>
+							Personality Trait Description - Set the trait description Frontend entry here.
+						</div>
+						<div class='content'>
+							<div class='fields'>
+								<div class='two wide field'>
+									<label>Game Area</label>
+									<input type='text' name='' value='DriverScreen' class='personality-traits-frontend trait-description-frontend' data-content="he area of the game that the Frontend entry will relate to - always DriverScreen for Personality Traits." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Source</label>
+									<select name='' class='personality-traits-frontend trait-description-frontend' data-content="There is no documentation on what effects either option in this list has, so check Frontend.txt for use cases." data-position="right center" data-variation="inverted">
+										<option value='PersonalityTraits'>PersonalityTraits</option>
+										<option value='RacingTraits'>RacingTraits</option>
+										<option value='TemporaryTraits'>TemporaryTraits</option>
+										<option value='Traits'>Traits</option>
+										<option value='Trait Description'>Trait Description</option>
+									</select>
+								</div>
+								<div class='ten wide field no-entry'>
+									<label>Criteria</label>
+									<input type='text' name='' class='personality-traits-frontend trait-description-frontend' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='two wide field'>
+									<label>Who</label>
+									<input name='' class='personality-traits-frontend trait-description-frontend' value='HUDText' data-content="Always HUDText for Personality Traits." data-position="bottom left" data-variation="inverted">
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>English/Default</label>
+									<textarea rows='4' name='' class='personality-traits-frontend localisation-default trait-description-frontend' data-content="The English/Default language version of your trait description. This will be used on all blank localisation fields to prevent blank descriptions (which show as PSG errors in game)." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<div class='fields'>
+								<div class='three wide field'>
+									<label>ID</label>
+									<input type='text' name='' class='personality-traits-frontend trait-description-frontend' data-content="The ID of the trait description in Personality Traits." data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Trigger</label>
+									<input type='text' name='' class='personality-traits-frontend trait-description-frontend' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='ten wide field no-entry'>
+									<label>User Data</label>
+									<input type='text' name='' class='personality-traits-frontend trait-description-frontend' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Memory</label>
+									<input type='text' name='' class='personality-traits-frontend trait-description-frontend' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>Notes</label>
+									<input type='text' name='' class='personality-traits-frontend trait-description-frontend' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+								<div class='four wide field no-entry'>
+									<label>English Old</label>
+									<input type='text' name='' class='personality-traits-frontend trait-description-frontend' data-content="" data-position="bottom left" data-variation="inverted">
+								</div>
+							</div>
+
+							<h4 class='ui dividing header'>Additional Languages - Add localisation for this section.</h4>
+							<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>French</label>
+									<textarea rows='4' name='' class='personality-traits-frontend localisation trait-description-frontend' data-content="French localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Italian</label>
+									<textarea rows='4' name='' class='personality-traits-frontend localisation trait-description-frontend' data-content="Italian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>German</label>
+									<textarea rows='4' name='' class='personality-traits-frontend localisation trait-description-frontend' data-content="German localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Spanish</label>
+									<textarea rows='4' name='' class='personality-traits-frontend localisation trait-description-frontend' data-content="Spanish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Brazilian</label>
+									<textarea rows='4' name='' class='personality-traits-frontend localisation trait-description-frontend' data-content="Brazilian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Dutch</label>
+									<textarea rows='4' name='' class='personality-traits-frontend localisation trait-description-frontend' data-content="Dutch localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Hungarian</label>
+									<textarea rows='4' name='' class='personality-traits-frontend localisation trait-description-frontend' data-content="Hungarian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Polish</label>
+									<textarea rows='4' name='' class='personality-traits-frontend localisation trait-description-frontend' data-content="Polish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+								<div class='fields'>
+								<div class='sixteen wide field'>
+									<label>Russian</label>
+									<textarea rows='4' name='' class='personality-traits-frontend localisation trait-description-frontend' data-content="Russian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+								</div>
+							</div>
+							<h4 class='ui dividing header'>Finished? Compile the header below! Copy and paste the result into MediaReports.txt</h4>
+							<div class='ui fluid input'>
+								<a id='frontend-submit' class='ui button textarea-submit'><i class="calculator icon"></i> Compile Header!</a>
+								<textarea rows='4' class='frontend-output' value=""></textarea>
+								<a id='frontend-clear' class='ui red button clear textarea-clear'><i class="eraser icon"></i> Clear All Fields!</a>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='top-spacer'>
+		<div class='footer'>
+			<div class='ui container'>
+				<div class="ui stackable four column grid centre-text">
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="wrench icon"></i> Useful Modding Tools</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='https://github.com/DerPopo/UABE'>Unity Assets Bundle Extractor (UABE)</a></li>
+				  			<li><a href='https://github.com/0xd4d/dnSpy'>dnSpy</a></li>
+				  		</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="discord icon"></i> Discord Links</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='https://discord.gg/vuAVgRV'>Join TheFlamingRed's Discord Server!</a></li>
+				  		</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class='external alternate icon'></i> Motorsport Manager on the Web</h5>
+				  		<ul class='footer-links'>
+					  		<li><a href='http://www.motorsportmanager.com/'>Motorsport Manager Website</a></li>
+					  		<li><a href='https://store.steampowered.com/app/415200/Motorsport_Manager/'>Motorsport Manager Steam Page</a></li>
+					  		<li><a href='https://www.reddit.com/r/MotorsportManagerPC/'>Motorsport Manager on Reddit</a></li>
+					  	</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="dolly icon"></i> Mods</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='http://blog.theflamingred.com/mm-rebirth-mod/'>Rebirth</a></li>
+				  			<li><a href='https://steamcommunity.com/sharedfiles/filedetails/?id=1196130874'>Rebirth - Phoenix Edition</a></li>
+				  			<li><a href='https://steamcommunity.com/id/briang91/myworkshopfiles/'>My Mods on Steam Workshop!</a></li>
+				  		</ul>
+				  	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js'></script>
+<script type="text/javascript" src='scripts/mmc-ptraits.js'></script>
+</body>
+</html>

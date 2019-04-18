@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Motorsport Manager String Compiler</title>
+	<link rel="stylesheet" type="text/css" href="styles/mmc-css.css">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css'>
+	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+</head>
+<body>
+
+	<div class='ui fixed menu'>
+		<div class='item'>
+			<h4><img>Motorsport Manager String Compiler</h4>
+		</div>
+		<div class='right menu'>
+			<div class='item'>
+				<a href='index.html' class='ui button'><i class='warehouse icon'></i> Home</a>
+			</div>
+			<div class='item'>
+				<a href='' class='ui button'>Info</a>
+			</div>
+			<div class='ui simple dropdown item'>
+				Compilers 
+				<i class="angle double down icon"></i>
+				<div class='menu'>
+					<a href='Dilemmas.html' class='item'><i class="clipboard list icon"></i> Dilemmas</a>
+					<a href='Drivers.html' class='item'><i class='male icon'></i> Drivers</a>
+					<a href='Interviews.html' class='item'><i class="comments outline icon"></i> Interviews</a>
+					<a href='MediaReports.html' class='item'><i class="newspaper outline icon"></i> Media Reports</a>
+					<a href='PartComponents.html' class='item'><i class="wrench icon"></i> Part Components</a>
+					<a href='PersonalityTraits.html' class='item'><i class="user icon"></i> Personality Traits</a>
+					<a href='Sponsors.html' class='item'><i class="pound sign icon"></i> Sponsors</a>
+					<a href='Teams.html' class='item'><i class='users icon'></i> Teams</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='ui container wide'>
+		<div class='centre-section'>
+			<div id='compiler-container'>
+				<div class='centre-text'>
+					<h1>Sponsors Compiler</h1>
+					<p>Build your sponsor here. Enter your desired values into the inputs below, then click on 'Compile Sponsor!' at the bottom to have the string automatically compiled for you.</p>
+					<p>Some inputs will not accept any entries, they are there merely for completion and any data for them will be automatically generated when the string is compiled.</p>
+				</div>
+				<div class='ui form spacer'>
+					<h4 class='ui dividing header'>Basic Sponsor Details - Sponsor name, nationality, logo and other details go here.</h4>
+					<div class='fields'>
+						<div class='four wide field'>
+							<label>Name</label>
+							<input type='text' name='sponsor-name' class='sponsors' data-content="Name of the sponsor." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='three wide field'>
+							<label>Nationality</label>
+							<input type='text' name='sponsor-country' class='sponsors' data-content="Nationality of the sponsor." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Logo Index</label>
+							<input type='number' name='sponsor-logoid' class='sponsors' data-content="Index number of the sponsor logo." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Category</label>
+							<input type='text' name='sponsor-sector' class='sponsors' data-content="The business sector of the sponsor." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Prestige</label>
+							<select type='text' name='sponsor-rating' class='sponsors' data-content="The star rating of the sponsor." data-position="right center" data-variation="inverted">
+								<option value='1'>1-star</option>
+								<option value='2'>2-star</option>
+								<option value='3'>3-star</option>
+								<option value='4'>4-star</option>
+								<option value='5'>5-star</option>
+							</select>
+						</div>
+						<div class='two wide field'>
+							<label>Slot</label>
+							<input type='number' name='sponsor-slot' class='sponsors' data-content="Which slot the sponsor will be in on the car. Slots 1, 3 and 5 are generally for placement bonus sponsors, while 2, 4, and 6 are generally used for fixed per-race payment sponsors." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Team Sponsoring</label>
+							<input type='text' name='sponsor-gamestart' class='sponsors' data-content="Which teams the sponsor is already applied to at game start." data-position="bottom left" data-variation="inverted">
+						</div>
+					</div>
+
+					<h4 class='ui dividing header'>Sponsor Payment Settings - Decide how much the sponsor pays, and under which conditions.</h4>
+					<div class='fields'>
+						<div class='two wide field'>
+							<label>Upfront Value</label>
+							<input type='number' name='sponsor-upfront' class='sponsors' data-content="The amount the sponsor pays as soon as the deal is accepted (1 = 1,000,000 of the player's currency)." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Home Bonus Value</label>
+							<input type='number' name='sponsor-home-bonus' class='sponsors nil' value='0' data-content="The multiplier for any race placement bonus (2 = 2x)." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Bonus Difficulty</label>
+							<div class='ui disabled input'>
+								<input type='number' name='sponsor-bonus-diff' class='sponsors' data-content="The finish requirement range for the sponsor." data-position="bottom left" data-variation="inverted">
+							</div>
+						</div>
+						<div class='two wide field'>
+							<label>Bonus Target</label>
+							<input type='number' name='sponsor-bonus-target' class='sponsors' data-content="The finish requirement based on a field of 20 cars (scales for more or less)." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Bonus Amount</label>
+							<input type='number' name='sponsor-bonus-amount' class='sponsors' data-content="The amount payable for finishing above the required place (1 = 1,000,000)." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Per Race Payment</label>
+							<input type='number' name='sponsor-per-race' class='sponsors' data-content="The fixed amount the sponsor will pay per race (1 = 1,000,000 of the player's currency)." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Deal Length</label>
+							<input type='number' name='sponsor-deal-length' class='sponsors' data-content="How many races the deal will last for." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Deal Total</label>
+							<div class='ui disabled input'>
+								<input type='text' name='sponsor-deal-total' class='sponsors' data-content="The total value of the deal assuming the maximum payout every race." data-position="bottom left" data-variation="inverted">
+							</div>
+						</div>
+						<div class='two wide field'>
+							<label>Deal Value</label>
+							<div class='ui disabled input'>
+								<input type='text' name='sponsor-deal-value' class='sponsors' data-content="The value of the deal on a per race basis, assuming maximum payout, over the deal length." data-position="bottom left" data-variation="inverted">
+							</div>
+						</div>
+					</div>
+
+					<h4 class='ui dividing header'>Cooldown Lengths - Set the cooldown time in days in various scenarios.</h4>
+					<div class='fields'>
+						<div class='four wide field'>
+							<label>Offer Timer</label>
+							<input type='number' name='sponsor-offer-timer' class='sponsors nil' value='0' data-content="How many races before the deal offer expires." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='four wide field'>
+							<label>Offer Cooldown</label>
+							<input type='number' name='sponsor-offer-cooldown' class='sponsors nil' value='0' data-content="How many days must pass before the sponsor can be rolled again." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='four wide field'>
+							<label>Starting Cooldown</label>
+							<input type='number' name='sponsor-starting-cooldown' class='sponsors nil' value='0' data-content="How many days must pass from game start before the sponsor can be rolled." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='four wide field'>
+							<label>Days After</label>
+							<input type='number' name='sponsor-days-after' class='sponsors nil' value='0' data-content="Unknown." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='four wide field'>
+							<label>Available In</label>
+							<input type='number' name='sponsor-available-in' class='sponsors nil' value='0' data-content="Unknown." data-position="bottom left" data-variation="inverted">
+						</div>
+					</div>
+
+					<h4 class='ui dividing header'>Sponsor Liaison Settings - These aren't used in game, so you don't need to do anything here.</h4>
+					<div class='fields'>
+						<div class='two wide field'>
+							<label>Liasion First Name</label>
+							<div class='ui disabled input'>
+								<input type='text' name='sponsor-liaison-first' class='sponsors' value='Nobody' data-content="The first name of the sponsor representative (unused)." data-position="bottom left" data-variation="inverted">
+							</div>
+						</div>
+						<div class='two wide field'>
+							<label>Liaison Last Name</label>
+							<div class='ui disabled input'>
+								<input type='text' name='sponsor-liaison-last' class='sponsors' value='Important' data-content="The last name of the sponsor representative (unused)." data-position="bottom left" data-variation="inverted">
+							</div>
+						</div>
+						<div class='two wide field'>
+							<label>Gender</label>
+							<div class='ui disabled input'>
+								<input type='text' name='sponsor-gender' class='sponsors' value='M' data-content="The gender of the sponsor representative (unused)." data-position="bottom left" data-variation="inverted">
+							</div>
+						</div>
+						<div class='two wide field'>
+							<label>Skin Colour</label>
+							<div class='ui disabled input'>
+								<input type='number' name='sponsor-skin-colour' class='sponsors autonum' data-content="The skin colour of the sponsor representative (unused)." data-position="bottom left" data-variation="inverted">
+							</div>
+						</div>
+						<div class='two wide field'>
+							<label>Hair</label>
+							<div class='ui disabled input'>
+								<input type='number' name='sponsor-hair' class='sponsors autonum' data-content="The hair style of the sponsor representative (unused)." data-position="bottom left" data-variation="inverted">
+							</div>
+						</div>
+						<div class='two wide field'>
+							<label>Hair Colour</label>
+							<div class='ui disabled input'>
+								<input type='number' name='sponsor-hair-colour' class='sponsors autonum' data-content="The hair colour of the sponsor representative (unused)." data-position="bottom left" data-variation="inverted">
+							</div>
+						</div>
+						<div class='two wide field'>
+							<label>Glasses</label>
+							<div class='ui disabled input'>
+								<input type='number' name='sponsor-glasses' class='sponsors autonum' data-content="The glasses the sponsor representative wears (unused)." data-position="bottom left" data-variation="inverted">
+							</div>
+						</div>
+						<div class='two wide field'>
+							<label>Accessory</label>
+							<div class='ui disabled input'>
+								<input type='number' name='sponsor-accessory' class='sponsors autonum' data-content="The accessory of the sponsor representative (unused)." data-position="bottom left" data-variation="inverted">
+							</div>
+						</div>
+						<div class='two wide field'>
+							<label>Facial Hair</label>
+							<div class='ui disabled input'>
+								<input type='number' name='sponsor-facial-hair' class='sponsors autonum' data-content="The facial hair of the sponsor representative (unused)." data-position="bottom left" data-variation="inverted">
+							</div>
+						</div>
+					</div>
+
+					<h4 class='ui dividing header'>Finished? Compile the sponsor string below! Copy and paste the result into Sponsors.txt</h4>
+					<div class='ui fluid input'>
+						<a id='submit' class='ui button'><i class="calculator icon"></i> Compile Sponsor!</a>
+						<input type="text" id='output' value="">
+						<a class='ui red button clear'><i class="eraser icon"></i> Clear All Fields!</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='top-spacer'>
+		<div class='footer'>
+			<div class='ui container'>
+				<div class="ui stackable four column grid centre-text">
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="wrench icon"></i> Useful Modding Tools</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='https://github.com/DerPopo/UABE'>Unity Assets Bundle Extractor (UABE)</a></li>
+				  			<li><a href='https://github.com/0xd4d/dnSpy'>dnSpy</a></li>
+				  		</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="discord icon"></i> Discord Links</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='https://discord.gg/vuAVgRV'>Join TheFlamingRed's Discord Server!</a></li>
+				  		</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class='external alternate icon'></i> Motorsport Manager on the Web</h5>
+				  		<ul class='footer-links'>
+					  		<li><a href='http://www.motorsportmanager.com/'>Motorsport Manager Website</a></li>
+					  		<li><a href='https://store.steampowered.com/app/415200/Motorsport_Manager/'>Motorsport Manager Steam Page</a></li>
+					  		<li><a href='https://www.reddit.com/r/MotorsportManagerPC/'>Motorsport Manager on Reddit</a></li>
+					  	</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="dolly icon"></i> Mods</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='http://blog.theflamingred.com/mm-rebirth-mod/'>Rebirth</a></li>
+				  			<li><a href='https://steamcommunity.com/sharedfiles/filedetails/?id=1196130874'>Rebirth - Phoenix Edition</a></li>
+				  			<li><a href='https://steamcommunity.com/id/briang91/myworkshopfiles/'>My Mods on Steam Workshop!</a></li>
+				  		</ul>
+				  	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js'></script>
+<script type="text/javascript" src='scripts/mmc-sponsors.js'></script>
+</body>
+</html>

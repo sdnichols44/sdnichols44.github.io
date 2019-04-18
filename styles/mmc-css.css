@@ -1,0 +1,149 @@
+.no-entry {
+	display: none;
+}
+
+#compiler-container {
+	margin: 0 50px;
+}
+
+.centre-text {;
+	text-align: center;
+}
+
+.centre-section {
+	padding: 2em 40px;
+}
+
+.ui.container {
+	padding-top: 4em;
+	padding-bottom: 2em;
+}
+
+.ui.container.wide {
+	padding-top: 4em;
+	padding-bottom: 2em;
+	width: 85%;
+}
+
+.ui.fixed.menu {
+	background: #f84f48;
+}
+
+.ui.two.column.grid {
+	padding: 2em 40px;
+}
+
+.spacer {
+	margin-top: 20px;
+}
+
+.top-spacer {
+	padding-top: 20px;
+	background-color: #fff;
+}
+  
+.footer {
+	background-color: #111216;
+}
+
+.rhs {
+	float: right;
+}
+
+.right.menu .ui.button {
+	background: #111216;
+	color: #fff;
+}
+
+.right.menu .ui.button:hover {
+	background: #f84f48;
+	color: #000;
+}
+
+.footer-column-title {
+	color: #fff;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.link:hover {
+	text-decoration: underline;
+	color: #f84f48;
+}
+
+.footer-links a {
+	color: #fff;
+}
+
+.footer-links a:hover {
+	color: #f84f48;
+	text-decoration: underline;
+}
+
+.column .divider {
+	border-right-width: 2px;
+	border-left-width: 2px;
+	border-right-color: #fff;
+	border-left-color: #fff;
+	border-right-style: solid;
+	border-left-style: solid;
+}
+
+.eleven.wide.column .small.ui.button {
+	background: #40444A;
+	color: #fff;
+}
+
+.eleven.wide.column .small.ui.button:hover {
+	background: #f84f48;
+	color: #000;
+}
+
+.centre-text .small.ui.button.frontend-switch.off {
+	background: #f84f48;
+	color: #000;
+}
+
+.centre-text .small.ui.button.frontend-switch {
+	background: #40444A;
+	color: #fff;
+}
+
+.ui.fluid.input #submit {
+	background: #40444A;
+	color: #fff;
+}
+
+.ui.fluid.input .textarea-submit {
+	padding: 40px 21px;
+	background: #40444A;
+	color: #fff;
+}
+
+.ui.fluid.input .textarea-clear {
+	padding: 40px 21px;
+}
+
+.centred {
+     margin: 0 auto;
+     max-width: 700px; 
+}
+
+textarea {
+	font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+textarea.textarea-custom {
+	width: 100%;
+	font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+.pc-prebuilt-text.part-components.frontend.textarea-custom {
+	border: 2px solid #f84f48;
+	background-color: #40444A;
+	color: #fff;
+}

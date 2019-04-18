@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Motorsport Manager String Compiler</title>
+	<link rel="stylesheet" type="text/css" href="styles/mmc-css.css">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css'>
+	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+</head>
+<body>
+
+	<div class='ui fixed menu'>
+		<div class='item'>
+			<h4><img>Motorsport Manager String Compiler</h4>
+		</div>
+		<div class='right menu'>
+			<div class='item'>
+				<a href='index.html' class='ui button'><i class='warehouse icon'></i> Home</a>
+			</div>
+			<div class='item'>
+				<a href='' class='ui button'>Info</a>
+			</div>
+			<div class='ui simple dropdown item'>
+				Compilers 
+				<i class="angle double down icon"></i>
+				<div class='menu'>
+					<a href='Dilemmas.html' class='item'><i class="clipboard list icon"></i> Dilemmas</a>
+					<a href='Drivers.html' class='item'><i class='male icon'></i> Drivers</a>
+					<a href='Interviews.html' class='item'><i class="comments outline icon"></i> Interviews</a>
+					<a href='MediaReports.html' class='item'><i class="newspaper outline icon"></i> Media Reports</a>
+					<a href='PartComponents.html' class='item'><i class="wrench icon"></i> Part Components</a>
+					<a href='PersonalityTraits.html' class='item'><i class="user icon"></i> Personality Traits</a>
+					<a href='Sponsors.html' class='item'><i class="pound sign icon"></i> Sponsors</a>
+					<a href='Teams.html' class='item'><i class='users icon'></i> Teams</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='ui container wide'>
+		<div class='centre-section'>
+			<div id='compiler-container'>
+				<div class='centre-text'>
+					<h1>Part Component Compiler</h1>
+					<p>Build your part component here. Enter your desired values into the inputs below, then click on 'Compile Part!' at the bottom to have the string automatically compiled for you.</p>
+					<div>
+						<a class='small ui button frontend-switch off'>Frontend Entries: No</a>
+					</div>
+					<p class='spacer'>Not sure what a Frontend edit is? See more information <a class='link' href=''>here</a>!</p>
+				</div>
+				<div class='ui form spacer'>
+					<h4 class='ui dividing header'>Basic Component Details - Display text for your part, icons, level, special activation requirements and where your part can be used on the car.</h4>
+					<div class='fields'>
+						<div class='two wide field'>
+							<label>Component ID</label>
+							<input type='number' name='pc-id' min='0' class='part-components' data-content="The unique ID of the component. Can be any unused number." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='twelve wide field'>
+							<label>Component Details</label>
+							<textarea rows='4' name='pc-trait-name' class='part-components frontend textarea-custom frontend-convert' placeholder="You do not need to enter anything into this box, the text for your part will be automatically filled in when you compile it." data-content="The details of the part, acts as information as the text entered in Frontend will be what is shown in-game." data-position="bottom left" data-variation="inverted"></textarea>
+						</div>
+						<div class='three wide field'>
+							<label>Component Details ID</label>
+							<input type='text' name='pc-trait-id' class='part-components' data-content="The unique details ID for use in Frontend (PSG_XXXXXXXX)." data-position="bottom left" data-variation="inverted">
+						</div>
+					</div>
+					<div class='fields'>
+						<div class='sixteen wide field'>
+							<label>Custom Component Name</label>
+							<textarea rows='4' placeholder="You do not need to enter anything into this box, the text for your part will be automatically filled in when you compile it." name='pc-custom-trait-name' class='pc-prebuilt-text part-components frontend textarea-custom' data-content="The details of the part, anything here will over-ride any text in Component Details and Frontend and this will be shown in-game." data-position="bottom left" data-variation="inverted"></textarea>
+						</div>
+						<div class='two wide field no-entry'>
+							<label>Text ID</label>
+							<div class='ui disabled input'>
+								<input type='text' name='pc-text-id' class='part-components'>
+							</div>
+						</div>
+					</div>
+					<div class='fields'>
+						<div class='two wide field'>
+							<label>Icon Path</label>
+							<input type='text' name='pc-icon-path' class='special part-components' data-content="The icon that will be used for the part when in-game." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Icon</label>
+							<input type='number' name='pc-icon' class='part-components'  data-content="We are currently unsure if this is used. The pairing of Icon Path and Icon can be found on the info page." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='five wide field'>
+							<label>Part</label>
+							<input type='text' name='pc-part' class='part-components' data-content="Where on the car your component can be rolled and applied. Multiple options are separated by semicolons, e.g. FrontWing; Suspension; Brakes." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Level</label>
+							<select name='pc-level' class='part-components select-reset' data-content="Defines what level the component will be set at." data-position="right center" data-variation="inverted">
+								<option value='1' selected="true">Average</option>
+								<option value='2'>Good</option>
+								<option value='3'>Great</option>
+								<option value='4'>Epic</option>
+								<option value='5'>Legendary</option>
+							</select>
+						</div>
+						<div class='two wide field'>
+							<label>Type</label>
+							<select name='pc-type' class='part-components select-reset' data-content="Whether your component is Stock, Risky or an Engineer component." data-position="right center" data-variation="inverted">
+								<option value='Stock' selected='true'>Stock</option>
+								<option value='Risky'>Risky</option>
+								<option value='Engineer'>Engineer</option>
+							</select>
+						</div>
+						<div class='three wide field'>
+							<label>Activation Requirement</label>
+							<select name='pc-activation' class='part-components select-reset' data-content="Defines whether the component will only work in specific circumstances. Selecting 'None' means the component is active at all times" data-position="right center" data-variation="inverted">
+								<option value='' selected='true'>None</option>
+								<option value='Qualifying'>Qualifying</option>
+								<option value='Race'>Race</option>
+								<option value='TyreCompoundSoft'>Any Soft Compound</option>
+								<option value='TyreCompoundWet'>Any Wet Compound</option>
+							</select>
+						</div>
+					</div>
+
+					<h4 class='ui dividing header'>Part Component Effects - What the component will add or take away from the finished part.</h4>
+					<div class='fields'>
+						<div class='two wide field'>
+							<label>Risk</label>
+							<input type='number' name='pc-risk' class='part-components' data-content="Adds or subtracts Risk from the finished part." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Stat Boost</label>
+							<input type='number' name='pc-stat-boost' class='part-components' data-content="Adds or subtracts performance from the finished part." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Max Stat Boost</label>
+							<input type='number' name='pc-max-stat-boost' class='part-components' data-content="Adds or subtracts maximum performance from the finished part." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Reliability Boost</label>
+							<input type='number' name='pc-reliability-boost' class='part-components' data-content="Adds or subtracts reliability from the finished part." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Max Reliability Boost</label>
+							<input type='number' name='pc-max-reliability-boost' class='part-components' data-content="Adds or subtracts maximum reliability from the finished part." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Production Time</label>
+							<input type='number' name='pc-production-time' class='part-components' data-content="Adds or subtracts days of production from the finished part. IMPORTANT: If you are adding days to anything other than an Average component, you need to add the component level to your figure. For example: Adding 3 days to a Legendary (level 5) component results in Production Time being 8, as Legendary components have a base +5 day increase that is overriden by this field." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Cost</label>
+							<input type='number' name='pc-cost' step='1000' class='part-components' data-content="Adds or subtracts from the cost of the finished part." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='two wide field'>
+							<label>Red Zone</label>
+							<input type='number' name='pc-redzone' class='part-components' data-content="Adds or subtracts red zone from the finished part." data-position="bottom left" data-variation="inverted">
+						</div>
+					</div>
+
+					<h4 class='ui dividing header'>Bonuses and AI - Any additional bonuses your component will carry, and how likely the AI are to select it.</h4>
+					<div class='fields'>
+						<div class='four wide field'>
+							<label>Bonus</label>
+							<input type='number' name='pc-bonus' class='part-components' step='0.01' data-content="Sets the magnitude of the bonus. The ranges of these bonuses can be found on the info page." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='four wide field'>
+							<label>Bonus Type</label>
+							<select name='pc-bonus-type' class='part-components select-reset' data-content="The type of bonus this component applies, if any." data-position="right center" data-variation="inverted">
+								<option value='' selected='true'>None</option>
+								<option value='AddRandomLevelComponent'>Add Random Component of Level</option>
+								<option value='ComponentLevelAddNoDays'>Component of Level Takes 0 Days</option>
+								<option value='DriverAdaptability'>Driver Adaptability</option>
+								<option value='DriverBraking'>Driver Braking</option>
+								<option value='DriverConsistency'>Driver Consistency</option>
+								<option value='DriverCornering'>Driver Cornering</option>
+								<option value='DriverFeedback'>Driver Feedback</option>
+								<option value='DriverOvertaking'>Driver Overtaking</option>
+								<option value='DriverSmoothness'>Driver Smoothness</option>				
+								<option value='FuelEfficiency'>Fuel Efficiency</option>
+								<option value='NoConditionLossEver'>No Part Condition Loss</option>
+								<option value='NoConditionLossFirstRace'>No Part Condition Loss on First Use</option>
+								<option value='NoMistakeWhenPitFixing'>0% Mistake Chance when Repairing</option>
+								<option value='PerformanceAutoImproved'>Instant Maximum Performance When Built</option>
+								<option value='PitstopFixTime'>Time to Fix Part in Race</option>
+								<option value='ReliabilityBonusPerComponentOfLevel'>Additional Reliability Per Part of Level</option>
+								<option value='ReliabilityPerDayInProduction'>Reliability per Day in Production</option>
+								<option value='SecondPartFree'>Extra Copy of Part</option>
+								<option value='TimeReductionPerMillionSpent'>Extra/Less Time per Million Spent</option>
+								<option value='TyreWearEfficiency'>Tyre Wear</option>
+								<option value='UnlockExtraSlotOfLevel'>Extra Slot of Level</option>
+								<option value='WeightStrippingBonus'>Weight Stripping Multiplier</option>
+							</select>
+						</div>
+						<div class='four wide field'>
+							<label>AggressiveTeamWeightings</label>
+							<input type='number' name='pc-weightings-aggressive' step='0.01' min='0' max='1' value='0' class='part-components default-num' data-content="Define how likely an aggressive AI team is to select the component." data-position="bottom left" data-variation="inverted">
+						</div>
+						<div class='four wide field'>
+							<label>PassiveTeamWeightings</label>
+							<input type='number' name='pc-weightings-passive' step='0.01' min='0' max='1' value='0' class='part-components default-num' data-content="Define how likely a passive AI team is to select the component." data-position="bottom left" data-variation="inverted">
+						</div>
+					</div>
+				</div>
+
+				<h4 class='ui dividing header'>Finished? Compile the part component string below! Copy and paste the result into Part Components.txt</h4>
+				<div class='ui fluid input'>
+					<a id='submit' class='ui button textarea-submit'><i class="calculator icon"></i> Compile Part!</a>
+					<textarea rows='6' id='part-output' class='textarea-custom' value=''></textarea>
+					<a class='ui red button clear textarea-clear'><i class="eraser icon"></i> Clear All Fields!</a>
+				</div>
+			</div>
+
+			<hr class='spacer'>
+
+			<div class='centre-text spacer'>
+				<h1>Part Components/Frontend Compilers</h1>
+				<p>Supplied here are compilers for the Frontend entry, if you chose to use this method.</p>
+				<h4>IF YOU ARE NOT ADDING LOCALISATION, USE THE CUSTOM FIELDS PROVIDED ON THE MAIN COMPILER FORM!</h4>
+			</div>
+
+			<div class="ui styled fluid accordion spacer">
+				<div class='ui form'>
+					<div class='title'>
+						<i class="dropdown icon"></i>
+						Part Component - Set the Frontend entry here.
+					</div>
+					<div class='content'>
+						<div class='fields'>
+							<div class='two wide field'>
+								<label>Game Area</label>
+								<input type='text' name='' value='DriverScreen' class='part-components-frontend' data-content="The area of the game that the Frontend entry will relate to - always DriverScreen for Personality Traits." data-position="bottom left" data-variation="inverted">
+							</div>
+							<div class='two wide field no-entry'>
+								<label>Source</label>
+								<input type='text' name='' class='part-components-frontend' data-content="" data-position="right center" data-variation="inverted">
+							</div>
+							<div class='ten wide field no-entry'>
+								<label>Criteria</label>
+								<input type='text' name='' class='part-components-frontend' data-content="" data-position="bottom left" data-variation="inverted">
+							</div>
+							<div class='two wide field'>
+								<label>Who</label>
+								<input name='' class='part-components-frontend' value='HUDText' data-content="" data-position="bottom left" data-variation="inverted">
+							</div>
+						</div>
+						<div class='fields'>
+							<div class='sixteen wide field'>
+								<label>English/Default</label>
+								<textarea rows='4' name='' class='part-components-frontend localisation-default' data-content="The English/Default language version of your trait name. This will be used on all blank localisation fields to prevent blank names (which show as PSG errors in game)." data-position="bottom left" data-variation="inverted"></textarea>
+							</div>
+						</div>
+						<div class='fields'>
+							<div class='three wide field'>
+								<label>ID</label>
+								<input type='text' name='' class='part-components-frontend' data-content="" data-position="bottom left" data-variation="inverted">
+							</div>
+							<div class='four wide field no-entry'>
+								<label>Trigger</label>
+								<input type='text' name='' class='part-components-frontend' data-content="" data-position="bottom left" data-variation="inverted">
+							</div>
+							<div class='ten wide field no-entry'>
+								<label>User Data</label>
+								<input type='text' name='' class='part-components-frontend' data-content="" data-position="bottom left" data-variation="inverted">
+							</div>
+							<div class='four wide field no-entry'>
+								<label>Memory</label>
+								<input type='text' name='' class='part-components-frontend' data-content="" data-position="bottom left" data-variation="inverted">
+							</div>
+							<div class='four wide field no-entry'>
+								<label>Notes</label>
+								<input type='text' name='' class='part-components-frontend' data-content="" data-position="bottom left" data-variation="inverted">
+							</div>
+							<div class='four wide field no-entry'>
+								<label>English Old</label>
+								<input type='text' name='' class='part-components-frontend' data-content="" data-position="bottom left" data-variation="inverted">
+							</div>
+						</div>
+
+						<h4 class='ui dividing header'>Additional Languages - Add localisation for this section.</h4>
+						<div class='fields'>
+							<div class='sixteen wide field'>
+								<label>French</label>
+								<textarea rows='4' name='' class='part-components-frontend localisation' data-content="French localisation." data-position="bottom left" data-variation="inverted"></textarea>
+							</div>
+						</div>
+							<div class='fields'>
+							<div class='sixteen wide field'>
+								<label>Italian</label>
+								<textarea rows='4' name='' class='part-components-frontend localisation' data-content="Italian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+							</div>
+						</div>
+							<div class='fields'>
+							<div class='sixteen wide field'>
+								<label>German</label>
+								<textarea rows='4' name='' class='part-components-frontend localisation' data-content="German localisation." data-position="bottom left" data-variation="inverted"></textarea>
+							</div>
+						</div>
+							<div class='fields'>
+							<div class='sixteen wide field'>
+								<label>Spanish</label>
+								<textarea rows='4' name='' class='part-components-frontend localisation' data-content="Spanish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+							</div>
+						</div>
+							<div class='fields'>
+							<div class='sixteen wide field'>
+								<label>Brazilian</label>
+								<textarea rows='4' name='' class='part-components-frontend localisation' data-content="Brazilian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+							</div>
+						</div>
+							<div class='fields'>
+							<div class='sixteen wide field'>
+								<label>Dutch</label>
+								<textarea rows='4' name='' class='part-components-frontend localisation' data-content="Dutch localisation." data-position="bottom left" data-variation="inverted"></textarea>
+							</div>
+						</div>
+							<div class='fields'>
+							<div class='sixteen wide field'>
+								<label>Hungarian</label>
+								<textarea rows='4' name='' class='part-components-frontend localisation' data-content="Hungarian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+							</div>
+						</div>
+							<div class='fields'>
+							<div class='sixteen wide field'>
+								<label>Polish</label>
+								<textarea rows='4' name='' class='part-components-frontend localisation' data-content="Polish localisation." data-position="bottom left" data-variation="inverted"></textarea>
+							</div>
+						</div>
+							<div class='fields'>
+							<div class='sixteen wide field'>
+								<label>Russian</label>
+								<textarea rows='4' name='' class='part-components-frontend localisation' data-content="Russian localisation." data-position="bottom left" data-variation="inverted"></textarea>
+							</div>
+						</div>
+						<h4 class='ui dividing header'>Finished? Compile the header below! Copy and paste the result into MediaReports.txt</h4>
+						<div class='ui fluid input'>
+							<a id='frontend-submit' class='ui button textarea-submit'><i class="calculator icon"></i> Compile Header!</a>
+							<textarea rows='4' class='frontend-output' value=""></textarea>
+							<a id='frontend-clear' class='ui red button clear textarea-clear'><i class="eraser icon"></i> Clear All Fields!</a>
+						</div>
+					</div>
+				</div>					
+			</div>
+		</div>
+	</div>
+
+	<div class='top-spacer'>
+		<div class='footer'>
+			<div class='ui container'>
+				<div class="ui stackable four column grid centre-text">
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="wrench icon"></i> Useful Modding Tools</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='https://github.com/DerPopo/UABE'>Unity Assets Bundle Extractor (UABE)</a></li>
+				  			<li><a href='https://github.com/0xd4d/dnSpy'>dnSpy</a></li>
+				  		</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="discord icon"></i> Discord Links</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='https://discord.gg/vuAVgRV'>Join TheFlamingRed's Discord Server!</a></li>
+				  		</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class='external alternate icon'></i> Motorsport Manager on the Web</h5>
+				  		<ul class='footer-links'>
+					  		<li><a href='http://www.motorsportmanager.com/'>Motorsport Manager Website</a></li>
+					  		<li><a href='https://store.steampowered.com/app/415200/Motorsport_Manager/'>Motorsport Manager Steam Page</a></li>
+					  		<li><a href='https://www.reddit.com/r/MotorsportManagerPC/'>Motorsport Manager on Reddit</a></li>
+					  	</ul>
+				  	</div>
+				  	<div class="column divider">
+				  		<h5 class='footer-column-title'><i class="dolly icon"></i> Mods</h5>
+				  		<ul class='footer-links'>
+				  			<li><a href='http://blog.theflamingred.com/mm-rebirth-mod/'>Rebirth</a></li>
+				  			<li><a href='https://steamcommunity.com/sharedfiles/filedetails/?id=1196130874'>Rebirth - Phoenix Edition</a></li>
+				  			<li><a href='https://steamcommunity.com/id/briang91/myworkshopfiles/'>My Mods on Steam Workshop!</a></li>
+				  		</ul>
+				  	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js'></script>
+<script type="text/javascript" src='scripts/mmc-pcomponents.js'></script>
+</body>
+</html>

@@ -48,6 +48,7 @@ function sponsorCompile() {
 // Semantic UI Activators
 $('.sponsors')
 	.popup({
-		on: 'hover'
+		on: 'hover',
+		exlusive: 'true'
 	})
 ;

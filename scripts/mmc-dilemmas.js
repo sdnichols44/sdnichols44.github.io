@@ -74,6 +74,7 @@ $('.ui.accordion')
 
 $('.dilemmas')
 	.popup({
-		on: 'hover'
+		on: 'hover',
+		exlusive: 'true'
 	})
 ;

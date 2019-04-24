@@ -88,6 +88,7 @@ $('.ui.accordion')
 
 $('.interviews')
   .popup(
-	{on: 'hover'}
+	{on: 'hover',
+	exlusive: 'true'}
 	)
 ;

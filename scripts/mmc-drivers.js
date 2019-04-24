@@ -45,6 +45,7 @@ function autoCalcStarRating() {
 // Semantic UI Activators
 $('.drivers')
 	.popup({
-		on: 'hover'
+		on: 'hover',
+		exlusive: 'true'
 	})
 ;

@@ -68,4 +68,4 @@ function forceValue(master, copyTo) {
 
 $('.ui.accordion').accordion({exclusive: false});
 
-$('.media-reports').popup({on: 'hover'});
+$('.media-reports').popup({on: 'hover', exlusive: 'true'});

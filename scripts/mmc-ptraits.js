@@ -103,15 +103,14 @@ function inputClear(section) {
 // Semantic UI Activators
 $('.personality-traits')
 	.popup({
-		on: 'hover',
-		exclusive: 'true'
+		on: 'hover'
 	})
 ;
 
 $('.personality-traits-frontend')
 	.popup({
 		on: 'hover',
-		exclusive: 'true'
+		exlusive: 'true'
 	})
 ;
 

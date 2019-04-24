@@ -312,7 +312,15 @@ function isPositive(num) {
 // Semantic UI Activators
 $('.part-components')
 	.popup({
-		on: 'hover'
+		on: 'hover',
+		exlusive: 'true'
+	})
+;
+
+$('.part-components-frontend')
+	.popup({
+		on: 'hover',
+		exlusive: 'true'
 	})
 ;
 

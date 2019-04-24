@@ -26,6 +26,7 @@ function teamCompile() {
 
 $('.teams')
 	.popup({
-		on: 'hover'
+		on: 'hover',
+		exlusive: 'true'
 	})
 ;
